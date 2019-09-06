@@ -15,7 +15,7 @@ http://docs.nativescript.org/ui/action-bar
 
 <!--
 The GridLayout arranges its child elements in a table structure of rows and columns.
-A cell can contain multiple child elements, they can span over multiple rows and columns, 
+A cell can contain multiple child elements, they can span over multiple rows and columns,
 and even overlap each other. The GridLayout has one column and one row by default.
 You can learn more about NativeScript layouts at https://docs.nativescript.org/ui/layout-containers.
 
@@ -24,10 +24,10 @@ core theme, such as p-20, btn, h2, and list-group. You can view a full list of t
 class names available for styling your app at https://docs.nativescript.org/ui/theme.
 -->
 <GridLayout class="page">
-    <ListView [items]="items" class="list-group">
-        <ng-template let-item="item">
-            <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
-                class="list-group-item"></Label>
-        </ng-template>
-    </ListView>
+    <StackLayout class="form"   >
+        <StackLayout class="input-field">
+            <TextField hint="Option 1" class="input"></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+    </StackLayout>
 </GridLayout>

@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
 
-import { Item } from "./item";
-import { ItemService } from "./item.service";
+import {Item} from "./item";
+import {ItemService} from "./item.service";
 
 @Component({
     selector: "ns-details",
@@ -14,10 +14,15 @@ export class ItemDetailComponent implements OnInit {
     constructor(
         private itemService: ItemService,
         private route: ActivatedRoute
-    ) { }
+    ) {
+    }
 
     ngOnInit(): void {
         const id = +this.route.snapshot.params.id;
         this.item = this.itemService.getItem(id);
+    }
+
+    onButtonTap(): void {
+        console.log("Button was pressed");
     }
 }
