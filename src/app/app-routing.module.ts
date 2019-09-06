@@ -1,14 +1,14 @@
-import { NgModule } from "@angular/core";
+import {Component, NgModule} from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
-
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
+import {IndexComponent} from "~/app/index/index.component";
+import {LoginComponent} from "~/app/login/login.component";
+import {AppAuthGuard} from "~/app/app-auth-guard";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/items", pathMatch: "full" },
-    { path: "items", component: ItemsComponent },
-    { path: "item/:id", component: ItemDetailComponent }
+    { path: "", redirectTo: "/index", pathMatch: "full" },
+    { path: "index", component: IndexComponent , canActivate: [AppAuthGuard] },
+    { path: "login", component: LoginComponent },
 ];
 
 @NgModule({

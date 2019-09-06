@@ -6,6 +6,8 @@ import { AppComponent } from "./app.component";
 import { ItemsComponent } from "./item/items.component";
 import { ItemDetailComponent } from "./item/item-detail.component";
 import { IndexComponent } from './index/index.component';
+import { LoginComponent } from './login/login.component';
+import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -19,13 +21,15 @@ import { IndexComponent } from './index/index.component';
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptHttpClientModule
     ],
     declarations: [
         AppComponent,
         ItemsComponent,
         ItemDetailComponent,
-        IndexComponent
+        IndexComponent,
+        LoginComponent
     ],
     providers: [],
     schemas: [
