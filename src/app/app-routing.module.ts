@@ -6,7 +6,7 @@ import {LoginComponent} from "~/app/login/login.component";
 import {AppAuthGuard} from "~/app/app-auth-guard";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/index", pathMatch: "full" },
+    { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "index", component: IndexComponent , canActivate: [AppAuthGuard] },
     { path: "login", component: LoginComponent },
 ];

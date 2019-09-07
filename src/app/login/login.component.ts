@@ -2,7 +2,10 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 import { alert, prompt } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 import { RouterExtensions } from "nativescript-angular/router";
-
+import {AuthService} from "~/app/services/auth.service";
+import {CredentialsModel} from "~/app/models/credentials.model";
+import {UserModel} from "~/app/models/user.model";
+import {NavigationButton} from "tns-core-modules/ui/action-bar";
 // import { User } from "../shared/user.model";
 // import { UserService } from "../shared/user.service";
 
@@ -13,43 +16,56 @@ import { RouterExtensions } from "nativescript-angular/router";
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+    isLoggingIn = true;
+    processing = false;
+    user: UserModel
+    credentials: CredentialsModel
+    @ViewChild("password", {static: false}) password: ElementRef;
+    @ViewChild("confirmPassword", {static: false}) confirmPassword: ElementRef;
+    @ViewChild("cpf", {static: false}) cpf: ElementRef;
+
+    constructor(private authService: AuthService, private page: Page, private routeExtension: RouterExtensions){
+        this.page.actionBarHidden = true
+        this.credentials = new CredentialsModel()
+        this.user = new UserModel()
+    }
+
+    toggleForm() {
+        this.isLoggingIn = !this.isLoggingIn
+        this.page.actionBarHidden = !this.page.actionBarHidden
+    }
 
     submit() {
-        if (!this.user.email || !this.user.password) {
-            this.alert("Please provide both an email address and password.");
+        if (!this.credentials.username || !this.credentials.password) {
+            this.alert("Por favor preencha o e-mail e a senha!");
             return;
         }
-
-        this.processing = true;
-        if (this.isLoggingIn) {
-            this.login();
-        } else {
-            this.register();
-        }
+        this.processing = true
+        this.login()
     }
 
     login() {
-        this.userService.login(this.user)
-            .then(() => {
-                this.processing = false;
-                this.routerExtensions.navigate(["/home"], { clearHistory: true });
-            })
-            .catch(() => {
-                this.processing = false;
-                this.alert("Unfortunately we could not find your account.");
-            });
+        this.authService.getToken(this.credentials)
+            .subscribe(response => {
+                alert("logado ok")
+                this.processing = false
+            }, error => {
+                this.processing = false
+                this.alert(error.error.message)
+                })
     }
 
     focusPassword() {
-        this.password.nativeElement.focus();
+        //his.password.nativeElement.focus();
     }
 
     alert(message: string) {
         return alert({
-            title: "APP NAME",
+            title: "Atenção",
             okButtonText: "OK",
             message: message
         });
     }
+
 }
 

@@ -1,47 +1,111 @@
+<ActionBar title="Cadastre-se">
+    <NavigationButton [text]="Voltar" android.systemIcon="ic_menu_back" (tap)="toggleForm()"></NavigationButton>
+</ActionBar>
+
 <FlexboxLayout class="page">
     <StackLayout class="form">
-        <Image class="logo" src="~/images/logo.png"></Image>
-        <Label class="header" text="APP NAME"></Label>
+        <Image *ngIf="isLoggingIn" class="logo" src="~/images/logo.png"></Image>
+        <Label *ngIf="isLoggingIn" class="header" text="Paraiso Saúde"></Label>
 
         <PreviousNextView>
-            <GridLayout rows="auto, auto, auto">
+            <GridLayout *ngIf="isLoggingIn" rows="auto, auto, auto">
                 <StackLayout row="0" class="input-field">
                     <TextField class="input" hint="Email" [isEnabled]="!processing"
                                keyboardType="email" autocorrect="false"
-                               autocapitalizationType="none" [(ngModel)]="user.email"
+                               autocapitalizationType="none" [(ngModel)]="credentials.username"
                                returnKeyType="next" (returnPress)="focusPassword()"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
                 <StackLayout row="1" class="input-field">
                     <TextField #password class="input" [isEnabled]="!processing"
-                               hint="Password" secure="true" [(ngModel)]="user.password"
+                               hint="Senha" secure="true" [(ngModel)]="credentials.password"
                                [returnKeyType]="isLoggingIn ? 'done' : 'next'"
                                (returnPress)="focusConfirmPassword()"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
-                <StackLayout row="2" *ngIf="!isLoggingIn" class="input-field">
+
+
+                <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
+            </GridLayout>
+            <GridLayout *ngIf="!isLoggingIn" rows="auto, auto, auto,auto,auto,auto">
+                <StackLayout row="0" class="input-field">
+                    <TextField class="input" hint="Email" [isEnabled]="!processing"
+                               keyboardType="email" autocorrect="false"
+                               autocapitalizationType="none" [(ngModel)]="credentials.username"
+                               returnKeyType="next" (returnPress)="focusPassword()"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+
+                <StackLayout row="1" class="input-field">
+                    <TextField #password class="input" [isEnabled]="!processing"
+                               hint="Senha" secure="true" [(ngModel)]="credentials.password"
+                               [returnKeyType]="isLoggingIn ? 'done' : 'next'"
+                               (returnPress)="focusConfirmPassword()"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+
+                <StackLayout row="2" class="input-field">
                     <TextField #confirmPassword class="input" [isEnabled]="!processing"
                                hint="Confirm password" secure="true" [(ngModel)]="user.confirmPassword"
                                returnKeyType="done"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
 
-                <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
+                <StackLayout row="3"  class="input-field">
+                    <TextField #nome class="input" [isEnabled]="!processing"
+                               hint="Nome"  [(ngModel)]="user.nome"
+                               returnKeyType="done"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+
+                <StackLayout row="4" *ngIf="!isLoggingIn" class="input-field">
+                    <TextField #cpf class="input" [isEnabled]="!processing"
+                               hint="CPF" [(ngModel)]="user.cpf"
+                               returnKeyType="next"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+
+                <StackLayout row="5" *ngIf="!isLoggingIn" class="input-field">
+                    <DatePicker loaded="onDatePickerLoaded" date="{{ date }}"
+                    minDate="{{ minDate }}" maxDate="{{ maxDate }}"></DatePicker>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+
+                <StackLayout row="6" *ngIf="!isLoggingIn" class="input-field">
+                    <TextField #cpf class="input" [isEnabled]="!processing"
+                               hint="CPF" [(ngModel)]="user.cpf"
+                               returnKeyType="next"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+
+                <StackLayout row="7" *ngIf="!isLoggingIn" class="input-field">
+                    <TextField #cpf class="input" [isEnabled]="!processing"
+                               hint="CPF" [(ngModel)]="user.cpf"
+                               returnKeyType="next"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+
+                <StackLayout row="8" *ngIf="!isLoggingIn" class="input-field">
+                    <TextField #cpf class="input" [isEnabled]="!processing"
+                               hint="CPF" [(ngModel)]="user.cpf"
+                               returnKeyType="next"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
             </GridLayout>
         </PreviousNextView>
 
-        <Button [text]="isLoggingIn ? 'Log In' : 'Sign Up'" [isEnabled]="!processing"
+        <Button [text]="isLoggingIn ? 'Entrar' : 'Cadastrar-se'" [isEnabled]="!processing"
                 (tap)="submit()" class="btn btn-primary m-t-20"></Button>
-        <Label *ngIf="isLoggingIn" text="Forgot your password?" class="login-label"
+        <Label *ngIf="isLoggingIn" text="Esqueceu sua senha?" class="login-label"
                (tap)="forgotPassword()"></Label>
     </StackLayout>
 
     <Label class="login-label sign-up-label" (tap)="toggleForm()">
         <FormattedString>
-            <Span [text]="isLoggingIn ? 'Don’t have an account? ' : 'Back to Login'"></Span>
-            <Span [text]="isLoggingIn ? 'Sign up' : ''" class="bold"></Span>
+            <Span [text]="isLoggingIn ? 'Não possui uma conta ainda? ' : ''"></Span>
+            <Span [text]="isLoggingIn ? 'Cadastre-se' : ''" class="bold"></Span>
         </FormattedString>
     </Label>
 </FlexboxLayout>

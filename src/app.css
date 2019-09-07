@@ -10,12 +10,3 @@ of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
 @import '~nativescript-theme-core/css/core.light.css';
-.page{
-    padding: 10px;
-    background-color: #c0c0c0;
-}
-.form{
-    background-color: white;
-    margin: 10;
-    padding: 20%;
-}
