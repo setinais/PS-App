@@ -5,6 +5,7 @@ import {url_api} from "~/app/configs/url-default";
 import {TokenModel} from "~/app/models/token.model";
 import {tap} from "rxjs/internal/operators";
 import {setString} from "tns-core-modules/application-settings";
+import {getString} from "tns-core-modules/http";
 
 @Injectable({
     providedIn: "root"
@@ -30,5 +31,9 @@ export class AuthService {
         setString("token",theToken.access_token)
         setString("expires_in", today.toString())
         setString("refresh_token",theToken.refresh_token)
+    }
+
+    isLoggedIn(){
+        return !!getString("token")
     }
 }

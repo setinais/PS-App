@@ -16,6 +16,10 @@ import {NavigationButton} from "tns-core-modules/ui/action-bar";
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+    minDate: Date = new Date(1920, 1, 1);
+    maxDate: Date = new Date(2019, 1, 1);
+    scrollEnabled: boolean = true;
     isLoggingIn = true;
     processing = false;
     user: UserModel

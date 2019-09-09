@@ -1,21 +1,20 @@
 import {Injectable} from "@angular/core";
 import {HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {LoginService} from "../";
-import {TokenService} from "~/app/services/token.service";
+import {AuthService} from "~/app/services/auth.service";
+import {getString} from "tns-core-modules/http";
 
 @Injectable()
 export class TokenInterceptor  implements HttpInterceptor{
 
-    constructor(private _loginService: LoginService,
-                private _token: TokenService){}
+    constructor(private _loginService: AuthService){}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if(this._loginService.isLoggedIn()) {
             const httpOptions = {
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${this._token.geToken()}`
+                    'Authorization': `Bearer ${getString("token")}`
                 })
             }
             const request = req.clone(httpOptions)
