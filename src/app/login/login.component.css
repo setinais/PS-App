@@ -52,18 +52,4 @@
 .bold {
     color: #000000;
 }
-.date-picker {
-    border-color: burlywood;
-    border-width: 2;
-    border-radius: 10;
-    color: whitesmoke;
-    vertical-align: middle;
-}
-.scrolview{
-    width: 100%;
-    height: 100%;
-}
-.action-bar-edit{
-    background-color: white;
-}
 

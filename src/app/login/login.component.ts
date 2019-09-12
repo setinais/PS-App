@@ -1,13 +1,9 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
-import { alert, prompt } from "tns-core-modules/ui/dialogs";
+import { alert } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 import { RouterExtensions } from "nativescript-angular/router";
 import {AuthService} from "~/app/services/auth.service";
 import {CredentialsModel} from "~/app/models/credentials.model";
-import {UserModel} from "~/app/models/user.model";
-import {NavigationButton} from "tns-core-modules/ui/action-bar";
-// import { User } from "../shared/user.model";
-// import { UserService } from "../shared/user.service";
 
 @Component({
     selector: "app-login",
@@ -17,12 +13,9 @@ import {NavigationButton} from "tns-core-modules/ui/action-bar";
 })
 export class LoginComponent {
 
-    minDate: Date = new Date(1920, 1, 1);
-    maxDate: Date = new Date(2019, 1, 1);
-    scrollEnabled: boolean = true;
+
     isLoggingIn = true;
     processing = false;
-    user: UserModel
     credentials: CredentialsModel
     @ViewChild("password", {static: false}) password: ElementRef;
     @ViewChild("confirmPassword", {static: false}) confirmPassword: ElementRef;
@@ -31,12 +24,6 @@ export class LoginComponent {
     constructor(private authService: AuthService, private page: Page, private routeExtension: RouterExtensions){
         this.page.actionBarHidden = true
         this.credentials = new CredentialsModel()
-        this.user = new UserModel()
-    }
-
-    toggleForm() {
-        this.isLoggingIn = !this.isLoggingIn
-        this.page.actionBarHidden = !this.page.actionBarHidden
     }
 
     submit() {
@@ -70,6 +57,7 @@ export class LoginComponent {
             message: message
         });
     }
+
 
 }
 

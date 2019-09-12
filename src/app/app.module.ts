@@ -7,6 +7,7 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
 import {NativeScriptFormsModule} from "nativescript-angular";
+import {PerfilModule} from "~/app/perfil/perfil.module";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -22,7 +23,8 @@ import {NativeScriptFormsModule} from "nativescript-angular";
         NativeScriptModule,
         NativeScriptFormsModule,
         AppRoutingModule,
-        NativeScriptHttpClientModule
+        NativeScriptHttpClientModule,
+        PerfilModule
     ],
     declarations: [
         AppComponent,

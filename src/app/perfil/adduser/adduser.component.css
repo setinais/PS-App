@@ -1,0 +1,52 @@
+/* Add mobile styles for the component here.  */
+.page {
+    align-items: center;
+    flex-direction: column;
+}
+.form {
+    margin-left: 30;
+    margin-right: 30;
+    flex-grow: 2;
+    vertical-align: middle;
+}
+.scrolview{
+    width: 100%;
+    height: 100%;
+}
+.action-bar-edit{
+    background-color: white;
+    margin: 0;
+}
+
+.form-cad {
+    margin-left: 30;
+    margin-right: 30;
+    flex-grow: 1;
+    vertical-align: middle;
+}
+.select-date{
+    background-color: white;
+    margin: 0 24;
+    border-radius: 10;
+}
+.title-select-date{
+    padding: 16 0 4 0;
+    text-align: center;
+    font-weight: 500;
+}
+.btn-cancel{
+    background-color: #024184;
+    color: white;
+}
+.btn-second{
+    color: white;
+}
+.btn-cad{
+    background-color: #D51A1A;
+    color: white;
+    font-weight: 500;
+}
+.overlay{
+    background-color: #b72806;
+    opacity: 0.5;
+}

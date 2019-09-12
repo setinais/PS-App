@@ -1,0 +1,72 @@
+<ActionBar class="action-bar-edit">
+    <NavigationButton row="0" text="Voltar" android.systemIcon="ic_menu_back" [nsRouterLink]="['/login']" pageTransition="slideRight"></NavigationButton>
+    <Image width="150" class="logo" src="~/imagens/logo.png"></Image>
+</ActionBar>
+<FlexboxLayout class="page">
+    <StackLayout class="form">
+        <PreviousNextView>
+            <ScrollView  scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
+            <GridLayout rows="auto">
+                <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
+                    <StackLayout row="0" class="input-field m-t-30">
+                        <TextField #emai keyboardType="email" l class="input" hint="Email" (returnPress)="focusPassword()"
+                                   [(ngModel)]="user.email"
+                        ></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="1" class="input-field">
+                        <TextField #password class="input" [isEnabled]="!processing"
+                                   hint="Senha" secure="true" [(ngModel)]="user.password"
+                                   (returnPress)="focusNome()"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="3"  class="input-field">
+                        <TextField #nome class="input" [isEnabled]="!processing" (returnPress)="focusCpf()"
+                                   hint="Nome"  [(ngModel)]="user.nome"
+                                   returnKeyType="done"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="4"  class="input-field">
+                        <TextField #cpf keyboardType="number" class="input" [isEnabled]="!processing" (returnPress)="focusDataNascimento()"
+                                   hint="CPF" [(ngModel)]="user.cpf"
+                                   returnKeyType="next"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="5"  class="input-field">
+                        <TextField  #data_nascimento [text]="dataFormatBr | date: 'dd/MM/yyyy'" keyboardType="datetime" hint="Data de Nascimento" (tap)="onOpenSelectDate()" class="input" ></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="6" class="input-field">
+                        <TextField #sexo class="input" [isEnabled]="!processing"
+                                   hint="sexo" [(ngModel)]="user.sexo"
+                                   returnKeyType="next"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="7"  class="input-field">
+                        <TextField #cartaoSus keyboardType="number" class="input" [isEnabled]="!processing"
+                                   hint="Cartão SUS" [(ngModel)]="user.cpf"
+                                   returnKeyType="next"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+                    <Button row="8" text="Cadastrar-se" [isEnabled]="!processing"
+                            (tap)="submit()" class="btn-cad m-t-20"></Button>
+                </GridLayout>
+
+<!--                <GridLayout row="0" col="0" rowSpan="3" opacity="0" class="overlay" id="overGrid"></GridLayout>-->
+<!--                <GridLayout row="0" col="0" rowSpan="3" rows="auto, auto, auto" colums="*,*" verticalAlignment="center" opacity="0" class="select-date" id="selectDate">-->
+<!--                    <Label row="0" col="0" colSpan="2" text="Data de Nascimento?" class="title-select-date"></Label>-->
+<!--                    <DatePicker row="1" col="0" colSpan="2" [(ngModel)]="date" (dateChange)="onDateChanged($event)" year="1990" month="1" day="1" [minDate]="minDate" [maxDate]="maxDate"></DatePicker>-->
+<!--                    <Label #btn row="2" col="0" class="btn-second btn-cancel" text="Fechar" (tap)="onCloseSelectDate(true)"></Label>-->
+<!--                    <Label #btn row="2" col="1" class="btn-second" text="Ok" (tap)="onCloseSelectDate(false)"></Label>-->
+<!--                </GridLayout>-->
+            </GridLayout>
+            </ScrollView>
+        </PreviousNextView>
+    </StackLayout>
+</FlexboxLayout>
