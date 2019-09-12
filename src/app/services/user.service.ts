@@ -12,7 +12,11 @@ export class UserService {
 
     constructor(private http:HttpClient) {}
 
-    getuser(user: UserModel){
+    index(user: number){
         return this.http.get(`${url_api}${this.url_mod}user`)
+    }
+
+    store(user: UserModel){
+        return this.http.post(`${url_api}${this.url_mod}user`, user)
     }
 }

@@ -19,7 +19,7 @@
                     ></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
-                <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
+                <ActivityIndicator class="activity-indicator" rowSpan="3" [busy]="processing"></ActivityIndicator>
             </GridLayout>
         </PreviousNextView>
         <Button *ngIf="isLoggingIn" text="Entrar" [isEnabled]="!processing"
