@@ -8,25 +8,26 @@
         <PreviousNextView>
             <ScrollView scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
                 <GridLayout rows="auto">
-                    <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
+                    <GridLayout [formGroup]="formUser" row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
                         <StackLayout row="0" class="input-field m-t-30">
-                            <TextField #email keyboardType="email" class="input" hint="Email"
+                            <TextField #email keyboardType="email" class="input" hint="Email" formControlName="email"
                                        (returnPress)="focusPassword()" [isEnabled]="!processing"
-
                             ></TextField>
-                            <StackLayout class="hr-light"></StackLayout>
+                            <StackLayout class="hr-light linha-error"></StackLayout>
+                            <Label  [text]="" class="label-error"></Label>
                         </StackLayout>
 
                         <StackLayout row="1" class="input-field">
                             <TextField #password class="input" [isEnabled]="!processing"
-                                       hint="Senha" secure="true"
+                                       hint="Senha" secure="true" formControlName="password"
                                        (returnPress)="focusNome()"></TextField>
-                            <StackLayout class="hr-light"></StackLayout>
+                            <StackLayout class="hr-light linha-error"></StackLayout>
+                            <Label [text]="" class="label-error"></Label>
                         </StackLayout>
 
                         <StackLayout row="3" class="input-field">
                             <TextField #nome class="input" [isEnabled]="!processing" (returnPress)="focusCpf()"
-                                       hint="Nome"
+                                       hint="Nome" formControlName="name"
                                        returnKeyType="done"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
@@ -34,27 +35,27 @@
                         <StackLayout row="4" class="input-field">
                             <TextField #cpf keyboardType="number" class="input" [isEnabled]="!processing"
                                        (returnPress)="focusDataNascimento()"
-                                       hint="CPF"
+                                       hint="CPF" formControlName="cpf"
                                        returnKeyType="next"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
 
                         <StackLayout row="5" class="input-field">
                             <TextField #data_nascimento [text]="dataFormatBr | date: 'dd/MM/yyyy'"
-                                       keyboardType="datetime" hint="Data de Nascimento"
+                                       keyboardType="datetime" hint="Data de Nascimento" formControlName="data_nascimento"
                                        (tap)="onOpenSelectDate()" class="input" [isEnabled]="!processing"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
 
                         <StackLayout row="6" class="input-field">
-                            <TextField #sexo class="input" [isEnabled]="!processing" hint="sexo"
+                            <TextField #sexo class="input" [isEnabled]="!processing" hint="sexo" formControlName="sexo"
                                        returnKeyType="next"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
                         <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
                         <StackLayout row="7" class="input-field">
                             <TextField #cartaoSus keyboardType="number" class="input" [isEnabled]="!processing"
-                                       hint="Cartão SUS"
+                                       hint="Cartão SUS" formControlName="cartao_sus"
                                        returnKeyType="next"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>

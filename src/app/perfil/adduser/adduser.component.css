@@ -50,3 +50,10 @@
     background-color: #b72806;
     opacity: 0.5;
 }
+.label-error{
+    color: #D51A1A;
+    font-weight: 600;
+}
+.linha-error{
+    background-color: #D51A1A;
+}

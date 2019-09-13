@@ -34,21 +34,26 @@ export class AdduserComponent implements OnInit {
     formUserValidator: UserValidator
     formUser: FormGroup
 
-    constructor(private page: Page, private userService: UserService, private routeExtension: RouterExtensions) {
+    constructor(private page: Page,
+                private userService: UserService,
+                private routeExtension: RouterExtensions,
+                private _fb: FormBuilder) {
         this.user = new UserModel()
         this.processing = false
     }
 
     ngOnInit() {
+        this.prepareForm()
     }
 
     submit() {
         this.processing = !this.processing;
-        this.userService.store(this.user).subscribe(response => {
+        this.userService.store(this.formUser.value).subscribe(response => {
             this.processing = false
             this.next();
         }, error => {
             this.processing = false
+            console.log(error.error)
             if (error.status == 422) {
                 console.log(error.error.data)
                 this.formUserValidator = error.error.data
@@ -107,14 +112,14 @@ export class AdduserComponent implements OnInit {
     }
 
     prepareForm(){
-        this.formUser.patchValue({
-            email: '',
-            password: '',
-            name: '',
-            cpf: '',
-            data_nascimento: '',
-            sexo: '',
-            cartao_sus: '',
+        this.formUser = this._fb.group({
+            email: ['', Validators.required],
+            password: ['', Validators.required],
+            name: ['', Validators.required],
+            cpf: ['', Validators.required],
+            data_nascimento: ['', Validators.required],
+            sexo: ['', Validators.required],
+            cartao_sus: ['', Validators.required],
         })
     }
 

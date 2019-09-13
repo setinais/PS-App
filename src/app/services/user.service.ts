@@ -8,15 +8,13 @@ import {UserModel} from "~/app/models/user.model";
 })
 export class UserService {
 
-    url_mod: 'api/'
-
     constructor(private http:HttpClient) {}
 
     index(user: number){
-        return this.http.get(`${url_api}${this.url_mod}user`)
+        return this.http.get(`${url_api}api/user`)
     }
 
     store(user: UserModel){
-        return this.http.post(`${url_api}${this.url_mod}user`, user)
+        return this.http.post(`${url_api}api/user`, user);
     }
 }

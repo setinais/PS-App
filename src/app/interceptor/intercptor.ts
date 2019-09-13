@@ -14,6 +14,7 @@ export class TokenInterceptor  implements HttpInterceptor{
             const httpOptions = {
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json',
                     'Authorization': `Bearer ${getString("token")}`
                 })
             }
