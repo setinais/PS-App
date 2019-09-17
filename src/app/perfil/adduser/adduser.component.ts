@@ -25,7 +25,7 @@ export class AdduserComponent implements OnInit {
 
     @ViewChild("password", {static: false}) password: ElementRef
     @ViewChild("confirmPassword", {static: false}) confirmPassword: ElementRef
-    @ViewChild("nome", {static: false}) nome: ElementRef
+    @ViewChild("name", {static: false}) nome: ElementRef
     @ViewChild("cpf", {static: false}) cpf: ElementRef
     @ViewChild("data_nascimento", {static: false}) dataNascimento: ElementRef
     @ViewChild("sexo", {static: false}) sexo: ElementRef
@@ -33,6 +33,8 @@ export class AdduserComponent implements OnInit {
     user: UserModel
     formUserValidator: UserValidator
     formUser: FormGroup
+
+    public maskcpf = ['/[1-9]/']
 
     constructor(private page: Page,
                 private userService: UserService,
@@ -48,17 +50,17 @@ export class AdduserComponent implements OnInit {
 
     submit() {
         this.processing = !this.processing;
+        console.log(this.formUser.value)
         this.userService.store(this.formUser.value).subscribe(response => {
             this.processing = false
             this.next();
         }, error => {
             this.processing = false
-            console.log(error.error)
             if (error.status == 422) {
-                console.log(error.error.data)
-                this.formUserValidator = error.error.data
+                this.formUserValidator = error.error['errors']
             } else {
-                this.alert(error.error.messagem, 'Atenção')
+                this.alert(error.error, 'Atenção')
+                console.log(error.error)
             }
         })
     }

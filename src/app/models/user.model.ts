@@ -1,5 +1,5 @@
 export class UserModel{
-    nome: string
+    name: string
     password: string
     email: string
     data_nascimento: string
@@ -9,11 +9,11 @@ export class UserModel{
 }
 
 export class UserValidator{
-    nome: Array<string>
+    name: Array<string>
     password: Array<string>
     email: Array<string>
     data_nascimento: Array<string>
     sexo: Array<string>
     cpf: Array<string>
-    carta_sus: Array<string>
+    cartao_sus: Array<string>
 }

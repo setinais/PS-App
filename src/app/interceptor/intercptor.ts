@@ -13,7 +13,8 @@ export class TokenInterceptor  implements HttpInterceptor{
         if(this._loginService.isLoggedIn()) {
             const httpOptions = {
                 headers: new HttpHeaders({
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept-Charset': 'utf-8',
                     'Accept': 'application/json',
                     'Authorization': `Bearer ${getString("token")}`
                 })

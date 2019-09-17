@@ -7,7 +7,7 @@ import {AppAuthGuard} from "~/app/app-auth-guard";
 import {AdduserComponent} from "~/app/perfil/adduser/adduser.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/adduser", pathMatch: "full" },
+    { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "index", component: IndexComponent , canActivate: [AppAuthGuard] },
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },

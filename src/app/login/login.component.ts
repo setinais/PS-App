@@ -4,6 +4,7 @@ import { Page } from "tns-core-modules/ui/page";
 import { RouterExtensions } from "nativescript-angular/router";
 import {AuthService} from "~/app/services/auth.service";
 import {CredentialsModel} from "~/app/models/credentials.model";
+import {client_id, client_secret} from "~/app/configs/url-default";
 
 @Component({
     selector: "app-login",
@@ -24,6 +25,9 @@ export class LoginComponent {
     constructor(private authService: AuthService, private page: Page, private routeExtension: RouterExtensions){
         this.page.actionBarHidden = true
         this.credentials = new CredentialsModel()
+        this.credentials.client_id = client_id
+        this.credentials.client_secret = client_secret
+        this.credentials.grant_type = "password"
     }
 
     submit() {
