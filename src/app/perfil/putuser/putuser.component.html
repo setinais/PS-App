@@ -1,21 +1,14 @@
-<ActionBar class="action-bar-edit">
-    <NavigationButton row="0" text="Voltar" android.systemIcon="ic_menu_back" [nsRouterLink]="['/home']"
-                      pageTransition="slideRight"></NavigationButton>
-    <Image width="150" class="logo" src="~/imagens/logo.png"></Image>
-</ActionBar>
 <FlexboxLayout class="page">
     <StackLayout class="form">
         <PreviousNextView>
             <ScrollView scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
                 <GridLayout rows="auto">
-                    <GridLayout [formGroup]="formUser" row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">     <Label row="0" text="&#xf39e;" class="fab"></Label>
-                        <Label row="0" [nsRouterLink]="['/home']" pageTransition="slideRight">
+                    <GridLayout [formGroup]="formUser" row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto">
+                        <Label text="&#xf060;" style="font-size: 25em" class="fas m-t-16" row="0" clearHistory="true" [nsRouterLink]="['/home']" pageTransition="slideRight"></Label>
+                        <Image width="150" class="logo" row="0"  src="~/imagens/logo.png"></Image>
+                        <Label [text]="Editar" row="0" (tap)="edit()" class="alter-user m-t-30"></Label>
 
-                        </Label>
-                        <Image width="150" class="logo" row="0"  src="res://ic_arrow_back_black_24dp"></Image>
-                        <Label [text]="Editar" row="0" (tap)="edit()" class="alter-user"></Label>
-
-                        <StackLayout row="1" colSpan="3" class="input-field m-t-30">
+                        <StackLayout row="1" colSpan="3" class="input-field m-t-90">
                             <TextField #email keyboardType="email" class="input" hint="Email" formControlName="email"
                                        [isEnabled]="alterStatus"
                             ></TextField>
@@ -62,8 +55,8 @@
                         </StackLayout>
 
                         <StackLayout row="6" class="input-field">
-                            <GridLayout rows="auto" columns="auto,auto">
-                                                                <Label class="label-sexo" row="0" col="0" [text]="formUser.get('sexo').value"></Label>
+                            <GridLayout rows="auto" columns="auto,*">
+                                <Label class="label-sexo" row="0" col="0" [text]="formUser.get('sexo').value"></Label>
                                 <Switch class="m-l-28" row="0" col="1" [checked]="checkedSwitch" (checkedChange)="onChangeSexo($event)" [isEnabled]="alterStatus"></Switch>
                             </GridLayout>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.sexo !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
@@ -71,7 +64,7 @@
                         </StackLayout>
                         <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
                         <StackLayout row="7" class="input-field">
-                            <TextField #cartao_sus keyboardType="number" class="input" [isEnabled]="alterStatus"
+                            <TextField keyboardType="number" class="input" [isEnabled]="alterStatus"
                                        hint="Cartão SUS" formControlName="cartao_sus"
                                        returnKeyType="next"></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>

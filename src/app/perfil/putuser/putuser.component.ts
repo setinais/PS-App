@@ -22,6 +22,8 @@ export class PutuserComponent implements OnInit {
     alterStatus: boolean = false
     Editar: string = 'Editar'
     checkedSwitch: boolean
+    cpfextraido: string
+    dataextraido: string
 
     constructor(private page: Page,
                 private userService: UserService,
@@ -29,12 +31,13 @@ export class PutuserComponent implements OnInit {
                 private _fb: FormBuilder) {
         this.user = new UserModel()
         this.processing = false
+        this.page.actionBarHidden = !this.page.actionBarHidden
     }
 
     ngOnInit() {
-        this.userService.show(2).subscribe( response => {
+        this.userService.show(5).subscribe( response => {
             this.userOld = response['data']
-            this.prepareForm(response)
+            this.prepareForm(response['data'])
         }, error => {
             if(error.status == 500)
                 alert(error.error['message'])
@@ -54,52 +57,68 @@ export class PutuserComponent implements OnInit {
             this.formUser.removeControl('password')
         if(this.formUser.get('email').value == this.userOld['email'])
             this.formUser.removeControl('email')
-        if(this.formUser.get('data_nascimento').value == this.userOld['data_nascimento'])
+        if(this.dataextraido == this.userOld['data_nascimento']){
             this.formUser.removeControl('data_nascimento')
+        }else{
+            this.formUser.get('data_nascimento').setValue(this.dataextraido)
+        }
         if(this.formUser.get('sexo').value == this.userOld['sexo'])
             this.formUser.removeControl('sexo')
         if(this.formUser.get('cartao_sus').value == this.userOld['cartao_sus'])
             this.formUser.removeControl('cartao_sus')
-        if(this.formUser.get('cpf').value == this.userOld['cpf'])
+        if(this.cpfextraido == this.userOld['cpf']){
             this.formUser.removeControl('cpf')
+        }else{
+            this.formUser.get('cpf').setValue(this.cpfextraido)
+        }
         this.submit()
     }
     submit(){
         console.log(this.formUser.value)
         this.userService.put(this.formUser.value, this.userOld['id']).subscribe(response => {
-
+                this.Editar = "Editar"
+                this.formUser.reset()
+                this.userOld = response['data']
+                this.prepareForm(response['data'])
+                this.processing = !this.processing
+                this.formUserValidator = undefined
+                console.log('Test', response['data'])
             }, error => {
                 if(error.status == 422){
-                    //this.formUserValidator = error.error['errors']
+                    this.formUserValidator = error.error['errors']
+                    console.log(error.error)
                 }else{
                     alert(error.error['message'])
                 }
+                this.formUser.reset()
+                this.prepareForm(this.userOld)
                 this.processing = !this.processing
                 this.alterStatus = !this.alterStatus
             })
     }
     prepareForm(response){
-        let ano = response['data']['data_nascimento'].split("-")[0]
-        let mes = response['data']['data_nascimento'].split("-")[1]
-        let dia = response['data']['data_nascimento'].split("-")[2]
-        if(response['data']['sexo'] == 'Masculino'){
+        console.log(response)
+        let ano = response['data_nascimento'].split("-")[0]
+        let mes = response['data_nascimento'].split("-")[1]
+        let dia = response['data_nascimento'].split("-")[2]
+        if(response['sexo'] == 'Masculino'){
             this.checkedSwitch = false
         }else{
             this.checkedSwitch = true
         }
         this.formUser = this._fb.group({
-            email: [response['data']['email'], Validators.required],
+            email: [response['email'], Validators.required],
             password: ['', Validators.required],
-            name: [response['data']['name'], Validators.required],
-            cpf: [response['data']['cpf'], Validators.required],
+            name: [response['name'], Validators.required],
+            cpf: [response['cpf'], Validators.required],
             data_nascimento: [ dia+'/'+mes+'/'+ano, Validators.required],
-            sexo: [response['data']['sexo'], Validators.required],
-            cartao_sus: [ response['data']['cartao_sus'], Validators.required],
+            sexo: [response['sexo'], Validators.required],
+            cartao_sus: [ response['cartao_sus'], Validators.required],
         })
     }
 
     onExtracaoValorAlterado(args){
-        this.formUser.get('cpf').setValue(args.value)
+        this.cpfextraido = args.value
     }
 
     onExtracaoValorDN(args){
@@ -107,7 +126,7 @@ export class PutuserComponent implements OnInit {
         let mes = args.value.split("/")[1]
         let ano = args.value.split("/")[2]
 
-        this.formUser.get('data_nascimento').setValue(ano+'-'+mes+'-'+dia)
+        this.dataextraido = ano+'-'+mes+'-'+dia
 
     }
     onChangeSexo(args: EventData){

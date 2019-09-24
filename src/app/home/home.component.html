@@ -8,8 +8,8 @@
         <ScrollView row="1" scrollBarIndicatorVisible="false" orientation="horizontal" >
             <GridLayout columns="*, *, *, *, *, *, *" class="bottom-navigation">
 
-                <GridLayout col="0" rows="auto, *, auto" class="bottom-navigation-item" >
-                    <Label row="0" text="&#xeec1;" class="icon"></Label>
+                <GridLayout [nsRouterLink]="['/putuser']" pageTransition="slideLeft" col="0" rows="auto, *, auto" class="bottom-navigation-item" >
+                    <Label row="0" text="&#xeec1;" class="fab"></Label>
                     <Label row="2" text="Perfil" class="label"></Label>
                 </GridLayout>
 

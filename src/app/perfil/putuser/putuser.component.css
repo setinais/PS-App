@@ -20,3 +20,9 @@
     font-weight: 400;
     font-size: 16pt;
 }
+.m-t-90{
+    margin-top: 90px;
+}
+.label-error{
+    color: #D51A1A;
+}

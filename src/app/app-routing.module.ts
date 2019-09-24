@@ -9,7 +9,7 @@ import {HomeComponent} from "~/app/home/home.component";
 import {PutuserComponent} from "~/app/perfil/putuser/putuser.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/putuser", pathMatch: "full"},
+    { path: "", redirectTo: "/home", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },
