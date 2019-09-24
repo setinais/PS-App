@@ -3,9 +3,8 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import {AdduserComponent} from "~/app/perfil/adduser/adduser.component";
 import {NativeScriptFormsModule, NativeScriptRouterModule} from "nativescript-angular";
 import {ReactiveFormsModule} from "@angular/forms";
-import {IConfig, NgxMaskModule} from "ngx-mask";
+import {InputMaskModule} from "nativescript-input-mask/angular";
 
-export const options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
   declarations: [
@@ -16,7 +15,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>);
         NativeScriptFormsModule,
         NativeScriptRouterModule,
         ReactiveFormsModule,
-        NgxMaskModule.forRoot(options)
+        InputMaskModule,
     ],
   schemas: [NO_ERRORS_SCHEMA]
 })

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {CanActivate, Router} from "@angular/router";
+import {CanActivate} from "@angular/router";
 import {LoginComponent} from "~/app/login/login.component";
 import {getString} from "tns-core-modules/application-settings";
+import {RouterExtensions} from "nativescript-angular";
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import {getString} from "tns-core-modules/application-settings";
 })
 export class AppAuthGuard implements CanActivate{
 
-    constructor(private router: Router,
+    constructor(private router: RouterExtensions,
                 private _loginService: LoginComponent) { }
 
     canActivate() {

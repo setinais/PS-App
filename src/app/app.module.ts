@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
 import {NativeScriptFormsModule} from "nativescript-angular";
 import {PerfilModule} from "~/app/perfil/perfil.module";
+import { HomeComponent } from './home/home.component';
+import {HttpClientModule} from "@angular/common/http";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -24,12 +26,14 @@ import {PerfilModule} from "~/app/perfil/perfil.module";
         NativeScriptFormsModule,
         AppRoutingModule,
         NativeScriptHttpClientModule,
-        PerfilModule
+        PerfilModule,
+        HttpClientModule
     ],
     declarations: [
         AppComponent,
         IndexComponent,
-        LoginComponent
+        LoginComponent,
+        HomeComponent
     ],
     providers: [],
     schemas: [

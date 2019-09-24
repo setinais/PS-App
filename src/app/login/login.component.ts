@@ -42,18 +42,30 @@ export class LoginComponent {
     login() {
         this.authService.getToken(this.credentials)
             .subscribe(response => {
-                alert("logado ok")
                 this.processing = false
+                this.go()
+
             }, error => {
                 this.processing = false
                 this.alert(error.error.message)
-                })
+                console.log(error.error)
+            })
     }
 
     focusPassword() {
         //his.password.nativeElement.focus();
     }
-
+    go(){
+        this.routeExtension.navigate(['home'],{
+            clearHistory: true,
+            animated: true,
+            transition: {
+                name: 'fade',
+                duration: 500,
+                curve: 'ease'
+            }
+        })
+    }
     alert(message: string) {
         return alert({
             title: "Atenção",

@@ -34,26 +34,34 @@
                         </StackLayout>
 
                         <StackLayout row="4" class="input-field">
-                            <TextField #cpf keyboardType="number" class="input" [isEnabled]="!processing"
+                            <InputMask #cpf class="input"
+                                       [isEnabled]="!processing"
+                                       (extractedValueChange)=onExtracaoValorAlterado($event)
                                        (returnPress)="focusDataNascimento()"
-                                       [textMask]="{mask: maskcpf}"
-                                       hint="CPF" formControlName="cpf"
-                                       returnKeyType="next"></TextField>
+                                       mask="[000].[000].[000]-[00]"
+
+                                       keyboardType="phone"
+                                       hint="CPF"
+                                       returnKeyType="next"></InputMask>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cpf !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cpf !== undefined" [text]="formUserValidator.cpf[0]" class="label-error"></Label>
                         </StackLayout>
 
                         <StackLayout row="5" class="input-field">
-                            <TextField #data_nascimento [text]="dataFormatBr | date: 'dd/MM/yyyy'"
-                                       keyboardType="datetime" hint="Data de Nascimento" formControlName="data_nascimento"
-                                       (tap)="onOpenSelectDate()" class="input" [isEnabled]="!processing"></TextField>
+                            <InputMask #data_nascimento mask="[00]{/}[00]{/}[0000]"
+                                       keyboardType="datetime"
+                                       hint="Data de Nascimento"
+                                       (extractedValueChange)=onExtracaoValorDN($event)
+                                       class="input" [isEnabled]="!processing"></InputMask>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined" [text]="formUserValidator.data_nascimento[0]" class="label-error"></Label>
                         </StackLayout>
 
                         <StackLayout row="6" class="input-field">
-                            <TextField #sexo class="input" [isEnabled]="!processing" hint="sexo" formControlName="sexo"
-                                       returnKeyType="next"></TextField>
+                            <GridLayout rows="auto" columns="auto,auto">
+                                <Label class="label-sexo" row="0" col="0" [text]="formUser.get('sexo').value"></Label>
+                                <Switch class="m-l-28" row="0" col="1" checked="false" (checkedChange)="onChangeSexo($event)"></Switch>
+                            </GridLayout>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.sexo !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.sexo !== undefined" [text]="formUserValidator.sexo[0]" class="label-error"></Label>
                         </StackLayout>

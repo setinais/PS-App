@@ -2,10 +2,12 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Visibility} from "tns-core-modules/ui/enums";
 import {GridLayout} from "tns-core-modules/ui/layouts/grid-layout";
 import {UserModel, UserValidator} from "~/app/models/user.model";
-import {Page} from "tns-core-modules/ui/page";
+import {EventData, Page} from "tns-core-modules/ui/page";
 import {UserService} from "~/app/services/user.service";
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {RouterExtensions} from "nativescript-angular";
+import { ListPicker } from "tns-core-modules/ui/list-picker";
+import {Switch} from "tns-core-modules/ui/switch";
 
 @Component({
     selector: 'ns-adduser',
@@ -13,11 +15,6 @@ import {RouterExtensions} from "nativescript-angular";
     styleUrls: ['./adduser.component.css']
 })
 export class AdduserComponent implements OnInit {
-
-    minDate: Date = new Date(1920, 1, 1);
-    maxDate: Date = new Date(2019, 1, 1);
-    date: Date
-    dataFormatBr: string
 
     private selectDate: GridLayout
     private overGrid: GridLayout
@@ -28,13 +25,10 @@ export class AdduserComponent implements OnInit {
     @ViewChild("name", {static: false}) nome: ElementRef
     @ViewChild("cpf", {static: false}) cpf: ElementRef
     @ViewChild("data_nascimento", {static: false}) dataNascimento: ElementRef
-    @ViewChild("sexo", {static: false}) sexo: ElementRef
 
     user: UserModel
     formUserValidator: UserValidator
     formUser: FormGroup
-
-    public maskcpf = ['/[1-9]/']
 
     constructor(private page: Page,
                 private userService: UserService,
@@ -47,7 +41,6 @@ export class AdduserComponent implements OnInit {
     ngOnInit() {
         this.prepareForm()
     }
-
     submit() {
         this.processing = !this.processing;
         console.log(this.formUser.value)
@@ -58,23 +51,11 @@ export class AdduserComponent implements OnInit {
             this.processing = false
             if (error.status == 422) {
                 this.formUserValidator = error.error['errors']
+                console.log(error.error)
             } else {
                 this.alert(error.error, 'Atenção')
-                console.log(error.error)
             }
         })
-    }
-
-    onOpenSelectDate() {
-        this.selectDate.visibility = <any>Visibility.visible
-        this.selectDate.className = 'select-date animate-bounceInUp-delay-0ms'
-        this.overGrid.animate({opacity: 0.5, duration: 300})
-    }
-
-    onDateChanged(args) {
-    }
-
-    onCloseSelectDate(isCancel: boolean) {
     }
 
     focusPassword() {
@@ -97,10 +78,6 @@ export class AdduserComponent implements OnInit {
         this.dataNascimento.nativeElement.focus();
     }
 
-    focusSexo() {
-        this.sexo.nativeElement.focus();
-    }
-
     alert(message: string, title: string) {
         return alert({
             title: title,
@@ -110,7 +87,7 @@ export class AdduserComponent implements OnInit {
     }
 
     next() {
-        this.routeExtension.backToPreviousPage()
+        this.routeExtension.back()
     }
 
     prepareForm(){
@@ -119,10 +96,30 @@ export class AdduserComponent implements OnInit {
             password: ['', Validators.required],
             name: ['', Validators.required],
             cpf: ['', Validators.required],
-            data_nascimento: ['', Validators.required],
-            sexo: ['', Validators.required],
+            data_nascimento: ['1998/04/02', Validators.required],
+            sexo: ['Masculino', Validators.required],
             cartao_sus: ['', Validators.required],
         })
     }
 
+    onExtracaoValorAlterado(args){
+        this.formUser.get('cpf').setValue(args.value)
+    }
+
+    onExtracaoValorDN(args){
+        let dia = args.value.split("/")[0]
+        let mes = args.value.split("/")[1]
+        let ano = args.value.split("/")[2]
+
+        this.formUser.get('data_nascimento').setValue(ano+'-'+mes+'-'+dia)
+
+    }
+    onChangeSexo(args: EventData){
+        let bool = args.object as Switch;
+        if(!bool.checked){
+            this.formUser.get('sexo').setValue('Masculino')
+        }else {
+            this.formUser.get('sexo').setValue('Feminino')
+        }
+    }
 }

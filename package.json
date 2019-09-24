@@ -22,13 +22,15 @@
     "@angular/router": "~8.2.0",
     "angular2-text-mask": "^9.0.0",
     "nativescript-angular": "~8.2.0",
+    "nativescript-input-mask": "^1.0.5",
+    "nativescript-masked-text-field": "^4.0.3",
     "nativescript-radiobutton": "^0.1.0",
     "nativescript-theme-core": "~1.0.6",
-    "ngx-mask": "^8.0.6",
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.4.0",
     "tns-core-modules": "~6.1.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "@angular/http": "latest"
   },
   "devDependencies": {
     "@angular-devkit/core": "^8.3.3",
