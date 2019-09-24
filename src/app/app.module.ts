@@ -27,7 +27,7 @@ import {HttpClientModule} from "@angular/common/http";
         AppRoutingModule,
         NativeScriptHttpClientModule,
         PerfilModule,
-        HttpClientModule
+        HttpClientModule,
     ],
     declarations: [
         AppComponent,

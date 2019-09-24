@@ -1,3 +1,41 @@
-<Button text="home works!" class="btn btn-primary"></Button>
+<GridLayout rows="auto,auto" class="home-page">
+    <FlexboxLayout row="0" class="home-page-content">
+        <GridLayout rows="auto, auto">
+            <Image width="150" row="0" class="logo" src="~/imagens/logo.png"></Image>
 
-Textevrekigvngew
+        </GridLayout>
+    </FlexboxLayout>
+        <ScrollView row="1" scrollBarIndicatorVisible="false" orientation="horizontal" >
+            <GridLayout columns="*, *, *, *, *, *, *" class="bottom-navigation">
+
+                <GridLayout col="0" rows="auto, *, auto" class="bottom-navigation-item" >
+                    <Label row="0" text="&#xeec1;" class="icon"></Label>
+                    <Label row="2" text="Perfil" class="label"></Label>
+                </GridLayout>
+
+                <GridLayout col="1" rows="auto, *, auto" class="bottom-navigation-item">
+                    <Label row="0" text="&#xe9ad;" class="icon"></Label>
+                    <Label row="2" text="Farmacias" class="label"></Label>
+                </GridLayout>
+
+                <GridLayout col="2" rows="auto, *, auto" class="bottom-navigation-item">
+                    <Label row="0" text="&#xea15;" class="icon"></Label>
+                    <Label row="2
+" text="Laboratorios" class="label"></Label>
+                </GridLayout>
+
+                <GridLayout col="3" rows="auto,*, auto, auto" class="bottom-navigation-item">
+                    <Label row="0" text="&#xea15;" class="icon"></Label>
+                    <Label row="2" text="Unidades" class="label"></Label>
+                    <Label row="3" text="de Saúde" class="label"></Label>
+                </GridLayout>
+
+                <GridLayout col="4" rows="auto, *, auto, auto" class="bottom-navigation-item">
+                    <Label row="0" text="&#xea15;" class="icon"></Label>
+                    <Label row="2" text="Unidades de" class="label"></Label>
+                    <Label row="3" text="Emergencia" class="label"></Label>
+                </GridLayout>
+
+            </GridLayout>
+        </ScrollView>
+</GridLayout>

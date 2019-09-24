@@ -96,7 +96,7 @@ export class AdduserComponent implements OnInit {
             password: ['', Validators.required],
             name: ['', Validators.required],
             cpf: ['', Validators.required],
-            data_nascimento: ['1998/04/02', Validators.required],
+            data_nascimento: ['', Validators.required],
             sexo: ['Masculino', Validators.required],
             cartao_sus: ['', Validators.required],
         })

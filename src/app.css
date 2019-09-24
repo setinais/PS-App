@@ -11,3 +11,12 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 @import '~nativescript-theme-core/css/core.light.css';
 @import "styles/animate.css";
+
+.fas{
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
+.fab{
+    font-family: "Font Awesome 5 Free", "fa-brands-400";
+    font-weight: 400;
+}

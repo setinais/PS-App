@@ -10,11 +10,15 @@ export class UserService {
 
     constructor(private http:HttpClient) {}
 
-    index(user: number){
-        return this.http.get(`${url_api}api/user`)
+    show(user: number){
+        return this.http.get(`${url_api}api/user/${user}`)
     }
 
     store(user: UserModel){
         return this.http.post(`${url_api}api/user`, user);
+    }
+
+    put(user:UserModel, id){
+        return this.http.put(`${url_api}api/user/${id}`, user);
     }
 }

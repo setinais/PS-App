@@ -1,0 +1,85 @@
+<ActionBar class="action-bar-edit">
+    <NavigationButton row="0" text="Voltar" android.systemIcon="ic_menu_back" [nsRouterLink]="['/home']"
+                      pageTransition="slideRight"></NavigationButton>
+    <Image width="150" class="logo" src="~/imagens/logo.png"></Image>
+</ActionBar>
+<FlexboxLayout class="page">
+    <StackLayout class="form">
+        <PreviousNextView>
+            <ScrollView scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
+                <GridLayout rows="auto">
+                    <GridLayout [formGroup]="formUser" row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">     <Label row="0" text="&#xf39e;" class="fab"></Label>
+                        <Label row="0" [nsRouterLink]="['/home']" pageTransition="slideRight">
+
+                        </Label>
+                        <Image width="150" class="logo" row="0"  src="res://ic_arrow_back_black_24dp"></Image>
+                        <Label [text]="Editar" row="0" (tap)="edit()" class="alter-user"></Label>
+
+                        <StackLayout row="1" colSpan="3" class="input-field m-t-30">
+                            <TextField #email keyboardType="email" class="input" hint="Email" formControlName="email"
+                                       [isEnabled]="alterStatus"
+                            ></TextField>
+                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.email !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
+                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.email !== undefined" [text]="formUserValidator.email[0]" class="label-error"></Label>
+                        </StackLayout>
+
+                        <StackLayout row="2" colSpan="3" class="input-field">
+                            <TextField #password class="input" [isEnabled]="alterStatus"
+                                       hint="Senha" secure="true" formControlName="password"></TextField>
+                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.password !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
+                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.password !== undefined" [text]="formUserValidator.password[0]" class="label-error"></Label>
+                        </StackLayout>
+
+                        <StackLayout row="3" colSpan="3" class="input-field">
+                            <TextField #name class="input" [isEnabled]="alterStatus"
+                                       hint="Nome" formControlName="name"
+                                       returnKeyType="done"></TextField>
+                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.name !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
+                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.name !== undefined" [text]="formUserValidator.name[0]" class="label-error"></Label>
+                        </StackLayout>
+
+                        <StackLayout row="4" class="input-field">
+                            <InputMask #cpf class="input"
+                                       [isEnabled]="alterStatus"
+                                       (extractedValueChange)=onExtracaoValorAlterado($event)
+                                       formControlName="cpf"
+                                       mask="[000].[000].[000]-[00]"
+                                       keyboardType="phone"
+                                       returnKeyType="next"></InputMask>
+                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cpf !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
+                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.cpf !== undefined" [text]="formUserValidator.cpf[0]" class="label-error"></Label>
+                        </StackLayout>
+
+                        <StackLayout row="5" class="input-field">
+                            <InputMask #data_nascimento mask="[00]{/}[00]{/}[0000]"
+                                       keyboardType="datetime"
+                                       hint="Data de Nascimento"
+                                       formControlName="data_nascimento"
+                                       (extractedValueChange)=onExtracaoValorDN($event)
+                                       class="input" [isEnabled]="alterStatus"></InputMask>
+                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
+                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined" [text]="formUserValidator.data_nascimento[0]" class="label-error"></Label>
+                        </StackLayout>
+
+                        <StackLayout row="6" class="input-field">
+                            <GridLayout rows="auto" columns="auto,auto">
+                                                                <Label class="label-sexo" row="0" col="0" [text]="formUser.get('sexo').value"></Label>
+                                <Switch class="m-l-28" row="0" col="1" [checked]="checkedSwitch" (checkedChange)="onChangeSexo($event)" [isEnabled]="alterStatus"></Switch>
+                            </GridLayout>
+                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.sexo !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
+                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.sexo !== undefined" [text]="formUserValidator.sexo[0]" class="label-error"></Label>
+                        </StackLayout>
+                        <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
+                        <StackLayout row="7" class="input-field">
+                            <TextField #cartao_sus keyboardType="number" class="input" [isEnabled]="alterStatus"
+                                       hint="Cartão SUS" formControlName="cartao_sus"
+                                       returnKeyType="next"></TextField>
+                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
+                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined" [text]="formUserValidator.cartao_sus[0]" class="label-error"></Label>
+                        </StackLayout>
+                    </GridLayout>
+                </GridLayout>
+            </ScrollView>
+        </PreviousNextView>
+    </StackLayout>
+</FlexboxLayout>

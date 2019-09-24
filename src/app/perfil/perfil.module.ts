@@ -4,11 +4,13 @@ import {AdduserComponent} from "~/app/perfil/adduser/adduser.component";
 import {NativeScriptFormsModule, NativeScriptRouterModule} from "nativescript-angular";
 import {ReactiveFormsModule} from "@angular/forms";
 import {InputMaskModule} from "nativescript-input-mask/angular";
+import { PutuserComponent } from './putuser/putuser.component';
 
 
 @NgModule({
   declarations: [
-      AdduserComponent
+      AdduserComponent,
+      PutuserComponent
   ],
     imports: [
         NativeScriptCommonModule,

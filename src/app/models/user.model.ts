@@ -1,4 +1,5 @@
 export class UserModel{
+    id: number
     name: string
     password: string
     email: string
@@ -6,6 +7,7 @@ export class UserModel{
     sexo: string
     cpf: string
     cartao_sus: string
+    created_at: string
 }
 
 export class UserValidator{
