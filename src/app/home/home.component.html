@@ -1,8 +1,13 @@
 <GridLayout rows="auto,auto" class="home-page">
     <FlexboxLayout row="0" class="home-page-content">
         <GridLayout rows="auto, auto">
-            <Image width="150" row="0" class="logo" src="~/imagens/logo.png"></Image>
+            <GridLayout rows="auto, auto" row="0">
+                <Image row="0" class="logo" src="~/imagens/logo.png"></Image>
+                <Label row="1" text="Ola Vinnicyus" class="name_user"></Label>
+            </GridLayout>
+            <StackLayout row="1" class="frame-banner">
 
+            </StackLayout>
         </GridLayout>
     </FlexboxLayout>
         <ScrollView row="1" scrollBarIndicatorVisible="false" orientation="horizontal" >
@@ -13,7 +18,7 @@
                     <Label row="2" text="Perfil" class="label"></Label>
                 </GridLayout>
 
-                <GridLayout col="1" rows="auto, *, auto" class="bottom-navigation-item">
+                <GridLayout [nsRouterLink]="['/visualizacao']" [queryParams]="{type: 'farmacia'}" col="1" rows="auto, *, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xe9ad;" class="icon"></Label>
                     <Label row="2" text="Farmacias" class="label"></Label>
                 </GridLayout>

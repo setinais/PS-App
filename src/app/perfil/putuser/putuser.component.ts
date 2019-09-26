@@ -24,13 +24,14 @@ export class PutuserComponent implements OnInit {
     checkedSwitch: boolean
     cpfextraido: string
     dataextraido: string
+    sexo: string
 
     constructor(private page: Page,
                 private userService: UserService,
                 private routeExtension: RouterExtensions,
                 private _fb: FormBuilder) {
         this.user = new UserModel()
-        this.processing = false
+        this.processing = true
         this.page.actionBarHidden = !this.page.actionBarHidden
     }
 
@@ -38,9 +39,11 @@ export class PutuserComponent implements OnInit {
         this.userService.show(5).subscribe( response => {
             this.userOld = response['data']
             this.prepareForm(response['data'])
+            this.processing = !this.processing
         }, error => {
             if(error.status == 500)
                 alert(error.error['message'])
+            this.processing = !this.processing
         })
     }
     edit(){
@@ -103,8 +106,10 @@ export class PutuserComponent implements OnInit {
         let dia = response['data_nascimento'].split("-")[2]
         if(response['sexo'] == 'Masculino'){
             this.checkedSwitch = false
+            this.sexo = 'Masculino'
         }else{
             this.checkedSwitch = true
+            this.sexo = 'Feminino'
         }
         this.formUser = this._fb.group({
             email: [response['email'], Validators.required],
@@ -134,9 +139,11 @@ export class PutuserComponent implements OnInit {
         if(!bool.checked){
             this.checkedSwitch = false
             this.formUser.get('sexo').setValue('Masculino')
+            this.sexo = 'Masculino'
         }else {
             this.checkedSwitch = true
             this.formUser.get('sexo').setValue('Feminino')
+            this.sexo = 'Feminino'
         }
     }
 }

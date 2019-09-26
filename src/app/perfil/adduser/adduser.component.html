@@ -1,15 +1,15 @@
-<ActionBar class="action-bar-edit">
-    <NavigationButton row="0" text="Voltar" android.systemIcon="ic_menu_back" [nsRouterLink]="['/login']"
-                      pageTransition="slideRight"></NavigationButton>
-    <Image width="150" class="logo" src="~/imagens/logo.png"></Image>
-</ActionBar>
+
 <FlexboxLayout class="page">
     <StackLayout class="form">
         <PreviousNextView>
             <ScrollView scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
                 <GridLayout rows="auto">
                     <GridLayout [formGroup]="formUser" row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
-                        <StackLayout row="0" class="input-field m-t-30">
+
+                        <Label text="&#xf060;" style="font-size: 25em" class="fas m-t-16" row="0" clearHistory="true" [nsRouterLink]="['/login']" pageTransition="slideRight"></Label>
+                        <Image width="150" class="logo m-b-30" row="0"  src="~/imagens/logo.png"></Image>
+
+                        <StackLayout row="1" class="input-field m-t-30">
                             <TextField #email keyboardType="email" class="input" hint="Email" formControlName="email"
                                        (returnPress)="focusPassword()" [isEnabled]="!processing"
                             ></TextField>
@@ -17,7 +17,7 @@
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.email !== undefined" [text]="formUserValidator.email[0]" class="label-error"></Label>
                         </StackLayout>
 
-                        <StackLayout row="1" class="input-field">
+                        <StackLayout row="2" class="input-field">
                             <TextField #password class="input" [isEnabled]="!processing"
                                        hint="Senha" secure="true" formControlName="password"
                                        (returnPress)="focusNome()"></TextField>
@@ -39,10 +39,10 @@
                                        (extractedValueChange)=onExtracaoValorAlterado($event)
                                        (returnPress)="focusDataNascimento()"
                                        mask="[000].[000].[000]-[00]"
-
                                        keyboardType="phone"
                                        hint="CPF"
                                        returnKeyType="next"></InputMask>
+
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cpf !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cpf !== undefined" [text]="formUserValidator.cpf[0]" class="label-error"></Label>
                         </StackLayout>

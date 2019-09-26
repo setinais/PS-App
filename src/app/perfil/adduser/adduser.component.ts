@@ -1,12 +1,10 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Visibility} from "tns-core-modules/ui/enums";
 import {GridLayout} from "tns-core-modules/ui/layouts/grid-layout";
 import {UserModel, UserValidator} from "~/app/models/user.model";
 import {EventData, Page} from "tns-core-modules/ui/page";
 import {UserService} from "~/app/services/user.service";
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {RouterExtensions} from "nativescript-angular";
-import { ListPicker } from "tns-core-modules/ui/list-picker";
 import {Switch} from "tns-core-modules/ui/switch";
 
 @Component({
@@ -16,8 +14,6 @@ import {Switch} from "tns-core-modules/ui/switch";
 })
 export class AdduserComponent implements OnInit {
 
-    private selectDate: GridLayout
-    private overGrid: GridLayout
     processing: boolean
 
     @ViewChild("password", {static: false}) password: ElementRef
@@ -36,6 +32,7 @@ export class AdduserComponent implements OnInit {
                 private _fb: FormBuilder) {
         this.user = new UserModel()
         this.processing = false
+        this.page.actionBarHidden = !this.page.actionBarHidden
     }
 
     ngOnInit() {
@@ -46,6 +43,7 @@ export class AdduserComponent implements OnInit {
         console.log(this.formUser.value)
         this.userService.store(this.formUser.value).subscribe(response => {
             this.processing = false
+            alert('Cadastro realizado com Sucesso!')
             this.next();
         }, error => {
             this.processing = false

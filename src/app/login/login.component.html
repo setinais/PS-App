@@ -25,9 +25,9 @@
         <Button *ngIf="isLoggingIn" text="Entrar" [isEnabled]="!processing"
                 (tap)="submit()" class="btn btn-primary m-t-20"></Button>
         <Label *ngIf="isLoggingIn" text="Esqueceu sua senha?" class="login-label"
-               (tap)="forgotPassword()"></Label>
+              ></Label>
     </StackLayout>
-    <Label [nsRouterLink]="['/adduser']" pageTransition="slideLeft" class="login-label sign-up-label" (tap)="toggleForm()">
+    <Label [nsRouterLink]="['/adduser']" pageTransition="slideLeft" class="login-label sign-up-label">
         <FormattedString>
             <Span text="Não possui uma conta ainda?"></Span>
             <Span text="Cadastre-se" class="bold"></Span>

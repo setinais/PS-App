@@ -10,12 +10,9 @@ import {NativeScriptFormsModule} from "nativescript-angular";
 import {PerfilModule} from "~/app/perfil/perfil.module";
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from "@angular/common/http";
+import { VisualizacoesComponent } from './visualizacoes/visualizacoes.component';
+import {InputMaskModule} from "nativescript-input-mask/angular";
 
-// Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
-
-// Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
-// import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
 @NgModule({
     bootstrap: [
@@ -28,12 +25,14 @@ import {HttpClientModule} from "@angular/common/http";
         NativeScriptHttpClientModule,
         PerfilModule,
         HttpClientModule,
+        InputMaskModule
     ],
     declarations: [
         AppComponent,
         IndexComponent,
         LoginComponent,
-        HomeComponent
+        HomeComponent,
+        VisualizacoesComponent,
     ],
     providers: [],
     schemas: [
