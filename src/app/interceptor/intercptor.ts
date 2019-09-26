@@ -19,6 +19,7 @@ export class TokenInterceptor  implements HttpInterceptor{
                     'Authorization': `Bearer ${getString("token")}`
                 })
             }
+            console.log('TOken', getString("token"))
             const request = req.clone(httpOptions)
             return next.handle(request)
         }

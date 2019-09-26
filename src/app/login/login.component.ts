@@ -60,8 +60,8 @@ export class LoginComponent {
             clearHistory: true,
             animated: true,
             transition: {
-                name: 'fade',
-                duration: 500,
+                name: 'slideTop',
+                duration: 1000,
                 curve: 'ease'
             }
         })

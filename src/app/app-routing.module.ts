@@ -10,7 +10,7 @@ import {PutuserComponent} from "~/app/perfil/putuser/putuser.component";
 import {VisualizacoesComponent} from "~/app/visualizacoes/visualizacoes.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/putuser", pathMatch: "full"},
+    { path: "", redirectTo: "/login", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },

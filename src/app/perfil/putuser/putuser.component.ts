@@ -36,7 +36,7 @@ export class PutuserComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.userService.show(5).subscribe( response => {
+        this.userService.show(2).subscribe( response => {
             this.userOld = response['data']
             this.prepareForm(response['data'])
             this.processing = !this.processing
@@ -44,6 +44,7 @@ export class PutuserComponent implements OnInit {
             if(error.status == 500)
                 alert(error.error['message'])
             this.processing = !this.processing
+            this.alterStatus = !this.alterStatus
         })
     }
     edit(){

@@ -2,8 +2,9 @@
     <StackLayout class="form">
         <PreviousNextView>
             <ScrollView scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
-                <GridLayout rows="auto">
-                    <GridLayout [formGroup]="formUser" row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
+                <GridLayout [formGroup]="formUser" rows="auto">
+
+                    <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
                         <Label text="&#xf060;" style="font-size: 25em" class="fas m-t-16" row="0" clearHistory="true" [nsRouterLink]="['/home']" pageTransition="slideRight"></Label>
                         <Image width="150" class="logo" row="0"  src="~/imagens/logo.png"></Image>
                         <Label [text]="Editar" row="0" (tap)="edit()" class="alter-user m-t-30"></Label>
@@ -40,6 +41,10 @@
                                        mask="[000].[000].[000]-[00]"
                                        keyboardType="phone"
                                        returnKeyType="next"></InputMask>
+<!--                            <TextField class="input"-->
+<!--                                       isEnabled="true"-->
+<!--                                formControlName="cpf"-->
+<!--                            ></TextField>-->
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cpf !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cpf !== undefined" [text]="formUserValidator.cpf[0]" class="label-error"></Label>
                         </StackLayout>
@@ -51,6 +56,10 @@
                                        formControlName="data_nascimento"
                                        (extractedValueChange)=onExtracaoValorDN($event)
                                        class="input" [isEnabled]="alterStatus"></InputMask>
+<!--                            <TextField class="input"-->
+<!--                                       isEnabled="true"-->
+<!--                                       formControlName="data_nascimento"-->
+<!--                            ></TextField>-->
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined" [text]="formUserValidator.data_nascimento[0]" class="label-error"></Label>
                         </StackLayout>

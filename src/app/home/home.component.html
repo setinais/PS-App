@@ -13,32 +13,31 @@
         <ScrollView row="1" scrollBarIndicatorVisible="false" orientation="horizontal" >
             <GridLayout columns="*, *, *, *, *, *, *" class="bottom-navigation">
 
-                <GridLayout [nsRouterLink]="['/putuser']" pageTransition="slideLeft" col="0" rows="auto, *, auto" class="bottom-navigation-item" >
+                <GridLayout  col="0" rows="auto, *, auto" class="bottom-navigation-item" >
                     <Label row="0" text="&#xeec1;" class="fab"></Label>
-                    <Label row="2" text="Perfil" class="label"></Label>
+                    <Label row="2" text="Meu Diario" class="label"></Label>
                 </GridLayout>
 
-                <GridLayout [nsRouterLink]="['/visualizacao']" [queryParams]="{type: 'farmacia'}" col="1" rows="auto, *, auto" class="bottom-navigation-item">
+                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" pa [queryParams]="{type: 'F', title: 'Farmácias'}" col="1" rows="auto, *, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xe9ad;" class="icon"></Label>
                     <Label row="2" text="Farmacias" class="label"></Label>
                 </GridLayout>
 
-                <GridLayout col="2" rows="auto, *, auto" class="bottom-navigation-item">
+                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" pa [queryParams]="{type: 'H', title: 'Hospitais'}" col="2" rows="auto, *, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xea15;" class="icon"></Label>
                     <Label row="2
-" text="Laboratorios" class="label"></Label>
+" text="Hospitais" class="label"></Label>
                 </GridLayout>
 
-                <GridLayout col="3" rows="auto,*, auto, auto" class="bottom-navigation-item">
+                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" pa [queryParams]="{type: 'U',title: 'Unidades Basica de Saúde ( UBS )'}" col="3" rows="auto,*, auto, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xea15;" class="icon"></Label>
                     <Label row="2" text="Unidades" class="label"></Label>
                     <Label row="3" text="de Saúde" class="label"></Label>
                 </GridLayout>
 
-                <GridLayout col="4" rows="auto, *, auto, auto" class="bottom-navigation-item">
+                <GridLayout col="4" rows="auto, *, auto" class="bottom-navigation-item" [nsRouterLink]="['/putuser']" pageTransitionDuration="1000" pageTransition="slideLeft">
                     <Label row="0" text="&#xea15;" class="icon"></Label>
-                    <Label row="2" text="Unidades de" class="label"></Label>
-                    <Label row="3" text="Emergencia" class="label"></Label>
+                    <Label row="2" text="Perfil" class="label"></Label>
                 </GridLayout>
 
             </GridLayout>
