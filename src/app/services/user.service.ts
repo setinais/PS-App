@@ -21,4 +21,8 @@ export class UserService {
     put(user:UserModel, id){
         return this.http.put(`${url_api}api/user/${id}`, user);
     }
+
+    delete(id: number){
+        return this.http.delete(`${url_api}api/user/${id}`)
+    }
 }

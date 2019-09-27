@@ -26,3 +26,18 @@
 .label-error{
     color: #D51A1A;
 }
+.divider{
+    height: 10;
+}
+
+.btn-sair{
+    color: #b72806;
+    background-color: #e8e7e7;
+    margin: auto;
+    font-weight: 600;
+    text-align: center;
+    font-size: 16em;
+}
+.text-btn-sair{
+    padding: 10 0 10 0;
+}

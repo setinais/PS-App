@@ -129,7 +129,6 @@ export class VisualizacoesComponent implements OnInit {
     }
 
     onNavigate(localizacao: LocalizacaoModel){
-        console.log(localizacao)
         utils.openUrl(`http://maps.google.com/maps?q=${localizacao.latitude},${localizacao.longitude}`)
     }
 

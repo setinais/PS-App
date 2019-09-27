@@ -4,7 +4,7 @@
             <ScrollView scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
                 <GridLayout [formGroup]="formUser" rows="auto">
 
-                    <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
+                    <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto">
                         <Label text="&#xf060;" style="font-size: 25em" class="fas m-t-16" row="0" clearHistory="true" [nsRouterLink]="['/home']" pageTransition="slideRight"></Label>
                         <Image width="150" class="logo" row="0"  src="~/imagens/logo.png"></Image>
                         <Label [text]="Editar" row="0" (tap)="edit()" class="alter-user m-t-30"></Label>
@@ -80,8 +80,12 @@
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined" [text]="formUserValidator.cartao_sus[0]" class="label-error"></Label>
                         </StackLayout>
-                        <StackLayout row="8" class="input-field m-t-90">
-                            <Button text="Apagar Conta"></Button>
+                        <StackLayout row="8" class="input-field m-t-90 btn-sair">
+                            <Label class="text-btn-sair" text="Sair" (tap)="logout()"></Label>
+                        </StackLayout>
+                        <Label row="9" class="divider" text=" "></Label>
+                        <StackLayout row="10" class="input-field m-t-90 btn-sair">
+                            <Label class="text-btn-sair" text="Desativar Conta" (tap)="delete()" ></Label>
                         </StackLayout>
                     </GridLayout>
                 </GridLayout>

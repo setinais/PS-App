@@ -4,7 +4,7 @@ import {CredentialsModel} from "~/app/models/credentials.model";
 import {url_api} from "~/app/configs/url-default";
 import {TokenModel} from "~/app/models/token.model";
 import {tap} from "rxjs/internal/operators";
-import {setString} from "tns-core-modules/application-settings";
+import {setBoolean, setString} from "tns-core-modules/application-settings";
 import {getString} from "tns-core-modules/http";
 
 @Injectable({
@@ -31,9 +31,17 @@ export class AuthService {
         setString("token",theToken.access_token)
         setString("expires_in", today.toString())
         setString("refresh_token",theToken.refresh_token)
+        setBoolean("status_auth", true)
     }
 
     isLoggedIn(){
         return !!getString("token")
+    }
+
+    logout(){
+        setString("token","")
+        setString("expires_in", "")
+        setString("refresh_token", "")
+        setBoolean("status_auth", false)
     }
 }
