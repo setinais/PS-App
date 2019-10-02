@@ -14,7 +14,6 @@ import {client_id, client_secret} from "~/app/configs/url-default";
 })
 export class LoginComponent {
 
-
     isLoggingIn = true;
     processing = false;
     credentials: CredentialsModel
@@ -47,8 +46,7 @@ export class LoginComponent {
 
             }, error => {
                 this.processing = false
-                this.alert(error.error.message)
-                console.log(error.error)
+                this.alert("Falha de conexão, tente novamente!")
             })
     }
 

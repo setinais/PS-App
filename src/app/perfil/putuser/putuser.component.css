@@ -41,3 +41,14 @@
 .text-btn-sair{
     padding: 10 0 10 0;
 }
+.reload{
+    font-size: 60em;
+    color: #c0c0c0;
+    margin-top: 200;
+    margin-left: 150;
+}
+.reload-text{
+    color: #c0c0c0;
+    margin-top: 280;
+    margin-left: 10;
+}

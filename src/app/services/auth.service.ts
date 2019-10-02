@@ -4,15 +4,13 @@ import {CredentialsModel} from "~/app/models/credentials.model";
 import {url_api} from "~/app/configs/url-default";
 import {TokenModel} from "~/app/models/token.model";
 import {tap} from "rxjs/internal/operators";
-import {setBoolean, setString} from "tns-core-modules/application-settings";
-import {getString} from "tns-core-modules/http";
+import {getString, setBoolean, setString} from "tns-core-modules/application-settings";
 
 @Injectable({
     providedIn: "root"
 })
 export class AuthService {
 
-    url_mod: 'api/'
     token: TokenModel
 
     constructor(private http:HttpClient) {}
@@ -32,6 +30,8 @@ export class AuthService {
         setString("expires_in", today.toString())
         setString("refresh_token",theToken.refresh_token)
         setBoolean("status_auth", true)
+        console.log(getString("token"))
+
     }
 
     isLoggedIn(){

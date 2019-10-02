@@ -9,9 +9,10 @@ import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
 import {NativeScriptFormsModule} from "nativescript-angular";
 import {PerfilModule} from "~/app/perfil/perfil.module";
 import { HomeComponent } from './home/home.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { VisualizacoesComponent } from './visualizacoes/visualizacoes.component';
 import {InputMaskModule} from "nativescript-input-mask/angular";
+import {TokenInterceptor} from "~/app/interceptor/intercptor";
 
 
 @NgModule({
@@ -34,7 +35,13 @@ import {InputMaskModule} from "nativescript-input-mask/angular";
         HomeComponent,
         VisualizacoesComponent,
     ],
-    providers: [],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        }
+    ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

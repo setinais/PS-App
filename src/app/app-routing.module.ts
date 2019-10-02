@@ -10,11 +10,11 @@ import {PutuserComponent} from "~/app/perfil/putuser/putuser.component";
 import {VisualizacoesComponent} from "~/app/visualizacoes/visualizacoes.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/putuser", pathMatch: "full"},
+    { path: "", redirectTo: "/home", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },
-    { path: "home", component: HomeComponent},
+    { path: "home", component: HomeComponent, canActivate: [AppAuthGuard]},
     { path: "putuser", component: PutuserComponent},
     { path: "visualizacao", component: VisualizacoesComponent},
 ];

@@ -36,7 +36,7 @@ export class AdduserComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.prepareForm()
+
     }
     submit() {
         this.processing = !this.processing;
@@ -86,18 +86,6 @@ export class AdduserComponent implements OnInit {
 
     next() {
         this.routeExtension.back()
-    }
-
-    prepareForm(){
-        this.formUser = this._fb.group({
-            email: ['', Validators.required],
-            password: ['', Validators.required],
-            name: ['', Validators.required],
-            cpf: ['', Validators.required],
-            data_nascimento: ['', Validators.required],
-            sexo: ['Masculino', Validators.required],
-            cartao_sus: ['', Validators.required],
-        })
     }
 
     onExtracaoValorAlterado(args){

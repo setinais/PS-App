@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {CanActivate} from "@angular/router";
-import {LoginComponent} from "~/app/login/login.component";
 import {getString} from "tns-core-modules/application-settings";
 import {RouterExtensions} from "nativescript-angular";
 
@@ -10,8 +9,7 @@ import {RouterExtensions} from "nativescript-angular";
 })
 export class AppAuthGuard implements CanActivate{
 
-    constructor(private router: RouterExtensions,
-                private _loginService: LoginComponent) { }
+    constructor(private router: RouterExtensions) { }
 
     canActivate() {
         if (getString("token")) {
