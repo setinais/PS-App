@@ -1,0 +1,18 @@
+<ActionBar title="Diário da Saúde" class="action-bar-per">
+    <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
+</ActionBar>
+<RadCalendar
+        [eventSource]="calendarEvents"
+
+        eventsViewMode="Inline"
+        selectionMode="Single"
+        viewMode="Month"
+        transitionMode="Stack"
+        locale="pt-BR"
+
+        (dateSelected)="onDateSelected($event)"
+        (dateDeselected)="onDateDeselected($event)"
+        (navigatedToDate)="onNavigatedToDate($event)"
+        (navigatingToDateStarted)="onNavigatingToDateStarted($event)"
+        (viewModeChanged)="onViewModeChanged($event)"
+></RadCalendar>

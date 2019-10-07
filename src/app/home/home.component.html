@@ -13,7 +13,7 @@
         <ScrollView row="1" scrollBarIndicatorVisible="false" orientation="horizontal" >
             <GridLayout columns="*, *, *, *, *, *, *" class="bottom-navigation">
 
-                <GridLayout  col="0" rows="auto, *, auto" class="bottom-navigation-item" >
+                <GridLayout [nsRouterLink]="['/diario']" pageTransition="slideLeft"  col="0" rows="auto, *, auto" class="bottom-navigation-item" >
                     <Label row="0" text="&#xeec1;" class="fab"></Label>
                     <Label row="2" text="Meu Diario" class="label"></Label>
                 </GridLayout>
