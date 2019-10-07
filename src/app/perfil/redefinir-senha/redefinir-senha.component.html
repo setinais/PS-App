@@ -1,0 +1,17 @@
+<StackLayout>
+    <GridLayout rows="auto" class="page">
+        <Label text="&#xf104;" style="font-size: 25em;" class="fas m-t-16 m-l-20" row="0" clearHistory="true"
+               (tap)="back()" pageTransition="slideRight"></Label>
+        <Image width="150" class="logo" row="0" src="~/imagens/logo.png"></Image>
+    </GridLayout>
+    <StackLayout class="input-btn">
+        <Label class="m-b-20 text" text="Redefina sua senha" textWrap="true"></Label>
+        <FloatLabel #password placeholder="Nova Senha" secure="true" borderBottomColor="#cec8c8"></FloatLabel>
+        <FloatLabel #confirm placeholder="Repita a Nova Senha" secure="true" borderBottomColor="#cec8c8"></FloatLabel>
+        <Label *ngIf="confirm.hasError" class="label-error" [text]="textError"></Label>
+        <Button text="&#xf0c7;   Redefinir" class="fas background-color-padrao btn-redefinir m-t-30"
+                (tap)="onButtonTap()"></Button>
+        <ActivityIndicator [busy]="processing" class="activity-indicator"></ActivityIndicator>
+    </StackLayout>
+
+</StackLayout>

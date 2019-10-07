@@ -1,17 +1,14 @@
 <FlexboxLayout class="page">
-    <StackLayout class="form">
+    <StackLayout class="">
         <PreviousNextView>
             <ScrollView scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
-                <GridLayout rows="auto, *">
-                    <Label text="&#xf060;" style="font-size: 25em" class="fas m-t-16" row="0" clearHistory="true" [nsRouterLink]="['/home']" pageTransition="slideRight"></Label>
+                <GridLayout rows="auto, auto, auto, auto, *">
+                    <Label text="&#xf104;" style="font-size: 25em;" class="fas m-t-16 m-l-20" row="0" clearHistory="true" [nsRouterLink]="['/home']" pageTransition="slideRight"></Label>
                     <Image width="150" class="logo" row="0"  src="~/imagens/logo.png"></Image>
                     <Label [text]="Editar" row="0" (tap)="edit()" class="alter-user m-t-30"></Label>
                     <Label row="1" *ngIf="!reload" (tap)="start()" text="&#xf021;" class="fas reload"></Label>
                     <Label *ngIf="!reload" class="reload-text" text="Não foi possivel buscar os dados! Tente Novamente." row="1" ></Label>
-                    <GridLayout row="1" *ngIf="reload" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto">
-
-
-
+                    <GridLayout class="form" row="1" *ngIf="reload" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto">
 
                         <StackLayout row="1" colSpan="3" class="input-field m-t-90">
                             <TextField #email keyboardType="email" class="input" hint="Email" [(ngModel)]="user.email"
@@ -20,13 +17,6 @@
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.email !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.email !== undefined" [text]="formUserValidator.email[0]" class="label-error"></Label>
                         </StackLayout>
-
-<!--                        <StackLayout row="2" colSpan="3" class="input-field">-->
-<!--                            <TextField #password class="input" [isEnabled]="alterStatus"-->
-<!--                                       hint="Senha" secure="true" formControlName="password"></TextField>-->
-<!--                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.password !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>-->
-<!--                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.password !== undefined" [text]="formUserValidator.password[0]" class="label-error"></Label>-->
-<!--                        </StackLayout>-->
 
                         <StackLayout row="3" colSpan="3" class="input-field">
                             <TextField #name class="input" [isEnabled]="alterStatus"
@@ -46,10 +36,6 @@
                                        keyboardType="phone"
                                        returnKeyType="next"></InputMask>
 
-<!--                            <TextField class="input"-->
-<!--                                       isEnabled="true"-->
-<!--                                       [(ngModel)]="user.cpf"-->
-<!--                            ></TextField>-->
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cpf !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cpf !== undefined" [text]="formUserValidator.cpf[0]" class="label-error"></Label>
                         </StackLayout>
@@ -61,10 +47,6 @@
                                        [(ngModel)]="user.data_nascimento"
                                        (extractedValueChange)=onExtracaoValorDN($event)
                                        class="input" [isEnabled]="alterStatus"></InputMask>
-<!--                            <TextField class="input"-->
-<!--                                       isEnabled="true"-->
-<!--                                      [(ngModel)]="user.data_nascimento"-->
-<!--                            ></TextField>-->
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined" [text]="formUserValidator.data_nascimento[0]" class="label-error"></Label>
                         </StackLayout>
@@ -85,14 +67,23 @@
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined" [text]="formUserValidator.cartao_sus[0]" class="label-error"></Label>
                         </StackLayout>
-                        <StackLayout row="8" class="input-field m-t-90 btn-sair">
-                            <Label class="text-btn-sair" text="Sair" (tap)="logout()"></Label>
-                        </StackLayout>
-                        <Label row="9" class="divider" text=" "></Label>
-                        <StackLayout row="10" class="input-field m-t-90 btn-sair">
-                            <Label class="text-btn-sair" text="Desativar Conta" (tap)="delete()" ></Label>
-                        </StackLayout>
                     </GridLayout>
+                    <Label row="2" class="divider"></Label>
+                    <StackLayout row="3" class="input-field btn-sair">
+                        <GridLayout rows="auto" columns="*" [nsRouterLink]="['/redefinirSenha']" pageTransition="slideLeft" pageTransitionDuration="800">
+                            <Label row="0"  class="text-btn-def m-l-30 fas" text="Redefinir Senha"></Label>
+                            <Label row="0" horizontalAlignment="right" class="text-btn-def m-l-30 fas" style=" width: 10%" text="&#xf105;"></Label>
+                        </GridLayout>
+                        <GridLayout rows="auto" columns="*" class="color-padrao" (tap)="delete()">
+                            <Label class="text-btn-def m-l-30 text-btn-border" text="Desativar Conta"  ></Label>
+                            <Label row="0" horizontalAlignment="right" class="text-btn-def m-l-30 fas" style=" width: 10%" text="&#xf105;"></Label>
+                        </GridLayout>
+                        <GridLayout rows="auto" columns="*" class="color-padrao" (tap)="logout()">
+                            <Label class="text-btn-def m-l-30 " text="Sair"  ></Label>
+                            <Label row="0" horizontalAlignment="right" class="text-btn-def m-l-30 fas" style=" width: 10%" text="&#xf105;"></Label>
+                        </GridLayout>
+                    </StackLayout>
+                    <Label row="4" style="background-color: #e8e7e7; height: 100;"></Label>
                 </GridLayout>
             </ScrollView>
         </PreviousNextView>

@@ -24,7 +24,9 @@ export class AdduserComponent implements OnInit {
 
     user: UserModel
     formUserValidator: UserValidator
-    formUser: FormGroup
+    private cpfextraido: string
+    private dataextraido: string
+    private checkedSwitch: boolean
 
     constructor(private page: Page,
                 private userService: UserService,
@@ -33,15 +35,19 @@ export class AdduserComponent implements OnInit {
         this.user = new UserModel()
         this.processing = false
         this.page.actionBarHidden = !this.page.actionBarHidden
+        this.user.sexo = "Masculino"
+        this.checkedSwitch = false
     }
 
     ngOnInit() {
 
     }
+
     submit() {
         this.processing = !this.processing;
-        console.log(this.formUser.value)
-        this.userService.store(this.formUser.value).subscribe(response => {
+        this.user.cpf = this.cpfextraido
+        this.user.data_nascimento = this.dataextraido
+        this.userService.store(this.user).subscribe(response => {
             this.processing = false
             alert('Cadastro realizado com Sucesso!')
             this.next();
@@ -49,7 +55,6 @@ export class AdduserComponent implements OnInit {
             this.processing = false
             if (error.status == 422) {
                 this.formUserValidator = error.error['errors']
-                console.log(error.error)
             } else {
                 this.alert(error.error, 'Atenção')
             }
@@ -58,10 +63,6 @@ export class AdduserComponent implements OnInit {
 
     focusPassword() {
         this.password.nativeElement.focus();
-    }
-
-    focusConfirmPassword() {
-        this.confirmPassword.nativeElement.focus();
     }
 
     focusNome() {
@@ -89,7 +90,7 @@ export class AdduserComponent implements OnInit {
     }
 
     onExtracaoValorAlterado(args){
-        this.formUser.get('cpf').setValue(args.value)
+        this.cpfextraido = args.value
     }
 
     onExtracaoValorDN(args){
@@ -97,15 +98,17 @@ export class AdduserComponent implements OnInit {
         let mes = args.value.split("/")[1]
         let ano = args.value.split("/")[2]
 
-        this.formUser.get('data_nascimento').setValue(ano+'-'+mes+'-'+dia)
+        this.dataextraido = ano + '-' + mes + '-' + dia
 
     }
-    onChangeSexo(args: EventData){
+    onChangeSexo(args: EventData) {
         let bool = args.object as Switch;
-        if(!bool.checked){
-            this.formUser.get('sexo').setValue('Masculino')
-        }else {
-            this.formUser.get('sexo').setValue('Feminino')
+        if (!bool.checked) {
+            this.checkedSwitch = false
+            this.user.sexo = 'Masculino'
+        } else {
+            this.checkedSwitch = true
+            this.user.sexo = 'Feminino'
         }
     }
 }

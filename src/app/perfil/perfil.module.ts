@@ -5,12 +5,16 @@ import {NativeScriptFormsModule, NativeScriptRouterModule} from "nativescript-an
 import {ReactiveFormsModule} from "@angular/forms";
 import {InputMaskModule} from "nativescript-input-mask/angular";
 import { PutuserComponent } from './putuser/putuser.component';
+import { RedefinirSenhaComponent } from './redefinir-senha/redefinir-senha.component';
+import {FloatLabel} from "~/styles/float-label";
 
 
 @NgModule({
   declarations: [
       AdduserComponent,
-      PutuserComponent
+      PutuserComponent,
+      RedefinirSenhaComponent,
+      FloatLabel
   ],
     imports: [
         NativeScriptCommonModule,

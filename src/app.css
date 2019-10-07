@@ -20,3 +20,11 @@ refer to http://docs.nativescript.org/ui/theme.
     font-family: "Font Awesome 5 Free", "fa-brands-400";
     font-weight: 400;
 }
+
+.color-padrao{
+    color: #b72806;
+}
+
+.background-color-padrao{
+    background-color: #b72806;
+}

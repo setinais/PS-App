@@ -4,13 +4,13 @@
         <PreviousNextView>
             <ScrollView scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
                 <GridLayout rows="auto">
-                    <GridLayout [formGroup]="formUser" row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
+                    <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
 
                         <Label text="&#xf060;" style="font-size: 25em" class="fas m-t-16" row="0" clearHistory="true" [nsRouterLink]="['/login']" pageTransition="slideRight"></Label>
                         <Image width="150" class="logo m-b-30" row="0"  src="~/imagens/logo.png"></Image>
 
                         <StackLayout row="1" class="input-field m-t-30">
-                            <TextField #email keyboardType="email" class="input" hint="Email" formControlName="email"
+                            <TextField #email keyboardType="email" class="input" hint="Email" [(ngModel)]="user.email"
                                        (returnPress)="focusPassword()" [isEnabled]="!processing"
                             ></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.email !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
@@ -19,7 +19,7 @@
 
                         <StackLayout row="2" class="input-field">
                             <TextField #password class="input" [isEnabled]="!processing"
-                                       hint="Senha" secure="true" formControlName="password"
+                                       hint="Senha" secure="true" [(ngModel)]="user.password"
                                        (returnPress)="focusNome()"></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.password !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.password !== undefined" [text]="formUserValidator.password[0]" class="label-error"></Label>
@@ -27,7 +27,7 @@
 
                         <StackLayout row="3" class="input-field">
                             <TextField #name class="input" [isEnabled]="!processing" (returnPress)="focusCpf()"
-                                       hint="Nome" formControlName="name"
+                                       hint="Nome" [(ngModel)]="user.name"
                                        returnKeyType="done"></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.name !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.name !== undefined" [text]="formUserValidator.name[0]" class="label-error"></Label>
@@ -36,6 +36,7 @@
                         <StackLayout row="4" class="input-field">
                             <InputMask #cpf class="input"
                                        [isEnabled]="!processing"
+                                       [(ngModel)]="user.cpf"
                                        (extractedValueChange)=onExtracaoValorAlterado($event)
                                        (returnPress)="focusDataNascimento()"
                                        mask="[000].[000].[000]-[00]"
@@ -52,6 +53,7 @@
                             <InputMask #data_nascimento mask="[00]{/}[00]{/}[0000]"
                                        keyboardType="datetime"
                                        hint="Data de Nascimento"
+                                       [(ngModel)]="user.data_nascimento"
                                        (extractedValueChange)=onExtracaoValorDN($event)
                                        class="input" [isEnabled]="!processing"></InputMask>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
@@ -60,7 +62,7 @@
 
                         <StackLayout row="6" class="input-field">
                             <GridLayout rows="auto" columns="auto,auto">
-                                <Label class="label-sexo" row="0" col="0" [text]="formUser.get('sexo').value"></Label>
+                                <Label class="label-sexo" row="0" col="0" [text]="user.sexo"></Label>
                                 <Switch class="m-l-28" row="0" col="1" checked="false" (checkedChange)="onChangeSexo($event)"></Switch>
                             </GridLayout>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.sexo !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
@@ -69,7 +71,7 @@
                         <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
                         <StackLayout row="7" class="input-field">
                             <TextField #cartao_sus keyboardType="number" class="input" [isEnabled]="!processing"
-                                       hint="Cartão SUS" formControlName="cartao_sus"
+                                       hint="Cartão SUS" [(ngModel)]="user.cartao_sus"
                                        returnKeyType="next"></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined" [text]="formUserValidator.cartao_sus[0]" class="label-error"></Label>

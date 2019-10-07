@@ -41,10 +41,6 @@
     color: black;
 }
 
-.pay-amount {
-    color: #b72806;
-}
-
 .time-information {
     margin: 0;
 }
@@ -69,7 +65,6 @@
     color: darkred;
 }
 .action-bar-per{
-    background-color: #b72806;
     color: white;
 }
 .go-back{

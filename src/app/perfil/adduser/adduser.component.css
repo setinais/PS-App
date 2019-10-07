@@ -46,10 +46,6 @@
     color: white;
     font-weight: 500;
 }
-.overlay{
-    background-color: #b72806;
-    opacity: 0.5;
-}
 .label-error{
     color: #D51A1A;
     font-weight: 600;

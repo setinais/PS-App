@@ -5,6 +5,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import {AuthService} from "~/app/services/auth.service";
 import {CredentialsModel} from "~/app/models/credentials.model";
 import {client_id, client_secret} from "~/app/configs/url-default";
+import {getString} from "tns-core-modules/application-settings";
 
 @Component({
     selector: "app-login",
@@ -27,6 +28,9 @@ export class LoginComponent {
         this.credentials.client_id = client_id
         this.credentials.client_secret = client_secret
         this.credentials.grant_type = "password"
+
+        if(getString("token"))
+            this.routeExtension.navigate(['/home'])
     }
 
     submit() {
