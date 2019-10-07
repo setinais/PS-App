@@ -13,6 +13,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { VisualizacoesComponent } from './visualizacoes/visualizacoes.component';
 import {InputMaskModule} from "nativescript-input-mask/angular";
 import {TokenInterceptor} from "~/app/interceptor/intercptor";
+import { DiarioSaudeComponent } from './diario-saude/diario-saude.component';
+import {NativeScriptUICalendarModule} from "nativescript-ui-calendar/angular";
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import {TokenInterceptor} from "~/app/interceptor/intercptor";
         NativeScriptHttpClientModule,
         PerfilModule,
         HttpClientModule,
-        InputMaskModule
+        InputMaskModule,
+        NativeScriptUICalendarModule,
     ],
     declarations: [
         AppComponent,
@@ -34,6 +37,7 @@ import {TokenInterceptor} from "~/app/interceptor/intercptor";
         LoginComponent,
         HomeComponent,
         VisualizacoesComponent,
+        DiarioSaudeComponent,
     ],
     providers: [
         {
