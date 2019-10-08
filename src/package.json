@@ -3,5 +3,14 @@
   "android": {
     "v8Flags": "--expose_gc",
     "markingMode": "none"
+  },
+  "nativescript": {
+    "id": "com.galeradoestudo.paraiso-saude",
+    "tns-android": {
+      "version": "1.0"
+    },
+    "tns-ios": {
+      "version": "1.0"
+    }
   }
 }
