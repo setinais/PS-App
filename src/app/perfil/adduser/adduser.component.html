@@ -10,7 +10,8 @@
                         <Image width="150" class="logo m-b-30" row="0"  src="~/imagens/logo.png"></Image>
 
                         <StackLayout row="1" class="input-field m-t-30">
-                            <TextField #email keyboardType="email" class="input" hint="Email" [(ngModel)]="user.email"
+                            <Label text="&#xf0e0; E-mail" class="fas label-text"></Label>
+                            <TextField #email keyboardType="email" class="input" hint="example@example.com" [(ngModel)]="user.email"
                                        (returnPress)="focusPassword()" [isEnabled]="!processing"
                             ></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.email !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
@@ -18,30 +19,31 @@
                         </StackLayout>
 
                         <StackLayout row="2" class="input-field">
-                            <TextField #password class="input" [isEnabled]="!processing"
-                                       hint="Senha" secure="true" [(ngModel)]="user.password"
+                            <Label class="fas label-text" text="&#xf084; Senha" textWrap="true"></Label>
+                            <TextField #password class="input" hint="xxxxxx" [isEnabled]="!processing" secure="true" [(ngModel)]="user.password"
                                        (returnPress)="focusNome()"></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.password !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.password !== undefined" [text]="formUserValidator.password[0]" class="label-error"></Label>
                         </StackLayout>
 
                         <StackLayout row="3" class="input-field">
-                            <TextField #name class="input" [isEnabled]="!processing" (returnPress)="focusCpf()"
-                                       hint="Nome" [(ngModel)]="user.name"
+                            <Label text="&#xf5b7; Nome Completo" class="fas label-text"></Label>
+                            <TextField #name class="input" hint="Vinnicyus Carvalho" [isEnabled]="!processing" (returnPress)="focusCpf()" [(ngModel)]="user.name"
                                        returnKeyType="done"></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.name !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.name !== undefined" [text]="formUserValidator.name[0]" class="label-error"></Label>
                         </StackLayout>
 
                         <StackLayout row="4" class="input-field">
+                            <Label text="&#xf47f; CPF" class="fas label-text"></Label>
                             <InputMask #cpf class="input"
+                                       hint="000.000.000-00"
                                        [isEnabled]="!processing"
                                        [(ngModel)]="user.cpf"
                                        (extractedValueChange)=onExtracaoValorAlterado($event)
                                        (returnPress)="focusDataNascimento()"
                                        mask="[000].[000].[000]-[00]"
                                        keyboardType="phone"
-                                       hint="CPF"
                                        returnKeyType="next"></InputMask>
 
 
@@ -50,9 +52,10 @@
                         </StackLayout>
 
                         <StackLayout row="5" class="input-field">
+                            <Label text="&#xf133; Data de Nascimento" class="fas label-text"></Label>
                             <InputMask #data_nascimento mask="[00]{/}[00]{/}[0000]"
+                                       hint="00/00/0000"
                                        keyboardType="datetime"
-                                       hint="Data de Nascimento"
                                        [(ngModel)]="user.data_nascimento"
                                        (extractedValueChange)=onExtracaoValorDN($event)
                                        class="input" [isEnabled]="!processing"></InputMask>
@@ -61,6 +64,7 @@
                         </StackLayout>
 
                         <StackLayout row="6" class="input-field">
+                            <Label text="&#xf228; Sexo" class="fas label-text"></Label>
                             <GridLayout rows="auto" columns="auto,auto">
                                 <Label class="label-sexo" row="0" col="0" [text]="user.sexo"></Label>
                                 <Switch class="m-l-28" row="0" col="1" checked="false" (checkedChange)="onChangeSexo($event)"></Switch>
@@ -70,8 +74,10 @@
                         </StackLayout>
                         <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
                         <StackLayout row="7" class="input-field">
+                            <Label text="&#xf2c2; Cartão SUS" class="fas label-text"></Label>
                             <TextField #cartao_sus keyboardType="number" class="input" [isEnabled]="!processing"
-                                       hint="Cartão SUS" [(ngModel)]="user.cartao_sus"
+                                       [(ngModel)]="user.cartao_sus"
+                                       hint="000000000000"
                                        returnKeyType="next"></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined" [text]="formUserValidator.cartao_sus[0]" class="label-error"></Label>

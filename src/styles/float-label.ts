@@ -6,7 +6,7 @@ import { Color } from "tns-core-modules/color";
     moduleId: module.id,
     template: `
         <GridLayout rows="30, auto" marginBottom="5">
-            <Label #label row="1" [text]="placeholder" opacity="0.4" fontSize="14"  class="input"></Label>
+            <Label #label row="1" [text]="placeholder" opacity="0.4" fontSize="14"  class="input fas"></Label>
             <TextField #textField [secure]="secure" [isEnabled]="disabled" [(ngModel)]="value" row="1"  (focus)="onFocus()" (blur)="onBlur()" borderBottomWidth="3"  [borderBottomColor]="borderBottomColor" padding="2" ></TextField>
         </GridLayout>
     `
@@ -15,8 +15,8 @@ export class FloatLabel {
     @Input() placeholder: string;
     @Input() secure: boolean;
     @Input() borderBottomColor: string;
-    @ViewChild("label") label: ElementRef;
-    @ViewChild("textField") textField: ElementRef;
+    @ViewChild("label", {static: false}) label: ElementRef;
+    @ViewChild("textField", {static: false}) textField: ElementRef;
 
     public value: string
     public hasError: boolean

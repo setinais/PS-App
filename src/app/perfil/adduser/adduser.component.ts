@@ -26,6 +26,7 @@ export class AdduserComponent implements OnInit {
     formUserValidator: UserValidator
     private cpfextraido: string
     private dataextraido: string
+    private dataoriginal: string
     private checkedSwitch: boolean
 
     constructor(private page: Page,
@@ -54,8 +55,10 @@ export class AdduserComponent implements OnInit {
         }, error => {
             this.processing = false
             if (error.status == 422) {
+                this.user.data_nascimento = this.dataoriginal
                 this.formUserValidator = error.error['errors']
             } else {
+                console.log(error)
                 this.alert(error.error, 'Atenção')
             }
         })
@@ -97,7 +100,7 @@ export class AdduserComponent implements OnInit {
         let dia = args.value.split("/")[0]
         let mes = args.value.split("/")[1]
         let ano = args.value.split("/")[2]
-
+        this.dataoriginal = args.value
         this.dataextraido = ano + '-' + mes + '-' + dia
 
     }

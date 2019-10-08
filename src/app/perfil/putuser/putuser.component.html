@@ -1,16 +1,17 @@
 <FlexboxLayout class="page">
     <StackLayout class="">
         <PreviousNextView>
-            <ScrollView scrollBarIndicatorVisible="false" class="form scrolview m-t-30" orientation="vertical">
+            <ScrollView scrollBarIndicatorVisible="false" class="form scrolview" orientation="vertical">
                 <GridLayout rows="auto, auto, auto, auto, *">
                     <Label text="&#xf104;" style="font-size: 25em;" class="fas m-t-16 m-l-20" row="0" clearHistory="true" [nsRouterLink]="['/home']" pageTransition="slideRight"></Label>
                     <Image width="150" class="logo" row="0"  src="~/imagens/logo.png"></Image>
                     <Label [text]="Editar" row="0" (tap)="edit()" class="alter-user m-t-30"></Label>
-                    <Label row="1" *ngIf="!reload" (tap)="start()" text="&#xf021;" class="fas reload"></Label>
-                    <Label *ngIf="!reload" class="reload-text" text="Não foi possivel buscar os dados! Tente Novamente." row="1" ></Label>
+                    <Label rowSpan="2"  *ngIf="!reload" (tap)="start()" text="&#xf021;" class="fas reload"></Label>
+                    <Label *ngIf="!reload" verticalAlignment="center" horizontalAlignment="center" class="reload-text" text="Não foi possivel buscar os dados! Tente Novamente." rowSpan="2" ></Label>
                     <GridLayout class="form" row="1" *ngIf="reload" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto">
 
                         <StackLayout row="1" colSpan="3" class="input-field m-t-90">
+                            <Label text="&#xf0e0; E-mail" class="fas label-text"></Label>
                             <TextField #email keyboardType="email" class="input" hint="Email" [(ngModel)]="user.email"
                                        [isEnabled]="alterStatus"
                             ></TextField>
@@ -19,8 +20,9 @@
                         </StackLayout>
 
                         <StackLayout row="3" colSpan="3" class="input-field">
+                            <Label text="&#xf5b7; Nome Completo" class="fas label-text"></Label>
                             <TextField #name class="input" [isEnabled]="alterStatus"
-                                       hint="Nome" [(ngModel)]="user.name"
+                                       [(ngModel)]="user.name"
                                        returnKeyType="done"></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.name !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.name !== undefined" [text]="formUserValidator.name[0]" class="label-error"></Label>
@@ -28,6 +30,7 @@
 
 
                         <StackLayout row="4" class="input-field">
+                            <Label text="&#xf47f; CPF" class="fas label-text"></Label>
                             <InputMask #cpf class="input"
                                        [isEnabled]="alterStatus"
                                        (extractedValueChange)=onExtracaoValorAlterado($event)
@@ -41,9 +44,9 @@
                         </StackLayout>
 
                         <StackLayout row="5" class="input-field">
+                            <Label text="&#xf133; Data de Nascimento" class="fas label-text"></Label>
                             <InputMask #data_nascimento mask="[00]{/}[00]{/}[0000]"
                                        keyboardType="datetime"
-                                       hint="Data de Nascimento"
                                        [(ngModel)]="user.data_nascimento"
                                        (extractedValueChange)=onExtracaoValorDN($event)
                                        class="input" [isEnabled]="alterStatus"></InputMask>
@@ -52,6 +55,7 @@
                         </StackLayout>
 
                         <StackLayout row="6" class="input-field">
+                            <Label text="&#xf228; Sexo" class="fas label-text"></Label>
                             <GridLayout rows="auto" columns="auto,*">
                                 <Label class="label-sexo" row="0" col="0" [text]="user.sexo"></Label>
                                 <Switch class="m-l-28" row="0" col="1" [checked]="checkedSwitch" (checkedChange)="onChangeSexo($event)" [isEnabled]="alterStatus"></Switch>
@@ -61,8 +65,8 @@
                         </StackLayout>
                         <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
                         <StackLayout row="7" class="input-field">
-                            <TextField keyboardType="number" class="input" [isEnabled]="alterStatus"
-                                       hint="Cartão SUS" [(ngModel)]="user.cartao_sus"
+                            <Label text="&#xf2c2; Cartão SUS" class="fas label-text"></Label>
+                            <TextField keyboardType="number" class="input" [isEnabled]="alterStatus" [(ngModel)]="user.cartao_sus"
                                        returnKeyType="next"></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cartao_sus !== undefined" [text]="formUserValidator.cartao_sus[0]" class="label-error"></Label>
@@ -71,15 +75,15 @@
                     <Label row="2" class="divider"></Label>
                     <StackLayout row="3" class="input-field btn-sair">
                         <GridLayout rows="auto" columns="*" [nsRouterLink]="['/redefinirSenha']" pageTransition="slideLeft" pageTransitionDuration="800">
-                            <Label row="0"  class="text-btn-def m-l-30 fas" text="Redefinir Senha"></Label>
+                            <Label row="0"  class="text-btn-def m-l-30 fas" text="&#xf023; Redefinir Senha"></Label>
                             <Label row="0" horizontalAlignment="right" class="text-btn-def m-l-30 fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
                         <GridLayout rows="auto" columns="*" class="color-padrao" (tap)="delete()">
-                            <Label class="text-btn-def m-l-30 text-btn-border" text="Desativar Conta"  ></Label>
+                            <Label class="text-btn-def m-l-30 text-btn-border fas" text="&#xf506; Desativar Conta"  ></Label>
                             <Label row="0" horizontalAlignment="right" class="text-btn-def m-l-30 fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
                         <GridLayout rows="auto" columns="*" class="color-padrao" (tap)="logout()">
-                            <Label class="text-btn-def m-l-30 " text="Sair"  ></Label>
+                            <Label class="text-btn-def m-l-30 fas" text="&#xf2f5; Sair"  ></Label>
                             <Label row="0" horizontalAlignment="right" class="text-btn-def m-l-30 fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
                     </StackLayout>

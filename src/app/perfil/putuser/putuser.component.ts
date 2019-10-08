@@ -42,21 +42,21 @@ export class PutuserComponent implements OnInit {
         this.start()
     }
     start(){
-        this.reload = !this.reload
+        this.reload = true
         this.userService.show(0).subscribe(response => {
             this.userOld = response['data']
             this.prepareForm(response['data'])
-            this.processing = !this.processing
+            this.processing = false
         }, error => {
-            this.processing = !this.processing
-            this.alterStatus = !this.alterStatus
-            this.reload = !this.reload
+            this.processing = false
+            this.alterStatus = false
+            this.reload = false
         })
     }
     edit() {
         this.alterStatus = !this.alterStatus
         if (this.Editar == "Salvar") {
-            this.processing = !this.processing
+            this.processing = true
             this.checkAlter()
         } else {
             this.Editar = "Salvar"

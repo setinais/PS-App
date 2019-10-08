@@ -21,6 +21,11 @@ refer to http://docs.nativescript.org/ui/theme.
     font-weight: 400;
 }
 
+.icon{
+    font-family: "IcoMoon-Free", "IconMoon-Free";
+    font-weight: 400;
+}
+
 .color-padrao{
     color: #b72806;
 }

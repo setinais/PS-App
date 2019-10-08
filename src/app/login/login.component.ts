@@ -49,8 +49,15 @@ export class LoginComponent {
                 this.go()
 
             }, error => {
+                if(error.status == 422){
+                    this.alert(error.error['message'])
+                }else if(error.status == 401){
+                    this.alert('E-mail ou senha invalidos!')
+                }else{
+                    this.alert("Falha de conexão, tente novamente!")
+                }
                 this.processing = false
-                this.alert("Falha de conexão, tente novamente!")
+                console.log(error)
             })
     }
 
