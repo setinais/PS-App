@@ -30,7 +30,6 @@ export class AuthService {
         setString("expires_in", today.toString())
         setString("refresh_token",theToken.refresh_token)
         setBoolean("status_auth", true)
-        console.log(getString("token"))
 
     }
 

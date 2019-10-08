@@ -54,6 +54,10 @@
     background-color: #D51A1A;
 }
 
+.label-text{
+    padding: 0 0 10 10;
+}
+
 .label-sexo{
     font-size: 16pt;
 }

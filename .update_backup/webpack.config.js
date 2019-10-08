@@ -50,8 +50,6 @@ module.exports = env => {
         hmr, // --env.hmr,
         unitTesting, // --env.unitTesting
         verbose, // --env.verbose
-        snapshotInDocker, // --env.snapshotInDocker
-        skipSnapshotTools // --env.skipSnapshotTools
     } = env;
 
     const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
@@ -272,7 +270,7 @@ module.exports = env => {
             new CopyWebpackPlugin([
                 { from: { glob: "fonts/**" } },
                 { from: { glob: "**/*.jpg" } },
-                { from: { glob: "**/*.png" } },
+                { from: { glob: "**/*.png" } }
             ], { ignore: [`${relative(appPath, appResourcesFullPath)}/**`] }),
             new nsWebpack.GenerateNativeScriptEntryPointsPlugin("bundle"),
             // For instructions on how to set up workers with webpack
@@ -310,8 +308,6 @@ module.exports = env => {
             ],
             projectRoot,
             webpackConfig: config,
-            snapshotInDocker,
-            skipSnapshotTools
         }));
     }
 
