@@ -2,7 +2,7 @@
 hooks/
 node_modules/
 platforms/
-
+keystore_android/
 # NativeScript Template
 *.js.map
 *.js
