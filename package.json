@@ -2,10 +2,10 @@
   "nativescript": {
     "id": "org.paraisosaude.paraisosaude",
     "tns-android": {
-      "version": "1.0"
+      "version": "6.1.2"
     },
     "tns-ios": {
-      "version": "1.0"
+      "version": "6.1.0"
     }
   },
   "description": "NativeScript Application",

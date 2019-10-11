@@ -12,7 +12,7 @@ import {RedefinirSenhaComponent} from "~/app/perfil/redefinir-senha/redefinir-se
 import {DiarioSaudeComponent} from "~/app/diario-saude/diario-saude.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/login", pathMatch: "full"},
+    { path: "", redirectTo: "/diario", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },

@@ -3,6 +3,9 @@ hooks/
 node_modules/
 platforms/
 keystore_android/
+.migration_backup/
+.update_backup/
+
 # NativeScript Template
 *.js.map
 *.js
