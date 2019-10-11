@@ -1,9 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {GridLayout} from "tns-core-modules/ui/layouts/grid-layout";
-import {UserModel, UserValidator} from "~/app/models/user.model";
+import {UserModel, UserValidator} from "~/models/user.model";
 import {EventData, Page} from "tns-core-modules/ui/page";
-import {UserService} from "~/app/services/user.service";
-import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {UserService} from "~/services/user.service";
+import {FormBuilder} from "@angular/forms";
 import {RouterExtensions} from "nativescript-angular";
 import {Switch} from "tns-core-modules/ui/switch";
 

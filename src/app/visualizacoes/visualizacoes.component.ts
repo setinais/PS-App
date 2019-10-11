@@ -1,10 +1,9 @@
 import {ItemEventData} from "tns-core-modules/ui/list-view"
 import {Component, OnInit} from '@angular/core';
-import {LocalizacaoModel, VisualizacaoModel} from "~/app/models/visualizacao.model";
+import {LocalizacaoModel, VisualizacaoModel} from "~/models/visualizacao.model";
 import {Page} from "tns-core-modules/ui/page";
 import {RouterExtensions} from "nativescript-angular";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {switchMap} from "rxjs/internal/operators";
+import {ActivatedRoute} from "@angular/router";
 import * as utils from "tns-core-modules/utils/utils";
 
 @Component({

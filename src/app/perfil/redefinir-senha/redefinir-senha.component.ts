@@ -2,8 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Page} from "tns-core-modules/ui/page";
 import {RouterExtensions} from "nativescript-angular";
 import {FloatLabel} from "~/styles/float-label";
-import {UserModel} from "~/app/models/user.model";
-import {UserService} from "~/app/services/user.service";
+import {UserModel} from "~/models/user.model";
+import {UserService} from "~/services/user.service";
 
 @Component({
     selector: 'ns-redefinir-senha',

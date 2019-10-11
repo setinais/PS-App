@@ -1,13 +1,7 @@
-import {Injectable, NgModule} from "@angular/core";
-import {
-    HttpInterceptor,
-    HttpEvent,
-    HttpHandler,
-    HttpRequest,
-    HttpHeaders,
-} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest,} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {AuthService} from "~/app/services/auth.service";
+import {AuthService} from "~/services/auth.service";
 import {getString} from "tns-core-modules/application-settings";
 
 @Injectable()

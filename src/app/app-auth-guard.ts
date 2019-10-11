@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {CanActivate} from "@angular/router";
 import {getString} from "tns-core-modules/application-settings";
 import {RouterExtensions} from "nativescript-angular";

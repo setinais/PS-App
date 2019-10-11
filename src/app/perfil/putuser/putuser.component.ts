@@ -1,11 +1,10 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {UserModel, UserValidator} from "~/app/models/user.model";
+import {Component, OnInit} from '@angular/core';
+import {UserModel, UserValidator} from "~/models/user.model";
 import {EventData, Page} from "tns-core-modules/ui/page";
-import {UserService} from "~/app/services/user.service";
+import {UserService} from "~/services/user.service";
 import {RouterExtensions} from "nativescript-angular";
 import {Switch} from "tns-core-modules/ui/switch";
-import {AuthService} from "~/app/services/auth.service";
-import {getString} from "tns-core-modules/application-settings";
+import {AuthService} from "~/services/auth.service";
 
 @Component({
     selector: 'ns-putuser',

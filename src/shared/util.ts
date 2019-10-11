@@ -1,14 +1,10 @@
 import {Visibility} from "tns-core-modules/ui/enums";
-import collapse = Visibility.collapse;
-import {colorProperty} from "tns-core-modules/ui/styling/style-properties";
 
 
-import { isIOS, isAndroid } from "tns-core-modules/platform";
-import { Color } from "tns-core-modules/color";
-import * as utils from "tns-core-modules/utils/utils";
+import {isAndroid, isIOS} from "tns-core-modules/platform";
+import {Color} from "tns-core-modules/color";
 import * as frame from 'tns-core-modules/ui/frame';
 import * as application from 'tns-core-modules/application';
-
 
 
 // Mascara Telefone

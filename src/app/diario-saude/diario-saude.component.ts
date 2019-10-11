@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as calendarModule from "nativescript-ui-calendar";
 import {Color} from "tns-core-modules/color";
 

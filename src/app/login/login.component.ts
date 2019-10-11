@@ -1,10 +1,10 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
-import { alert } from "tns-core-modules/ui/dialogs";
-import { Page } from "tns-core-modules/ui/page";
-import { RouterExtensions } from "nativescript-angular/router";
-import {AuthService} from "~/app/services/auth.service";
-import {CredentialsModel} from "~/app/models/credentials.model";
-import {client_id, client_secret} from "~/app/configs/url-default";
+import {Component, ElementRef, ViewChild} from "@angular/core";
+import {alert} from "tns-core-modules/ui/dialogs";
+import {Page} from "tns-core-modules/ui/page";
+import {RouterExtensions} from "nativescript-angular/router";
+import {AuthService} from "~/services/auth.service";
+import {CredentialsModel} from "~/models/credentials.model";
+import {client_id, client_secret} from "~/configs/url-default";
 import {getString} from "tns-core-modules/application-settings";
 
 @Component({

@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {CredentialsModel} from "~/app/models/credentials.model";
-import {url_api} from "~/app/configs/url-default";
-import {TokenModel} from "~/app/models/token.model";
+import {CredentialsModel} from "~/models/credentials.model";
+import {url_api} from "~/configs/url-default";
+import {TokenModel} from "~/models/token.model";
 import {tap} from "rxjs/internal/operators";
 import {getString, setBoolean, setString} from "tns-core-modules/application-settings";
 
