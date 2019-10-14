@@ -11,9 +11,11 @@ import {VisualizacoesComponent} from "~/app/visualizacoes/visualizacoes.componen
 import {RedefinirSenhaComponent} from "~/app/perfil/redefinir-senha/redefinir-senha.component";
 import {DiarioSaudeComponent} from "~/app/diario-saude/diario-saude.component";
 import {LocalRiscoComponent} from "~/app/local-risco/local-risco.component";
+import { DiarioSaudeDetalhesComponent } from "./diario-saude-detalhes/diario-saude-detalhes.component";
+import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-saude-perguntas.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/localrisco", pathMatch: "full"},
+    { path: "", redirectTo: "/home", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },
@@ -21,7 +23,9 @@ const routes: Routes = [
     { path: "putuser", component: PutuserComponent},
     { path: "visualizacao", component: VisualizacoesComponent},
     { path: "redefinirSenha", component: RedefinirSenhaComponent },
-    { path: "diario", component: DiarioSaudeComponent },
+    { path: "diario-saude", component: DiarioSaudeComponent },
+    { path: "diario-saude-detalhes", component: DiarioSaudeDetalhesComponent},
+    { path: "diario-saude-perguntas", component: DiarioSaudePerguntasComponent},
     { path: "localrisco", component: LocalRiscoComponent },
 ];
 

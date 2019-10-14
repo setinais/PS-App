@@ -1,19 +1,17 @@
 <ActionBar title="Diário da Saúde" class="action-bar-per background-color-padrao">
     <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
-<FlexboxLayout>
-    <RadCalendar
-            [eventSource]="calendarEvents"
-
-            selectionMode="Single"
-            viewMode="Month"
-            transitionMode="Stack"
-            locale="pt-BR"
-
-            (dateSelected)="onDateSelected($event)"
-            (dateDeselected)="onDateDeselected($event)"
-            (navigatedToDate)="onNavigatedToDate($event)"
-            (navigatingToDateStarted)="onNavigatingToDateStarted($event)"
-            (viewModeChanged)="onViewModeChanged($event)"
-    ></RadCalendar>
+<FlexboxLayout class="page">
+    <Label class="title-question" text="Como está sua saúde neste momento?" textWrap="true"></Label>
+    <StackLayout class="saude-diaria">
+        <StackLayout class="bom" (tap)="redirectHome()">
+            <Label text="&#xf118;" class="fas ico"></Label>
+            <Label text="Bom" textWrap="true"></Label>            
+        </StackLayout>
+        <StackLayout class="ruim" (tap)="redirectPerguntas()">
+            <Label text="&#xf119;" class="fas ico"></Label>
+            <Label text="Ruim" textWrap="true"></Label>  
+        </StackLayout>
+    </StackLayout>
 </FlexboxLayout>
+

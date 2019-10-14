@@ -1,4 +1,43 @@
 /* Add mobile styles for the component here.  */
+.page {
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.saude-diaria {
+    flex-grow: 1;
+    vertical-align: middle;
+}
+
 .action-bar-per{
     color: white;
+}
+
+.title-question {
+    text-align: center;
+    font-weight: 500;
+    font-size: 35;
+    margin-top: 7%;
+}
+
+.bom {
+    text-align: center;
+}
+
+.bom .ico {
+    color: #e5e619;
+}
+
+.ico {
+    font-size: 120;
+}
+
+.ruim {
+    text-align: center;
+    margin-top:60;
+}
+
+.ruim .ico {
+    color: #e61919;
 }

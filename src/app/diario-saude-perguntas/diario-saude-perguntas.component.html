@@ -1,0 +1,31 @@
+<ActionBar title="Diário da Saúde" class="action-bar-per background-color-padrao">
+	<NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/diario-saude']"
+		clearHistory="true" pageTransition="slideRight"></NavigationButton>
+</ActionBar>
+<ScrollView>
+		<StackLayout class="page">
+				<GridLayout rows="auto" class="grid-perguntas">
+					<RadListView row="0" [items]="perguntas">
+						<ng-template tkListItemTemplate let-pergunta="item">
+							<StackLayout class="perguntas-content">
+								<GridLayout rows="auto" columns="*, auto">
+										<Label row="0" col="0" horizontalAlignment="center" [text]="pergunta.categoria" (tap)="clicked(pergunta)"
+										class="categoria-perguntas"></Label>
+										<Label row="0" col="1" text="&#xf107;" class="fas ico" verticalAlignment="middle"></Label>
+								</GridLayout>
+								
+								<StackLayout class="m-t-10">
+										<StackLayout *ngFor="let tipo of pergunta.tipos" class="opcoes-perguntas">
+												<CheckBox #CB1 [text]="tipo.name" checked="false"
+													[visibility]="clickedArray.includes(pergunta) ? 'visible' : 'collapsed'"></CheckBox>
+												<!-- <Label horizontalAlignment="center" [visibility]="clickedArray.includes(pergunta) ? 'visible' : 'collapsed'" [text]="tipo.name "></Label> -->
+												<!-- <Label [visibility]="clickedArray.includes(pergunta) ? 'visible' : 'collapsed'" [text]="person.age "></Label> -->
+											</StackLayout>
+								</StackLayout>	
+							</StackLayout>
+						</ng-template>
+					</RadListView>
+				</GridLayout>
+				<Button text="Confirmar" (tap)="confirmarQuestionario()" class="btn btn-primary m-t-20"></Button>
+			</StackLayout>
+</ScrollView>

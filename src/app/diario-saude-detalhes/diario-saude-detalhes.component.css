@@ -1,0 +1,18 @@
+/* Add mobile styles for the component here.  */
+.page {
+    background-color: #f6f8fa;    
+}
+
+.card-status {
+    margin: 10px;
+    background-color: white;
+    height: 200px;
+}
+
+.card-calendario {
+    height: 60%;
+    widows: 80%;
+    margin: 10px;
+    background-color: white;
+    padding: 10px;
+}

@@ -1,21 +1,26 @@
-import {NgModule, NO_ERRORS_SCHEMA} from "@angular/core";
-import {NativeScriptModule} from "nativescript-angular/nativescript.module";
+import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
+import { TNSCheckBoxModule } from '@nstudio/nativescript-checkbox/angular';
 
-import {AppRoutingModule} from "./app-routing.module";
-import {AppComponent} from "./app.component";
-import {IndexComponent} from './index/index.component';
-import {LoginComponent} from './login/login.component';
-import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
-import {NativeScriptFormsModule} from "nativescript-angular";
-import {PerfilModule} from "~/app/perfil/perfil.module";
-import {HomeComponent} from './home/home.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {VisualizacoesComponent} from './visualizacoes/visualizacoes.component';
-import {InputMaskModule} from "nativescript-input-mask/angular";
-import {TokenInterceptor} from "~/interceptor/intercptor";
-import {DiarioSaudeComponent} from './diario-saude/diario-saude.component';
-import {NativeScriptUICalendarModule} from "nativescript-ui-calendar/angular";
-import {LocalRiscoComponent} from './local-risco/local-risco.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { IndexComponent } from './index/index.component';
+import { LoginComponent } from './login/login.component';
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptFormsModule } from "nativescript-angular";
+import { PerfilModule } from "~/app/perfil/perfil.module";
+import { HomeComponent } from './home/home.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { VisualizacoesComponent } from './visualizacoes/visualizacoes.component';
+import { InputMaskModule } from "nativescript-input-mask/angular";
+import { TokenInterceptor } from "~/interceptor/intercptor";
+import { DiarioSaudeComponent } from './diario-saude/diario-saude.component';
+import { NativeScriptUICalendarModule } from "nativescript-ui-calendar/angular";
+import { LocalRiscoComponent } from './local-risco/local-risco.component';
+import { DiarioSaudeDetalhesComponent } from "./diario-saude-detalhes/diario-saude-detalhes.component";
+import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-saude-perguntas.component";
+import { DiarioSaudeRespostasComponent } from "./diario-saude-respostas/diario-saude-respostas.component";
 
 
 @NgModule({
@@ -31,6 +36,8 @@ import {LocalRiscoComponent} from './local-risco/local-risco.component';
         HttpClientModule,
         InputMaskModule,
         NativeScriptUICalendarModule,
+        NativeScriptUIListViewModule,
+        TNSCheckBoxModule
     ],
     declarations: [
         AppComponent,
@@ -40,6 +47,9 @@ import {LocalRiscoComponent} from './local-risco/local-risco.component';
         VisualizacoesComponent,
         DiarioSaudeComponent,
         LocalRiscoComponent,
+        DiarioSaudeDetalhesComponent,
+        DiarioSaudePerguntasComponent,
+        DiarioSaudeRespostasComponent,
     ],
     providers: [
         {
