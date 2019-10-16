@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {LocalRiscoModel} from "~/models/local-risco.model";
 import {LocalizacaoModel} from "~/models/visualizacao.model";
 import * as utils from "tns-core-modules/utils/utils";
-import {RouterExtensions} from "nativescript-angular";
+import {ModalDialogOptions, ModalDialogService, RouterExtensions} from "nativescript-angular";
+import {ModalComponent} from "~/app/modal/modal.component";
 
 @Component({
-  selector: 'ns-local-risco',
-  templateUrl: './local-risco.component.html',
-  styleUrls: ['./local-risco.component.css']
+    selector: 'ns-local-risco',
+    providers: [ModalDialogService],
+    templateUrl: './local-risco.component.html',
+    styleUrls: ['./local-risco.component.css']
 })
 export class LocalRiscoComponent implements OnInit {
 
@@ -41,7 +43,9 @@ export class LocalRiscoComponent implements OnInit {
         },
 
     ]
-  constructor(private router: RouterExtensions) { }
+  constructor(private router: RouterExtensions,
+              private modalService: ModalDialogService,
+              private viewContainerRef: ViewContainerRef) { }
 
   ngOnInit() {
   }
@@ -51,4 +55,18 @@ export class LocalRiscoComponent implements OnInit {
     onDetail(dado){
 
     }
+    showImage(dado: LocalRiscoModel){
+        const options: ModalDialogOptions = {
+            viewContainerRef: this.viewContainerRef,
+            fullscreen: false,
+            context: {
+                text: dado.nome,
+                endereco: dado.endereco,
+                image: dado.imagens[0],
+                bairro: dado.bairro
+            }
+        };
+        this.modalService.showModal(ModalComponent, options);
+    }
 }
+

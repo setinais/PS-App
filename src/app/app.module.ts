@@ -17,11 +17,13 @@ import { InputMaskModule } from "nativescript-input-mask/angular";
 import { TokenInterceptor } from "~/interceptor/intercptor";
 import { DiarioSaudeComponent } from './diario-saude/diario-saude.component';
 import { NativeScriptUICalendarModule } from "nativescript-ui-calendar/angular";
-import { LocalRiscoComponent } from './local-risco/local-risco.component';
+import {LocalRiscoComponent} from './local-risco/local-risco.component';
 import { DiarioSaudeDetalhesComponent } from "./diario-saude-detalhes/diario-saude-detalhes.component";
 import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-saude-perguntas.component";
 import { DiarioSaudeRespostasComponent } from "./diario-saude-respostas/diario-saude-respostas.component";
-import {LocalRiscoDetailComponent} from "~/app/local-risco-detail/local-risco-detail.component";
+import { LocalRiscoDetailComponent } from "~/app/local-risco-detail/local-risco-detail.component";
+import { VisualizacoesDetailComponent } from './visualizacoes-detail/visualizacoes-detail.component';
+import {ModalComponent} from "~/app/modal/modal.component";
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import {LocalRiscoDetailComponent} from "~/app/local-risco-detail/local-risco-de
         IndexComponent,
         LoginComponent,
         HomeComponent,
+        ModalComponent,
         VisualizacoesComponent,
         DiarioSaudeComponent,
         LocalRiscoComponent,
@@ -52,7 +55,9 @@ import {LocalRiscoDetailComponent} from "~/app/local-risco-detail/local-risco-de
         DiarioSaudePerguntasComponent,
         DiarioSaudeRespostasComponent,
         LocalRiscoComponent,
-        LocalRiscoDetailComponent
+        LocalRiscoDetailComponent,
+        VisualizacoesDetailComponent,
+
     ],
     providers: [
         {
@@ -63,7 +68,8 @@ import {LocalRiscoDetailComponent} from "~/app/local-risco-detail/local-risco-de
     ],
     schemas: [
         NO_ERRORS_SCHEMA
-    ]
+    ],
+    entryComponents: [ModalComponent],
 })
 /*
 Pass your application module to the bootstrapModule function located in main.ts to start your app

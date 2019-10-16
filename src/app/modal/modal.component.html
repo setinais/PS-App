@@ -1,0 +1,8 @@
+<StackLayout class="form-model">
+    <GridLayout rows="auto, auto, auto" columns="*, auto" class="p-10">
+    <Label row="0" col="0" class="h2 text-center" [text]="text"></Label>
+        <Image row="1" colSpan="2" src="~/imagens/outubrorosa.jpg"></Image>
+    <Label class="fas color-padrao" col="1" row="0" text="&#xf00d;" (tap)="close()"></Label>
+    <Label class="m-t-15 fas" colSpan="2" row="2" [text]="'&#xf3c5;  ' + endereco"></Label>
+    </GridLayout>
+</StackLayout>

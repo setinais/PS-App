@@ -14,6 +14,7 @@ import {LocalRiscoComponent} from "~/app/local-risco/local-risco.component";
 import { DiarioSaudeDetalhesComponent } from "./diario-saude-detalhes/diario-saude-detalhes.component";
 import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-saude-perguntas.component";
 import {LocalRiscoDetailComponent} from "~/app/local-risco-detail/local-risco-detail.component";
+import {VisualizacoesDetailComponent} from "~/app/visualizacoes-detail/visualizacoes-detail.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full"},
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: "home", component: HomeComponent, canActivate: [AppAuthGuard]},
     { path: "putuser", component: PutuserComponent},
     { path: "visualizacao", component: VisualizacoesComponent},
+    { path: "visualizacao-detail", component: VisualizacoesDetailComponent},
     { path: "redefinirSenha", component: RedefinirSenhaComponent },
     { path: "diario-saude", component: DiarioSaudeComponent },
     { path: "diario-saude-detalhes", component: DiarioSaudeDetalhesComponent},

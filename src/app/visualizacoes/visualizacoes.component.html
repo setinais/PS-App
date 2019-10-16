@@ -9,7 +9,7 @@
                      width="100%" (tap)="onDetail(dado.id)">
             <GridLayout columns="auto, *, auto" rows="auto"
                         width="100%" height="auto" class="owe-main-info"
-                        verticalAlignment="top">
+                        verticalAlignment="top" [nsRouterLink]="['/visualizacao-detail']" pageTransition="slideLeft" [queryParams]="dado">
                 <Image row="0" col="0" src="~/imagens/logo.png"
                        class="owe-category-icon"></Image>
                 <StackLayout row="0" col="1" orientation="vertical"
