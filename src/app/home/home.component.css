@@ -15,7 +15,7 @@
 .logo{
     margin-top: 0;
     height: 20%;
-    width: 60%;
+    width: 50%;
 }
 .name_user{
     margin: 0;
@@ -36,18 +36,93 @@
     border-radius: 20px;
     padding: 10px;
     font-size: 15pt;
+
 }
 .fixed-bot{
     margin-top: 80%;
 }
 
 .frame-banner{
-    height: 50%;
-    width: 90%;
+    background-color: #b72806;
     border-color: #c0c0c0;
     border-width: 1;
 }
 .icon-design{
     font-size: 25em;
     padding: 5 0 0 5;
+}
+
+.opensans-regular {
+    font-family: 'Open Sans', 'OpenSans-Regular';
+    font-weight: 400;
+}
+
+.opensans-semi-bold {
+    font-family: 'Open Sans', 'OpenSans-SemiBold';
+    font-weight: 600;
+}
+
+.lobster-regular {
+    font-family: 'Lobster', 'Lobster-Regular';
+    font-weight: 400;
+}
+
+.welcome-page-background {
+    background: linear-gradient(180deg, #E87401, #D05427);
+}
+
+.caro-item-dot {
+    background: #b72806;
+    border-radius: 6;
+    height: 12;
+    width: 12;
+    opacity: 0.3;
+}
+
+.caro-item-dot-selected {
+    opacity: 1;
+}
+
+.skip-intro {
+    width: 45%;
+    font-size: 18;
+    border-width: 6;
+    border-color:#FFC526;
+    background-color:#FFFFFF;
+    color:#0C7DA7;
+    border-radius: 4;
+    padding: 9 17;
+}
+
+.carousel-item-head {
+    color: #FFFFFF;
+    font-size: 36;
+    text-align: center;
+}
+
+.carousel-item-desc {
+    font-size: 15;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.carousel-loading {
+    font-size: 20;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.carousel-item-circle {
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(80% at 50% 50%)
+}
+
+.carousel-item-icon {
+    font-size: 77;
+    color: #0C7DA7;
+    text-align: center;
+    horizontal-align:center;
+    vertical-align: center;
 }

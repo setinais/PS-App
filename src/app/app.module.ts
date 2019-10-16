@@ -21,6 +21,7 @@ import { LocalRiscoComponent } from './local-risco/local-risco.component';
 import { DiarioSaudeDetalhesComponent } from "./diario-saude-detalhes/diario-saude-detalhes.component";
 import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-saude-perguntas.component";
 import { DiarioSaudeRespostasComponent } from "./diario-saude-respostas/diario-saude-respostas.component";
+import {LocalRiscoDetailComponent} from "~/app/local-risco-detail/local-risco-detail.component";
 
 
 @NgModule({
@@ -50,6 +51,8 @@ import { DiarioSaudeRespostasComponent } from "./diario-saude-respostas/diario-s
         DiarioSaudeDetalhesComponent,
         DiarioSaudePerguntasComponent,
         DiarioSaudeRespostasComponent,
+        LocalRiscoComponent,
+        LocalRiscoDetailComponent
     ],
     providers: [
         {

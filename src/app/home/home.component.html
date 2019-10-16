@@ -1,16 +1,30 @@
-<StackLayout class="home-page">
-    <FlexboxLayout class="home-page-content" verticalAlignment="top">
-        <GridLayout rows="auto, auto">
-            <GridLayout rows="auto, auto" row="0">
-                <Image row="0" class="logo" src="~/imagens/logo.png"></Image>
-                <Label row="1" text="Bem-vindo" class="name_user"></Label>
+<GridLayout rows="auto, *, auto" class="home-page">
+    <!--    <FlexboxLayout class="home-page-content" verticalAlignment="top">-->
+    <GridLayout rows="auto, auto" row="0" style="margin-top: 2%;">
+        <Image row="0" class="logo" src="~/imagens/logo.png"></Image>
+        <Label row="1" text="Bem-vindo" class="name_user"></Label>
+    </GridLayout>
+    <StackLayout row="1" style="margin-bottom: 10%">
+        <GridLayout (swipe)="onSwipe($event)">
+            <GridLayout rows="6*, *">
+                <GridLayout row="0" rows="*" >
+                    <ContentView #slideContent row="0" id="slide-content">
+                        <GridLayout row="0" rows="*">
+                            <Label class="opensans-semi-bold carousel-loading " text="Loading..." textWrap="true"></Label>
+                        </GridLayout>
+                    </ContentView>
+                </GridLayout>
+                <GridLayout row="2" rows="*" columns="*, auto, *" id="carousel-slider" class="m-t-30">
+                    <StackLayout [ngClass]="getSliderItemClass(0)" verticalAlignment="top" col="0" horizontalAlignment="right"></StackLayout>
+                    <StackLayout [ngClass]="getSliderItemClass(1)" style="margin: 0 5" verticalAlignment="top" col="1" horizontalAlignment="center"></StackLayout>
+                    <StackLayout [ngClass]="getSliderItemClass(2)" verticalAlignment="top" col="2" horizontalAlignment="left"></StackLayout>
+                </GridLayout>
             </GridLayout>
-            <StackLayout row="1" class="frame-banner">
-<!--                <img src="~/imagens/carvalho.svg" width="1000"/>-->
-            </StackLayout>
         </GridLayout>
-    </FlexboxLayout>
-        <ScrollView orientation="horizontal" verticalAlignment="bottom">
+    </StackLayout>
+    <!--    </FlexboxLayout>-->
+    <StackLayout row="2" style="margin-bottom: 3.5%;">
+        <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
             <GridLayout columns="*, *, *, *, *, *, *" class="bottom-navigation">
 
                 <GridLayout [nsRouterLink]="['/diario-saude-detalhes']" pageTransition="slideLeft"  col="0" rows="auto, *, auto, auto" class="bottom-navigation-item" >
@@ -19,9 +33,10 @@
                     <Label row="3" text="Saúde" class="label"></Label>
                 </GridLayout>
 
-                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'F', title: 'Farmácias'}" col="1" rows="auto, *, auto" class="bottom-navigation-item">
+                <GridLayout [nsRouterLink]="['/localrisco']" pageTransition="slideLeft" col="1" rows="auto, *, auto, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xf48e;" class="fas icon-design"></Label>
-                    <Label row="2" text="Farmácias" class="label"></Label>
+                    <Label row="2" text="Locais" class="label"></Label>
+                    <Label row="3" text="de Risco" class="label"></Label>
                 </GridLayout>
 
                 <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'H', title: 'Hospitais'}" col="2" rows="auto, *, auto" class="bottom-navigation-item">
@@ -43,4 +58,5 @@
 
             </GridLayout>
         </ScrollView>
-</StackLayout>
+    </StackLayout>
+</GridLayout>
