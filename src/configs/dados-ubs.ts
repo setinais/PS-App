@@ -27,7 +27,7 @@ export const hospital: Array<VisualizacaoModel> = [
         nome: 'Centro Médico Paraíso',
         localizacao: {latitude: -10.1749416, longitude: -48.8848086},
         endereco: 'Rua Mal Rondon Q 25, 104 lt 7 ',
-        bairro: 'S Central ',
+        bairro: 'Centro',
         telefone: '(63) 3602-1399',
         descricao: '',
         imagem: '~/imagens/setembroamarelo.jpg',
@@ -38,20 +38,25 @@ export const hospital: Array<VisualizacaoModel> = [
 ]
 export const ubs: Array<VisualizacaoModel> = [
     {
-        nome: 'UBS Norte Paraiso ',
+        nome: 'UBS Norte Paraíso ',
         localizacao: {latitude: -10.174507, longitude: -48.900191},
         endereco: 'Rua Dom Pedro Ii Qd 151 Lt10',
         bairro: 'Jardim Paulista ',
         telefone: '(63) 3904-1442',
         descricao: '',
         imagem: '~/imagens/setembroamarelo.jpg',
-        servicos: [],
+        servicos: [
+            { s: 'ESTRATEGIA DE SAUDE DA FAMILIA', c: 'SAUDE BUCAL MI' },
+            { s: 'ESTRATEGIA DE SAUDE DA FAMILIA', c: 'SAUDE DA FAMILIA' },
+            { s: 'SERVICO DE ATENCAO A SAUDE DO TRABALHADOR', c: 'ATENDIMENTO ACOMPANHAMENTO EM SAUDE DO TRABALHADOR' },
+            { s: 'SERVICO DE ATENCAO AO PACIENTE COM TUBERCULOSE', c: 'DIAGNOSTICO E TRATAMENTO' },
+        ],
         created_at: 'string'
     },
     {
-        nome: 'UBS Sul Paraiso',
+        nome: 'UBS Sul Paraíso',
         localizacao: {latitude: -10.194348, longitude: -48.889405},
-        endereco: 'Avenida 23 De Outubro',
+        endereco: 'Av 23 De Outubro',
         bairro: 'Pouso Alegre',
         telefone: '(63) 3904-1443',
         descricao: '',
@@ -71,7 +76,7 @@ export const ubs: Array<VisualizacaoModel> = [
         created_at: 'string'
     },
     {
-        nome: 'UBS Vila Milena Paraiso',
+        nome: 'UBS Vila Milena Paraíso',
         localizacao: {latitude: -10.160145, longitude: -48.887119},
         endereco: 'Av Santos Dumont',
         bairro: 'Vila Milena',
@@ -82,7 +87,7 @@ export const ubs: Array<VisualizacaoModel> = [
         created_at: 'string'
     },
     {
-        nome: 'UBS Sespe Paraiso',
+        nome: 'UBS Sespe Paraíso',
         localizacao: {latitude: -10.180484, longitude: -48.887435},
         endereco: 'Rua Santos Dumont',
         bairro: 'Centro',
