@@ -4,20 +4,20 @@ import { Injectable } from "@angular/core";
 export class HomeSliderService {
 
     private slide1 = `
-<GridLayout width="90%" row="0" horizontalAlignment="center" verticalAlignment="center">
-    <image class="logo" src="~/imagens/campanha1.jpg"></image>
+<GridLayout width="95%" row="0" horizontalAlignment="center" verticalAlignment="center">
+    <image class="logo" style="border-radius: 9;" src="~/imagens/campanha1.jpg"></image>
 </GridLayout>
 `;
 
     private slide2 = `
-<GridLayout width="90%" row="0" horizontalAlignment="center" verticalAlignment="center">
-    <image class="logo" src="~/imagens/outubrorosa.jpg"></image>
+<GridLayout width="95%" row="0" horizontalAlignment="center" verticalAlignment="center">
+    <image class="logo" style="border-radius: 9;" src="~/imagens/campanha2.jpg"></image>
 </GridLayout>
 `;
 
     private slide3 = `
-<GridLayout width="90%" row="0" horizontalAlignment="center" verticalAlignment="center">
-    <image class="logo" src="~/imagens/setembroamarelo.jpg"></image>
+<GridLayout width="95%" row="0" horizontalAlignment="center" verticalAlignment="center">
+    <image class="logo" style="border-radius: 9;" src="~/imagens/campanha3.jpg"></image>
 </GridLayout>
 `;
 

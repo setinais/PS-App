@@ -1,7 +1,9 @@
 /* Add mobile styles for the component here.  */
-.page{
+.page {
     align-items: center;
     flex-direction: column;
+    margin-top: 5%;
+
 }
 .form {
     background-color: #fff;
@@ -15,11 +17,7 @@
     height: 100%;
 }
 .alter-user{
-    margin-left: 85%;
-    margin-bottom: 20;
     color: blue;
-    font-weight: 400;
-    font-size: 16pt;
 }
 .m-t-90{
     margin-top: 90px;
@@ -30,9 +28,6 @@
 .divider{
     height: 50;
     background-color: #fff;
-    /*border-color: #ddd;*/
-    /*border-top-width: 1;*/
-    /*border-bottom-width: 1;*/
 }
 
 .btn-sair{
@@ -40,6 +35,7 @@
     margin: auto;
     font-weight: 600;
     font-size: 16em;
+
 }
 .text-btn-def{
     padding: 10;
@@ -48,7 +44,6 @@
 
 .text-btn-border{
     border-color: #e8e7e7;
-    border-top-width: 1;
     border-bottom-width: 1;
 }
 

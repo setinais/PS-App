@@ -5,14 +5,12 @@
                 <GridLayout rows="auto, auto, auto, auto, *">
                     <Label text="&#xf104;" style="font-size: 25em;" class="fas m-t-16 m-l-20" row="0" clearHistory="true" [nsRouterLink]="['/home']" pageTransition="slideRight"></Label>
                     <Image width="150" class="logo" row="0"  src="~/imagens/logo.png"></Image>
-                    <Label [text]="Editar" row="0" (tap)="edit()" class="alter-user m-t-30"></Label>
                     <Label rowSpan="2"  *ngIf="!reload" (tap)="start()" text="&#xf021;" class="fas reload"></Label>
                     <Label *ngIf="!reload" verticalAlignment="center" horizontalAlignment="center" class="reload-text" text="Não foi possivel buscar os dados! Tente Novamente." rowSpan="2" ></Label>
                     <GridLayout class="form" row="1" *ngIf="reload" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto">
-
                         <StackLayout row="1" colSpan="3" class="input-field m-t-90">
                             <Label text="&#xf0e0; E-mail" class="fas label-text"></Label>
-                            <TextField #email keyboardType="email" class="input" hint="Email" [(ngModel)]="user.email"
+                            <TextField #email keyboardType="email" class="input" [(ngModel)]="user.email"
                                        [isEnabled]="alterStatus"
                             ></TextField>
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.email !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
@@ -38,7 +36,6 @@
                                        mask="[000].[000].[000]-[00]"
                                        keyboardType="phone"
                                        returnKeyType="next"></InputMask>
-
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cpf !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cpf !== undefined" [text]="formUserValidator.cpf[0]" class="label-error"></Label>
                         </StackLayout>
@@ -74,17 +71,21 @@
                     </GridLayout>
                     <Label row="2" class="divider"></Label>
                     <StackLayout row="3" class="input-field btn-sair">
-                        <GridLayout rows="auto" columns="*" [nsRouterLink]="['/redefinirSenha']" pageTransition="slideLeft" pageTransitionDuration="800">
-                            <Label row="0"  class="text-btn-def m-l-30 fas" text="&#xf023; Redefinir Senha"></Label>
-                            <Label row="0" horizontalAlignment="right" class="text-btn-def m-l-30 fas" style=" width: 10%" text="&#xf105;"></Label>
+                        <GridLayout rows="auto" (tap)="edit()" columns="*" style="margin-right: 5%; margin-left: 5%;">
+                            <Label row="0" class="text-btn-def text-btn-border fas" [text]="'&#xf044; '+Editar"></Label>
+                            <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
-                        <GridLayout rows="auto" columns="*" class="color-padrao" (tap)="delete()">
-                            <Label class="text-btn-def m-l-30 text-btn-border fas" text="&#xf506; Desativar Conta"  ></Label>
-                            <Label row="0" horizontalAlignment="right" class="text-btn-def m-l-30 fas" style=" width: 10%" text="&#xf105;"></Label>
+                        <GridLayout style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" [nsRouterLink]="['/redefinirSenha']" pageTransition="slideLeft" pageTransitionDuration="800">
+                            <Label row="0"  class="text-btn-def text-btn-border fas " text="&#xf023; Redefinir Senha"></Label>
+                            <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
-                        <GridLayout rows="auto" columns="*" class="color-padrao" (tap)="logout()">
-                            <Label class="text-btn-def m-l-30 fas" text="&#xf2f5; Sair"  ></Label>
-                            <Label row="0" horizontalAlignment="right" class="text-btn-def m-l-30 fas" style=" width: 10%" text="&#xf105;"></Label>
+                        <GridLayout style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" class="color-padrao" (tap)="delete()">
+                            <Label class="text-btn-def text-btn-border fas" text="&#xf506; Desativar Conta"  ></Label>
+                            <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
+                        </GridLayout>
+                        <GridLayout style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" class="color-padrao" (tap)="logout()">
+                            <Label class="text-btn-def fas" text="&#xf2f5; Sair"  ></Label>
+                            <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
                     </StackLayout>
                     <Label row="4" style="height: 50;"></Label>
