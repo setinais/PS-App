@@ -1,8 +1,7 @@
 <GridLayout rows="auto, *, auto" class="home-page">
     <!--    <FlexboxLayout class="home-page-content" verticalAlignment="top">-->
-    <GridLayout rows="auto, auto" row="0" style="margin-top: 2%;">
+    <GridLayout rows="auto, auto" row="0" style="margin-top: 6%;">
         <Image row="0" class="logo" src="~/imagens/logo.png"></Image>
-        <Label row="1" text="Bem-vindo" class="name_user"></Label>
     </GridLayout>
     <StackLayout row="1" style="margin-bottom: 10%">
         <GridLayout (swipe)="onSwipe($event)">
@@ -22,6 +21,7 @@
             </GridLayout>
         </GridLayout>
     </StackLayout>
+
     <!--    </FlexboxLayout>-->
     <StackLayout row="2" style="margin-bottom: 3.5%;">
         <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
@@ -45,7 +45,7 @@
 " text="Hospitais" class="label"></Label>
                 </GridLayout>
 
-                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'U',title: 'Unidades Basica de Saúde ( UBS )'}" col="3" rows="auto,*, auto, auto" class="bottom-navigation-item">
+                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'U',title: 'Unidades Básicas de Saúde - UBS '}" col="3" rows="auto,*, auto, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xf469;" class="fas icon-design"></Label>
                     <Label row="2" text="Unidades" class="label"></Label>
                     <Label row="3" text="de Saúde" class="label"></Label>
