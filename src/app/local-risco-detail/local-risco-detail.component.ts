@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {LocalRiscoModel} from "~/models/local-risco.model";
 import {RouterExtensions} from "nativescript-angular";
 import {ActivatedRoute} from "@angular/router";
+import {LocalizacaoModel} from "~/models/visualizacao.model";
+import * as utils from "tns-core-modules/utils/utils";
 
 @Component({
   selector: 'ns-local-risco-detail',
@@ -17,5 +19,7 @@ export class LocalRiscoDetailComponent implements OnInit {
   ngOnInit() {
       this.detail = this.route.queryParams['_value']
   }
+
+
 
 }

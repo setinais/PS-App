@@ -2,25 +2,26 @@
     <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
 <ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false">
+
     <FlexboxLayout flexDirection="column" class="owe-list body-uni"
                    backgroundColor="#e8e7e7">
         <Label *ngIf="dados.length == 0" text="Não foi possivel encontrar nada!"></Label>
         <StackLayout *ngFor="let dado of dados" id="item1"  orientation="vertical" class="owe-list-item"
-                     width="100%" (tap)="onDetail(dado.id)">
+                     width="100%">
             <GridLayout columns="auto, *, auto" rows="auto"
                         width="100%" height="auto" class="owe-main-info"
                         verticalAlignment="top" [nsRouterLink]="['/visualizacao-detail']" pageTransition="slideLeft" [queryParams]="dado">
-                <Image row="0" col="0" src="~/imagens/logo.png"
+                <Image row="0" col="0" [src]="dado.imagem"
                        class="owe-category-icon"></Image>
                 <StackLayout row="0" col="1" orientation="vertical"
                              class="owe-info-container">
                     <Label class="owe-title" [text]="dado.nome"></Label>
-                    <GridLayout columns="auto,auto,auto,auto, auto"
-                                rows="auto" width="100%">
+                    <GridLayout columns="auto,auto,"
+                                rows="auto,auto" width="100%">
                         <Label [text]="dado.endereco" class="lender-bairro" row="0" col="0"></Label>
-                        <Label text=" - " row="0" col="1"></Label>
                         <Label [text]="dado.bairro" class="lender-name"
-                               row="0" col="2"></Label>
+                               row="1" col="0"></Label>
+
                     </GridLayout>
                 </StackLayout>
             </GridLayout>
@@ -31,7 +32,7 @@
                             rows="auto">
                     <Label row="0" col="0" text="Contato:"
                            class="lender-name"></Label>
-                    <Label row="0" col="1" [text]="dado.telefone" class="lender-bairro"></Label>
+                    <Label row="0" col="1" [text]="dado.telefone" class="lender-phone" (tap)="phone(dado.telefone)"></Label>
                 </GridLayout>
             </GridLayout>
             <Label class="divider" text=""></Label>

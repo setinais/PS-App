@@ -14,8 +14,8 @@
 }
 
 .owe-category-icon {
-    width: 45;
-    height: 45;
+    width: 70;
+    height: 70;
     margin-right: 15;
 }
 
@@ -36,6 +36,10 @@
 }
 .lender-bairro {
     font-size: 12em;
+}
+.lender-phone{
+    font-size: 12em;
+    text-decoration: underline;
 }
 .owe-ammount {
     color: black;

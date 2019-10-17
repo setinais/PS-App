@@ -2,3 +2,64 @@
 .action-bar-per{
     color: white;
 }
+.image-detail{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.label-name{
+    font-size: 15pt;
+    font-weight: 800;
+    color: black;
+}
+.label-text{
+    font-size: 13pt;
+    margin-right: 0;
+    font-weight: 200;
+}
+.label-info{
+    margin-right: 0;
+    font-size: 12pt;
+    font-weight: 200;
+}
+.label-descricao{
+    font-weight: 600;
+    font-size: 12pt;
+}
+.label-descricao-info{
+    font-size: 12pt;
+    font-weight: 200;
+}
+.btn-location{
+    margin-top: 75%;
+    margin-left: 83%;
+
+}
+.btn-design{
+    background-color: #b72806;
+    color: #FFFFFF;
+    font-size: 20em;
+    width: 50;
+    height: 50;
+    padding: 0 0 0;
+    border-radius: 50%;
+}
+.table-ser{
+    font-family: "Times New Roman", sans-serif;
+    font-size: 10pt;
+}
+.text-border-label-table{
+    border-left-width: 1;
+    border-left-color: #e8e7e7;
+    padding-left: 5;
+    border-top-width: 1;
+    border-top-color: #e8e7e7;
+}
+.text-border-label{
+    border-top-width: 1;
+    border-top-color: #e8e7e7;
+}
+.text-center{
+    text-align: center;
+    font-weight: 600;
+}
