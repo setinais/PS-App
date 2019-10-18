@@ -30,16 +30,17 @@
 }
 
 .lender-name {
-    color: mediumpurple;
     font-size: 12em;
     font-weight: 500;
+    margin-top: 20%;
 }
 .lender-bairro {
     font-size: 12em;
+
 }
 .lender-phone{
     font-size: 12em;
-    text-decoration: underline;
+    margin-top: 20%;
 }
 .owe-ammount {
     color: black;
@@ -50,7 +51,7 @@
 }
 
 .owe-secondary-info {
-    padding: 10 10 0 13;
+    padding: 10 10 10 13;
     border-top-width: 1;
     border-color: #e8e7e7;
 }
@@ -66,7 +67,8 @@
     border-color: white;
     padding: 0 10 0 10;
     margin: 0;
-    color: darkred;
+    /*color: darkred;*/
+    color: #b72806;
 }
 .action-bar-per{
     color: white;

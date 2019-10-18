@@ -25,15 +25,14 @@
                     </GridLayout>
                 </StackLayout>
             </GridLayout>
-            <GridLayout columns="auto,auto, *, auto" rows="auto"
+            <GridLayout columns="auto,*, auto, auto" rows="auto"
                         width="100%" height="auto" class="owe-secondary-info">
-                <Button text="&#xf3c5;  Localização" class="btn fas location" (tap)="onNavigate(dado.localizacao)" ></Button>
-                <GridLayout row="0" col="3" columns="auto, auto, auto"
-                            rows="auto">
-                    <Label row="0" col="0" text="Contato:"
-                           class="lender-name"></Label>
-                    <Label row="0" col="1" [text]="dado.telefone" class="lender-phone" (tap)="phone(dado.telefone)"></Label>
-                </GridLayout>
+                <Button row="0" col="0" text="&#xf3c5;  Localização" class="btn fas location" (tap)="onNavigate(dado.localizacao)" ></Button>
+
+<!--                    <Label row="0" col="2" text="&#xf095;"-->
+<!--                           class="lender-name fas"></Label>-->
+                    <Button row="0" col="2" [text]="'&#xf095;  '+dado.telefone" class="btn fas location" (tap)="phone(dado.telefone)"></Button>
+
             </GridLayout>
             <Label class="divider" text=""></Label>
         </StackLayout>
