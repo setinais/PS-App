@@ -1,7 +1,7 @@
 <ActionBar title="Locais de Risco" class="action-bar-per background-color-padrao">
     <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
-<ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false">
+<ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false" style="background-image: url(); background-repeat: no-repeat">
     <FlexboxLayout flexDirection="column" class="owe-list body-uni"
                    backgroundColor="#e8e7e7">
         <Label *ngIf="dados.length == 0" text="Não foi possivel encontrar nada!"></Label>
@@ -25,11 +25,8 @@
             </GridLayout>
             <GridLayout columns="auto,auto, *, auto" rows="auto"
                         width="100%" height="auto" class="owe-secondary-info">
-                <Button text="&#xf3c5;  Localização" class="btn fas location" (tap)="onNavigate(dado.localizacao)" ></Button>
-                <GridLayout row="0" col="3" columns="auto, auto, auto"
-                            rows="auto">
-                    <Label row="0" col="1" [text]="dado.created_at | date:'dd/MM/yyyy H:m'" class="lender-bairro"></Label>
-                </GridLayout>
+                <Button text="&#xf3c5;  Localização" row="0" col="0" class="btn fas location" (tap)="onNavigate(dado.localizacao)" ></Button>
+                <Label row="0" col="3" [text]="dado.created_at | date:'dd/MM/yyyy H:m'" class="lender-bairro"></Label>
             </GridLayout>
             <Label class="divider" text=""></Label>
         </StackLayout>

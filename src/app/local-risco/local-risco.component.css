@@ -4,6 +4,7 @@
 }
 .owe-list-item {
     background-color: white;
+    border-radius: 8;
 }
 
 .owe-list {
@@ -31,12 +32,12 @@
 }
 
 .lender-name {
-    color: mediumpurple;
     font-size: 12em;
     font-weight: 500;
 }
 .lender-bairro {
     font-size: 12em;
+    margin-top: 20%;
 }
 
 .owe-ammount {
@@ -48,13 +49,17 @@
 }
 
 .owe-secondary-info {
-    padding: 10 10 0 13;
+    padding: 10 10 10 13;
     border-top-width: 1;
     border-color: #e8e7e7;
+    border-radius: 8;
+
 }
 
 .divider {
     height: 15;
+    padding: 0;
+    margin: 0;
     background-color: #e8e7e7;
 }
 

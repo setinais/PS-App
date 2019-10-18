@@ -31,5 +31,6 @@ refer to http://docs.nativescript.org/ui/theme.
 }
 
 .background-color-padrao{
-    background-color: #b72806;
+    /*background-color: #b72806;*/
+    background: linear-gradient(100deg, #d12c38, #f35a5d);
 }
