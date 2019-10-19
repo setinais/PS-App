@@ -2,35 +2,44 @@ import {VisualizacaoModel} from "~/models/visualizacao.model";
 
 export const hospital: Array<VisualizacaoModel> = [
     {
+        id: 1,
         nome: 'Hospital Regional de Paraíso ',
         localizacao: {latitude: -10.1808948, longitude: -48.9131606},
         endereco: 'RUA 03 QD 02 LT 01 A 19 ',
         bairro: 'Setor Aeroporto',
         telefone: '(63) 3904-1200',
         descricao: '',
-        imagem: '~/imagens/setembroamarelo.jpg',
+        imagem: '~/imagens/campanha2.jpg',
         servicos: [],
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
         created_at: 'string'
     },
     {
+        id: 2,
         nome: 'Hospital Modelo',
         localizacao: {latitude: -10.1753214, longitude: -48.8849307},
         endereco: 'Rua Tapajós, Quadra 24, Lote1, 260 ',
         bairro: 'Centro',
         telefone: '(63) 3602-1188',
         descricao: '',
-        imagem: '~/imagens/setembroamarelo.jpg',
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
+        imagem: '~/imagens/campanha2.jpg',
         servicos: [],
         created_at: 'string'
     },
     {
+        id: 3,
         nome: 'Centro Médico Paraíso',
         localizacao: {latitude: -10.1749416, longitude: -48.8848086},
         endereco: 'Rua Mal Rondon Q 25, 104 lt 7 ',
         bairro: 'Centro',
         telefone: '(63) 3602-1399',
         descricao: '',
-        imagem: '~/imagens/setembroamarelo.jpg',
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
+        imagem: '~/imagens/campanha2.jpg',
         servicos: [],
         created_at: 'string'
     },
@@ -38,13 +47,16 @@ export const hospital: Array<VisualizacaoModel> = [
 ]
 export const ubs: Array<VisualizacaoModel> = [
     {
+        id: 4,
         nome: 'UBS Norte Paraíso ',
         localizacao: {latitude: -10.174507, longitude: -48.900191},
         endereco: 'Rua Dom Pedro Ii Qd 151 Lt10',
         bairro: 'Jardim Paulista ',
         telefone: '(63) 3904-1442',
         descricao: '',
-        imagem: '~/imagens/setembroamarelo.jpg',
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
+        imagem: '~/imagens/campanha2.jpg',
         servicos: [
             { s: 'ESTRATEGIA DE SAUDE DA FAMILIA', c: 'SAUDE BUCAL MI' },
             { s: 'ESTRATEGIA DE SAUDE DA FAMILIA', c: 'SAUDE DA FAMILIA' },
@@ -54,6 +66,7 @@ export const ubs: Array<VisualizacaoModel> = [
         created_at: 'string'
     },
     {
+        id: 5,
         nome: 'UBS Sul Paraíso',
         localizacao: {latitude: -10.194348, longitude: -48.889405},
         endereco: 'Av 23 De Outubro',
@@ -61,21 +74,31 @@ export const ubs: Array<VisualizacaoModel> = [
         telefone: '(63) 3904-1443',
         descricao: '',
         servicos: [],
-        imagem: '~/imagens/setembroamarelo.jpg',
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
+        imagem: '~/imagens/campanha2.jpg',
         created_at: 'string'
     },
     {
+        id: 6,
         nome: 'UBS Clovis Carneiro Campos',
         localizacao: {latitude: 0, longitude: 0},
         endereco: 'Av Brasil, Nª985',
         bairro: 'Vila Regina',
         telefone: '  -',
         descricao: '',
-        servicos: [],
+        servicos: [
+            { s: 'ESTRATEGIA DE SAUDE DA FAMILIA', c: 'SAUDE BUCAL MI' },
+            { s: 'SERVICO DE ATENCAO A SAUDE DO TRABALHADOR', c: 'ATENDIMENTO ACOMPANHAMENTO EM SAUDE DO TRABALHADOR' },
+            { s: 'SERVICO DE ATENCAO AO PACIENTE COM TUBERCULOSE', c: 'DIAGNOSTICO E TRATAMENTO' },
+        ],
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
         imagem: '~/imagens/ubs/ubs-clovis-carneiro.jpg',
         created_at: 'string'
     },
     {
+        id: 7,
         nome: 'UBS Vila Milena Paraíso',
         localizacao: {latitude: -10.160145, longitude: -48.887119},
         endereco: 'Av Santos Dumont',
@@ -83,10 +106,13 @@ export const ubs: Array<VisualizacaoModel> = [
         telefone: '(63) 3904-1579',
         descricao: '',
         servicos: [],
-        imagem: '~/imagens/setembroamarelo.jpg',
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
+        imagem: '~/imagens/campanha2.jpg',
         created_at: 'string'
     },
     {
+        id: 8,
         nome: 'UBS Sespe Paraíso',
         localizacao: {latitude: -10.180484, longitude: -48.887435},
         endereco: 'Rua Santos Dumont',
@@ -94,10 +120,13 @@ export const ubs: Array<VisualizacaoModel> = [
         telefone: '(63) 3602-3775',
         descricao: '',
         servicos: [],
-        imagem: '~/imagens/setembroamarelo.jpg',
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
+        imagem: '~/imagens/campanha2.jpg',
         created_at: 'string'
     },
     {
+        id: 9,
         nome: 'UBS Oeste Paraiso',
         localizacao: {latitude: 2, longitude: 4},
         endereco: 'Rua Bernadino Maciel',
@@ -105,10 +134,13 @@ export const ubs: Array<VisualizacaoModel> = [
         telefone: '(63) 3904-1445',
         descricao: '',
         servicos: [],
-        imagem: '~/imagens/setembroamarelo.jpg',
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
+        imagem: '~/imagens/campanha2.jpg',
         created_at: 'string'
     },
     {
+        id: 10,
         nome: 'UBS Gentil Costa',
         localizacao: {latitude: 0, longitude: 0},
         endereco: 'Rua L 14 Esquina com L 24',
@@ -116,6 +148,8 @@ export const ubs: Array<VisualizacaoModel> = [
         telefone: '   -',
         descricao: '',
         servicos: [],
+        cidade: 'Paraiso do Tocantins',
+        estado: 'TO',
         imagem: '~/imagens/ubs/ubs-gentil-costa.jpg',
         created_at: 'string'
     },

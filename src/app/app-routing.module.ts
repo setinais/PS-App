@@ -13,7 +13,6 @@ import {DiarioSaudeComponent} from "~/app/diario-saude/diario-saude.component";
 import {LocalRiscoComponent} from "~/app/local-risco/local-risco.component";
 import { DiarioSaudeDetalhesComponent } from "./diario-saude-detalhes/diario-saude-detalhes.component";
 import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-saude-perguntas.component";
-import {LocalRiscoDetailComponent} from "~/app/local-risco-detail/local-risco-detail.component";
 import {VisualizacoesDetailComponent} from "~/app/visualizacoes-detail/visualizacoes-detail.component";
 
 const routes: Routes = [
@@ -30,7 +29,6 @@ const routes: Routes = [
     { path: "diario-saude-detalhes", component: DiarioSaudeDetalhesComponent},
     { path: "diario-saude-perguntas", component: DiarioSaudePerguntasComponent},
     { path: "localrisco", component: LocalRiscoComponent },
-    { path: "localriscodetail", component: LocalRiscoDetailComponent },
 ];
 
 @NgModule({

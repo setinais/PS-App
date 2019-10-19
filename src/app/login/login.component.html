@@ -27,7 +27,7 @@
 
         <Button *ngIf="isLoggingIn" text="Entrar" [isEnabled]="!processing"
                 (tap)="submit()" class="btn btn-primary m-t-20"></Button>
-        <Label *ngIf="isLoggingIn" text="Esqueceu sua senha?" class="login-label"
+        <Label *ngIf="isLoggingIn" text="Esqueceu sua senha?" (tap)="esqueceuSenha()" class="login-label"
               ></Label>
     </StackLayout>
     <Label [nsRouterLink]="['/adduser']" pageTransition="slideLeft" class="login-label sign-up-label">

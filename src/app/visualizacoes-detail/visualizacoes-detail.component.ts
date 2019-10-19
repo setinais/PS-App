@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {LocalizacaoModel, VisualizacaoModel} from "~/models/visualizacao.model";
 import * as utils from "tns-core-modules/utils/utils";
 import * as TNSPhone from "nativescript-phone";
+import {hospital, ubs} from "~/configs/dados-ubs";
 
 @Component({
   selector: 'ns-visualizacoes-detail',
@@ -11,35 +12,32 @@ import * as TNSPhone from "nativescript-phone";
 })
 export class VisualizacoesDetailComponent implements OnInit {
 
-    private dados: VisualizacaoModel =
-{
-        nome: 'Hospital Modelo',
-        localizacao: {latitude: -10.1753214, longitude: -48.8849307},
-        endereco: 'Rua Tapajós, Quadra 24, Lote1, 260 ',
-        bairro: 'Centro',
-        telefone: '(63) 3602-1188',
-        imagem: '~/imagens/setembroamarelo.jpg',
-        descricao: 'Posto Avançado de saude, destinado ao atendimento rapido de cidadões que apresentam sintomas de doenças de possivel tratamento na unidade atual. Se identificado a incapacidade da UBS, o paciente sera encaminhado ao Hospital mais proximo.',
-        servicos: [
-            { s: 'ESTRATEGIA DE SAUDE DA FAMILIA', c: 'SAUDE BUCAL MI' },
-            { s: 'ESTRATEGIA DE SAUDE DA FAMILIA', c: 'SAUDE DA FAMILIA' },
-            { s: 'SERVICO DE ATENCAO A SAUDE DO TRABALHADOR', c: 'ATENDIMENTO ACOMPANHAMENTO EM SAUDE DO TRABALHADOR' },
-            { s: 'SERVICO DE ATENCAO AO PACIENTE COM TUBERCULOSE', c: 'DIAGNOSTICO E TRATAMENTO' },
-        ],
-        created_at: 'string'
-    }
+    private dados: VisualizacaoModel = undefined
 
     private length_dados: string
 
   constructor(private route: ActivatedRoute) {
-      // this.dados = this.route.queryParams['_value']
-      console.log(this.dados)
-      this.lenghtDados();
+      this.selectDetail(this.route.queryParams['_value'].id)
   }
 
   ngOnInit() {
   }
 
+  selectDetail(id: number){
+        for(let i = 0; i< ubs.length; i++){
+            if(id == ubs[i].id){
+                this.dados = ubs[i]
+            }
+        }
+        if(this.dados == undefined){
+            for(let i = 0; i< hospital.length; i++){
+                if(id == hospital[i].id){
+                    this.dados = hospital[i]
+                }
+            }
+        }
+        this.lenghtDados()
+  }
   lenghtDados(){
         this.length_dados = "";
         for (let i = 0; i< this.dados.servicos.length+1; i++){

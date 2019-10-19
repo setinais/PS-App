@@ -10,7 +10,7 @@
                      width="100%">
             <GridLayout columns="auto, *, auto" rows="auto"
                         width="100%" height="auto" class="owe-main-info"
-                        verticalAlignment="top" [nsRouterLink]="['/visualizacao-detail']" pageTransition="slideLeft" [queryParams]="dado">
+                        verticalAlignment="top" [nsRouterLink]="['/visualizacao-detail']" pageTransition="slideLeft" [queryParams]="{id: dado.id}">
                 <Image row="0" col="0" [src]="dado.imagem"
                        class="owe-category-icon"></Image>
                 <StackLayout row="0" col="1" orientation="vertical"
@@ -29,7 +29,8 @@
                         width="100%" height="auto" class="owe-secondary-info">
                 <Button row="0" col="0" text="&#xf3c5;  Localização" class="btn fas location" (tap)="onNavigate(dado.localizacao)" ></Button>
 
-<!--                    <Label row="0" col="2" text="&#xf095;"-->
+<!--                    <Label row="0" c
+ol="2" text="&#xf095;"-->
 <!--                           class="lender-name fas"></Label>-->
                     <Button row="0" col="2" [text]="'&#xf095;  '+dado.telefone" class="btn fas location" (tap)="phone(dado.telefone)"></Button>
 

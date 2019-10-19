@@ -54,12 +54,10 @@ export class PutuserComponent implements OnInit {
     }
     edit() {
         this.alterStatus = !this.alterStatus
-        if (this.Editar == "Salvar") {
-            this.processing = true
-            this.checkAlter()
-        } else {
-            this.Editar = "Salvar"
-        }
+    }
+
+    cancelEdit(){
+        this.alterStatus = !this.alterStatus
     }
 
     checkAlter() {

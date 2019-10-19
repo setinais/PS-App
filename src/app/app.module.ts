@@ -21,7 +21,6 @@ import {LocalRiscoComponent} from './local-risco/local-risco.component';
 import { DiarioSaudeDetalhesComponent } from "./diario-saude-detalhes/diario-saude-detalhes.component";
 import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-saude-perguntas.component";
 import { DiarioSaudeRespostasComponent } from "./diario-saude-respostas/diario-saude-respostas.component";
-import { LocalRiscoDetailComponent } from "~/app/local-risco-detail/local-risco-detail.component";
 import { VisualizacoesDetailComponent } from './visualizacoes-detail/visualizacoes-detail.component';
 import {ModalComponent} from "~/app/modal/modal.component";
 
@@ -55,7 +54,6 @@ import {ModalComponent} from "~/app/modal/modal.component";
         DiarioSaudePerguntasComponent,
         DiarioSaudeRespostasComponent,
         LocalRiscoComponent,
-        LocalRiscoDetailComponent,
         VisualizacoesDetailComponent,
 
     ],
