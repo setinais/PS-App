@@ -31,13 +31,11 @@
                     <Label row="2" text="Minha" class="label"></Label>
                     <Label row="3" text="Saúde" class="label"></Label>
                 </GridLayout>
-
                 <GridLayout [nsRouterLink]="['/localrisco']" pageTransition="slideLeft" col="1" rows="auto, *, auto, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xf48e;" class="fas icon-design"></Label>
                     <Label row="2" text="Locais" class="label "></Label>
                     <Label row="3" text="de Risco" class="label font-label"></Label>
                 </GridLayout>
-
                 <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'H', title: 'Hospitais'}" col="2" rows="auto, *, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xf0f8;" class="fas icon-design"></Label>
                     <Label row="2
