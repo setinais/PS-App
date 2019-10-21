@@ -16,16 +16,16 @@ export class AdduserComponent implements OnInit {
     processing: boolean
 
     @ViewChild("password", {static: false}) password: ElementRef
-    @ViewChild("confirmPassword", {static: false}) confirmPassword: ElementRef
+    // @ViewChild("confirmPassword", {static: false}) confirmPassword: ElementRef
     @ViewChild("name", {static: false}) nome: ElementRef
     @ViewChild("cpf", {static: false}) cpf: ElementRef
-    @ViewChild("data_nascimento", {static: false}) dataNascimento: ElementRef
+    // @ViewChild("data_nascimento", {static: false}) dataNascimento: ElementRef
 
     user: UserModel
     formUserValidator: UserValidator
     private cpfextraido: string
-    private dataextraido: string
-    private dataoriginal: string
+    // private dataextraido: string
+    // private dataoriginal: string
     private checkedSwitch: boolean
 
     constructor(private page: Page,
@@ -46,7 +46,7 @@ export class AdduserComponent implements OnInit {
     submit() {
         this.processing = !this.processing;
         this.user.cpf = this.cpfextraido
-        this.user.data_nascimento = this.dataextraido
+        // this.user.data_nascimento = this.dataextraido
         this.userService.store(this.user).subscribe(response => {
             this.processing = false
             alert('Cadastro realizado com Sucesso!')
@@ -54,11 +54,12 @@ export class AdduserComponent implements OnInit {
         }, error => {
             this.processing = false
             if (error.status == 422) {
-                this.user.data_nascimento = this.dataoriginal
+                // this.user.data_nascimento = this.dataoriginal
                 this.formUserValidator = error.error['errors']
-            } else {
-                console.log(error)
-                this.alert(error.error, 'Atenção')
+            } else if(error.status == 500){
+                this.alert(error.error.message, 'Atenção')
+            }else{
+                this.alert("Sem Conexão com a internet", 'Atenção')
             }
         })
     }
@@ -75,9 +76,9 @@ export class AdduserComponent implements OnInit {
         this.cpf.nativeElement.focus();
     }
 
-    focusDataNascimento() {
-        this.dataNascimento.nativeElement.focus();
-    }
+    // focusDataNascimento() {
+    //     this.dataNascimento.nativeElement.focus();
+    // }
 
     alert(message: string, title: string) {
         return alert({
@@ -95,22 +96,22 @@ export class AdduserComponent implements OnInit {
         this.cpfextraido = args.value
     }
 
-    onExtracaoValorDN(args){
-        let dia = args.value.split("/")[0]
-        let mes = args.value.split("/")[1]
-        let ano = args.value.split("/")[2]
-        this.dataoriginal = args.value
-        this.dataextraido = ano + '-' + mes + '-' + dia
-
-    }
-    onChangeSexo(args: EventData) {
-        let bool = args.object as Switch;
-        if (!bool.checked) {
-            this.checkedSwitch = false
-            this.user.sexo = 'Masculino'
-        } else {
-            this.checkedSwitch = true
-            this.user.sexo = 'Feminino'
-        }
-    }
+    // onExtracaoValorDN(args){
+    //     let dia = args.value.split("/")[0]
+    //     let mes = args.value.split("/")[1]
+    //     let ano = args.value.split("/")[2]
+    //     this.dataoriginal = args.value
+    //     this.dataextraido = ano + '-' + mes + '-' + dia
+    //
+    // }
+    // onChangeSexo(args: EventData) {
+    //     let bool = args.object as Switch;
+    //     if (!bool.checked) {
+    //         this.checkedSwitch = false
+    //         this.user.sexo = 'Masculino'
+    //     } else {
+    //         this.checkedSwitch = true
+    //         this.user.sexo = 'Feminino'
+    //     }
+    // }
 }

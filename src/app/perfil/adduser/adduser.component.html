@@ -51,27 +51,27 @@
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cpf !== undefined" [text]="formUserValidator.cpf[0]" class="label-error"></Label>
                         </StackLayout>
 
-                        <StackLayout row="5" class="input-field">
-                            <Label text="&#xf133; Data de Nascimento" class="fas label-text"></Label>
-                            <InputMask #data_nascimento mask="[00]{/}[00]{/}[0000]"
-                                       hint="00/00/0000"
-                                       keyboardType="datetime"
-                                       [(ngModel)]="user.data_nascimento"
-                                       (extractedValueChange)=onExtracaoValorDN($event)
-                                       class="input" [isEnabled]="!processing"></InputMask>
-                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
-                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined" [text]="formUserValidator.data_nascimento[0]" class="label-error"></Label>
-                        </StackLayout>
+<!--                        <StackLayout row="5" class="input-field">-->
+<!--                            <Label text="&#xf133; Data de Nascimento" class="fas label-text"></Label>-->
+<!--                            <InputMask #data_nascimento mask="[00]{/}[00]{/}[0000]"-->
+<!--                                       hint="00/00/0000"-->
+<!--                                       keyboardType="datetime"-->
+<!--                                       [(ngModel)]="user.data_nascimento"-->
+<!--                                       (extractedValueChange)=onExtracaoValorDN($event)-->
+<!--                                       class="input" [isEnabled]="!processing"></InputMask>-->
+<!--                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>-->
+<!--                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined" [text]="formUserValidator.data_nascimento[0]" class="label-error"></Label>-->
+<!--                        </StackLayout>-->
 
-                        <StackLayout row="6" class="input-field">
-                            <Label text="&#xf228; Sexo" class="fas label-text"></Label>
-                            <GridLayout rows="auto" columns="auto,auto">
-                                <Label class="label-sexo" row="0" col="0" [text]="user.sexo"></Label>
-                                <Switch class="m-l-28" row="0" col="1" checked="false" (checkedChange)="onChangeSexo($event)"></Switch>
-                            </GridLayout>
-                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.sexo !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
-                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.sexo !== undefined" [text]="formUserValidator.sexo[0]" class="label-error"></Label>
-                        </StackLayout>
+<!--                        <StackLayout row="6" class="input-field">-->
+<!--                            <Label text="&#xf228; Sexo" class="fas label-text"></Label>-->
+<!--                            <GridLayout rows="auto" columns="auto,auto">-->
+<!--                                <Label class="label-sexo" row="0" col="0" [text]="user.sexo"></Label>-->
+<!--                                <Switch class="m-l-28" row="0" col="1" checked="false" (checkedChange)="onChangeSexo($event)"></Switch>-->
+<!--                            </GridLayout>-->
+<!--                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.sexo !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>-->
+<!--                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.sexo !== undefined" [text]="formUserValidator.sexo[0]" class="label-error"></Label>-->
+<!--                        </StackLayout>-->
                         <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
                         <StackLayout row="7" class="input-field">
                             <Label text="&#xf2c2; Cartão SUS" class="fas label-text"></Label>

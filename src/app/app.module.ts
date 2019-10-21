@@ -23,6 +23,7 @@ import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-s
 import { DiarioSaudeRespostasComponent } from "./diario-saude-respostas/diario-saude-respostas.component";
 import { VisualizacoesDetailComponent } from './visualizacoes-detail/visualizacoes-detail.component';
 import {ModalComponent} from "~/app/modal/modal.component";
+import { LocalRiscoAddComponent } from './local-risco-add/local-risco-add.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import {ModalComponent} from "~/app/modal/modal.component";
         DiarioSaudeRespostasComponent,
         LocalRiscoComponent,
         VisualizacoesDetailComponent,
+        LocalRiscoAddComponent,
 
     ],
     providers: [

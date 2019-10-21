@@ -16,12 +16,12 @@ import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-s
 import {VisualizacoesDetailComponent} from "~/app/visualizacoes-detail/visualizacoes-detail.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/home", pathMatch: "full"},
+    { path: "", redirectTo: "/localrisco", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },
-    // { path: "home", component: HomeComponent, canActivate: [AppAuthGuard]},
-    { path: "home", component: HomeComponent},
+    { path: "home", component: HomeComponent, canActivate: [AppAuthGuard]},
+    // { path: "home", component: HomeComponent},
     { path: "putuser", component: PutuserComponent},
     { path: "visualizacao", component: VisualizacoesComponent},
     { path: "visualizacao-detail", component: VisualizacoesDetailComponent},
@@ -31,7 +31,6 @@ const routes: Routes = [
     { path: "diario-saude-perguntas", component: DiarioSaudePerguntasComponent},
     { path: "localrisco", component: LocalRiscoComponent },
 ];
-
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],
     exports: [NativeScriptRouterModule]

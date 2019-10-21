@@ -4,19 +4,22 @@
        <Image row="0" class="logo" src="~/imagens/logo.png" style="opacity: 0;"></Image>
     </GridLayout>
     <StackLayout row="1" style="margin-top: 5%">
-        <GridLayout (swipe)="onSwipe($event)">
+        <GridLayout>
             <GridLayout rows="6*, *">
                 <GridLayout row="0" rows="*" >
                     <ContentView #slideContent row="0" id="slide-content">
                         <GridLayout row="0" rows="*">
-                            <Label class="opensans-semi-bold carousel-loading " text="Loading..." textWrap="true"></Label>
+                            <Label *ngIf="!fail_load" class="opensans-semi-bold carousel-loading " text="Falha de carregamento do banner. Toque para recarregar!" textWrap="true" (tap)="bannerInit()"></Label>
+                            <GridLayout *ngIf="fail_load" width="95%" row="0" horizontalAlignment="center" verticalAlignment="center" >
+                                <ImageSwipe  [pageNumber]="slideNumber" (pageChanged)="pageChanged($event)" [items]="imagens" imageUrlProperty="imageUrl"></ImageSwipe>
+                            </GridLayout>
                         </GridLayout>
                     </ContentView>
                 </GridLayout>
-                <GridLayout row="2" rows="*" columns="*, auto, *" id="carousel-slider" class="m-t-10">
-                    <StackLayout [ngClass]="getSliderItemClass(0)" verticalAlignment="top" col="0" horizontalAlignment="right"></StackLayout>
-                    <StackLayout [ngClass]="getSliderItemClass(1)" style="margin: 0 5" verticalAlignment="top" col="1" horizontalAlignment="center"></StackLayout>
-                    <StackLayout [ngClass]="getSliderItemClass(2)" verticalAlignment="top" col="2" horizontalAlignment="left"></StackLayout>
+                <GridLayout *ngIf="fail_load" row="2" rows="*" columns="*, auto, auto, *" id="carousel-slider" class="m-t-10">
+                    <StackLayout *ngIf="slideCount >= 1 && slideCount > 0" [ngClass]="getSliderItemClass(0)" verticalAlignment="top" col="0" horizontalAlignment="right"></StackLayout>
+                    <StackLayout *ngIf="slideCount >= 2 && slideCount > 0" [ngClass]="getSliderItemClass(1)" style="margin: 0 5" verticalAlignment="top" col="1" horizontalAlignment="center"></StackLayout>
+                    <StackLayout *ngIf="slideCount == 3 && slideCount > 0" [ngClass]="getSliderItemClass(2)" verticalAlignment="top" col="2" horizontalAlignment="left"></StackLayout>
                 </GridLayout>
             </GridLayout>
         </GridLayout>
@@ -41,13 +44,11 @@
                     <Label row="2
 " text="Hospitais" class="label"></Label>
                 </GridLayout>
-
                 <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'U',title: 'Unidades Básicas de Saúde - UBS '}" col="3" rows="auto,*, auto, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xf469;" class="fas icon-design"></Label>
                     <Label row="2" text="Unidades" class="label"></Label>
                     <Label row="3" text="de Saúde" class="label"></Label>
                 </GridLayout>
-
                 <GridLayout col="4" rows="auto, *, auto" class="bottom-navigation-item" [nsRouterLink]="['/putuser']" pageTransitionDuration="600" pageTransition="slideLeft">
                     <Label row="0" text="&#xf2bd;" class="fas icon-design"></Label>
                     <Label row="2" text="Perfil" class="label"></Label>
