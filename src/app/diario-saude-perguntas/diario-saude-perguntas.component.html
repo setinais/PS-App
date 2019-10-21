@@ -7,16 +7,16 @@
 				<GridLayout rows="auto" class="grid-perguntas">
 					<RadListView row="0" [items]="perguntas">
 						<ng-template tkListItemTemplate let-pergunta="item">
-							<StackLayout class="perguntas-content">
+							<StackLayout class="perguntas-content" (tap)="clicked(pergunta)">
 								<GridLayout rows="auto" columns="*, auto">
-										<Label row="0" col="0" horizontalAlignment="center" [text]="pergunta.categoria" (tap)="clicked(pergunta)"
+										<Label row="0" col="0" horizontalAlignment="center" [text]="pergunta.categoria" 
 										class="categoria-perguntas"></Label>
-										<Label row="0" col="1" text="&#xf107;" class="fas ico" verticalAlignment="middle"></Label>
+										<Label row="0" col="1" text="&#xf107;" class="fas ico" verticalAlignment="center"></Label>
 								</GridLayout>
 								
 								<StackLayout class="m-t-10">
 										<StackLayout *ngFor="let tipo of pergunta.tipos" class="opcoes-perguntas">
-												<CheckBox #CB1 [text]="tipo.name" checked="false"
+												<CheckBox #CB1 [text]="tipo.name" [(ngModel)]="tipo.status"
 													[visibility]="clickedArray.includes(pergunta) ? 'visible' : 'collapsed'"></CheckBox>
 												<!-- <Label horizontalAlignment="center" [visibility]="clickedArray.includes(pergunta) ? 'visible' : 'collapsed'" [text]="tipo.name "></Label> -->
 												<!-- <Label [visibility]="clickedArray.includes(pergunta) ? 'visible' : 'collapsed'" [text]="person.age "></Label> -->
@@ -27,5 +27,5 @@
 					</RadListView>
 				</GridLayout>
 				<Button text="Confirmar" (tap)="confirmarQuestionario()" class="btn btn-primary m-t-20"></Button>
-			</StackLayout>
+		</StackLayout>
 </ScrollView>

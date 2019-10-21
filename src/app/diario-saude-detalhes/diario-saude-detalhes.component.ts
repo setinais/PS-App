@@ -54,6 +54,7 @@ onNavigatingToDateStarted(args) {
     console.log("onNavigatingToDateStarted: " + args.date);
 }
 
+
 onViewModeChanged(args) {
     console.log("onViewModeChanged: " + args.newValue);
 }

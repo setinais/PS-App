@@ -7,19 +7,18 @@ var Sqlite = require("nativescript-sqlite");
 })
 export class AppComponent {
 
-    private database: any;
-    public perguntas: Array<any>;
-
     constructor(){
-        this.perguntas = [];
-        (new Sqlite("ps.db")).then(db => {
-            db.execSQL("CREATE TABLE IF NOT EXISTS perguntas (id INTEGER PRIMARY KEY AUTOINCREMENT, pergunta TEXT, resposta TEXT)").then(id => {
-                this.database = db;
+        (new Sqlite("ps.db")).then( db => {
+            db.execSQL("CREATE TABLE IF NOT EXISTS saude (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, date TEXT)").then( id => {
+                console.log("Table saude criada")
             }, error => {
-                console.log("CREATE perguntas TABLE ERROR", error);
+                console.log("CREATE saude TABLE ERROR", error);
             });
-
-
+            db.execSQL("CREATE TABLE IF NOT EXISTS tipos (id INTEGER PRIMARY KEY AUTOINCREMENT, saude_id INT, name TEXT)").then( id => {
+                console.log("Table tipos criada")
+            }, error => {
+                console.log("CREATE tipos TABLE ERROR", error);
+            });
         }, error => {
             console.log("OPEN DB ERROR", error);
         });

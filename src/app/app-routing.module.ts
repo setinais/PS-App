@@ -16,7 +16,7 @@ import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-s
 import {VisualizacoesDetailComponent} from "~/app/visualizacoes-detail/visualizacoes-detail.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/home", pathMatch: "full"},
+    { path: "", redirectTo: "/diario-saude-detalhes", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },

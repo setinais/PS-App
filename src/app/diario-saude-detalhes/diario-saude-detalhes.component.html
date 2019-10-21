@@ -1,33 +1,108 @@
 <ActionBar title="Diário da Saúde" class="action-bar-per background-color-padrao">
     <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
-<StackLayout class="page">
-    <StackLayout class="">
-            <Label text="Em Desenvolvimento" textWrap="true"></Label>
-    </StackLayout>
-    <StackLayout class="card-status">
-        <Label text="Em Desenvolvimento" textWrap="true"></Label>
-        
-    </StackLayout>
-    <StackLayout class="card-calendario">
-            <RadCalendar
-            [eventSource]="calendarEvents"
-
-            selectionMode="Single"
-            viewMode="Month"
-            transitionMode="Stack"
-            locale="pt-BR"
-
-            (dateSelected)="onDateSelected($event)"
-            (dateDeselected)="onDateDeselected($event)"
-            (navigatedToDate)="onNavigatedToDate($event)"
-            (navigatingToDateStarted)="onNavigatingToDateStarted($event)"
-            (viewModeChanged)="onViewModeChanged($event)"
-            ></RadCalendar>
-    </StackLayout>
-    <StackLayout class="card-status">
-            <Label text="Em Desenvolvimento" textWrap="true"></Label>
+<ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false" style="background-image: url(); background-repeat: no-repeat">
+        <StackLayout class="page">
+                <StackLayout class="card-status">
+                    <Label text="11 Participações" textWrap="true"></Label>
+                    <GridLayout rows="auto, auto" columns="auto, *, auto" class="content-status">
+                        <StackLayout row="0" col="0" orientation="horizontal" class="bom">
+                            <Label text="&#xf118;" class="fas ico"></Label>
+                            <StackLayout class="text">
+                                <Label text="55% Bem"></Label>
+                                <Label text="6 Relatórios"></Label>                    
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout row="0" col="1" class="progress-status">
+                            <Progress [value]="50" class="progress"
+                                    maxValue="100"></Progress>                
+                        </StackLayout>
+                        <StackLayout class="label-status" row="0" col="2">
+                                <StackLayout class="text">
+                                        <Label text="100%" textWrap="true"></Label>    
+                                </StackLayout>                 
+                        </StackLayout>
+                    </GridLayout>
+                    <GridLayout rows="auto, auto" columns="auto, *, auto" class="content-status">
+                            <StackLayout row="0" col="0" orientation="horizontal" class="ruim">
+                                <Label text="&#xf119;" class="fas ico"></Label>
+                                <StackLayout class="text">
+                                    <Label text="55% Mal" textWrap="true"></Label>
+                                    <Label text="6 Relatórios" textWrap="true"></Label>                    
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout row="0" col="1" class="progress-status">
+                                <Progress [value]="50" class="progress"
+                                        maxValue="100"></Progress>                
+                            </StackLayout>
+                            <StackLayout class="label-status" row="0" col="2">
+                                <StackLayout class="text">
+                                        <Label text="100%" textWrap="true"></Label>    
+                                </StackLayout>                                
+                            </StackLayout>
+                        </GridLayout>
+                    
+                </StackLayout>
+                <StackLayout class="card-calendario">
+                    
+                        <RadCalendar
+                        [eventSource]="calendarEvents"
             
-        </StackLayout>
-   
-</StackLayout>
+                        selectionMode="Single"
+                        viewMode="Month"
+                        transitionMode="Stack"
+                        locale="pt-BR"
+            
+                        (dateSelected)="onDateSelected($event)"
+                        (dateDeselected)="onDateDeselected($event)"
+                        (navigatedToDate)="onNavigatedToDate($event)"
+                        (navigatingToDateStarted)="onNavigatingToDateStarted($event)"
+                        (viewModeChanged)="onViewModeChanged($event)"
+                        ></RadCalendar>
+
+                </StackLayout>
+                <StackLayout class="card-status">
+                    <GridLayout rows="auto" columns="auto, *, auto">           
+                       <StackLayout row="0" col="0">
+                            <Label text="&#xf118;" class="fas ico"></Label>
+                       </StackLayout>
+                       <StackLayout row="0" col="1" class="m-l-10">
+                           <Label text="Mal" textWrap="true"></Label>
+                           <Label text="Dia 13 as 18:23" textWrap="true"></Label>
+                       </StackLayout>
+                       <StackLayout row="0" col="2" verticalAlignment="center">
+                            <Label text="&#xf00c;" class="fas ico check"></Label>
+                       </StackLayout>
+                    </GridLayout>                  
+                </StackLayout>  
+                <StackLayout class="card-status">
+                        <GridLayout rows="auto" columns="auto, *, auto">           
+                           <StackLayout row="0" col="0" class="bom">
+                                <Label text="&#xf118;" class="fas ico"></Label>
+                           </StackLayout>
+                           <StackLayout row="0" col="1" class="m-l-10">
+                               <Label text="Mal" textWrap="true"></Label>
+                               <Label text="Dia 13 as 18:23" textWrap="true"></Label>
+                           </StackLayout>
+                           <StackLayout row="0" col="2" verticalAlignment="center">
+                                <Label text="&#xf00c;" class="fas ico check"></Label>
+                           </StackLayout>
+                        </GridLayout>                  
+                    </StackLayout>
+                    <StackLayout class="card-status">
+                            <GridLayout rows="auto" columns="auto, *, auto">           
+                               <StackLayout row="0" col="0" class="ruim">
+                                    <Label text="&#xf118;" class="fas ico"></Label>
+                               </StackLayout>
+                               <StackLayout row="0" col="1" class="m-l-10">
+                                   <Label text="Mal" textWrap="true"></Label>
+                                   <Label text="Dia 13 as 18:23" textWrap="true"></Label>
+                               </StackLayout>
+                               <StackLayout row="0" col="2" verticalAlignment="center">
+                                    <Label text="&#xf00c;" class="fas ico check"></Label>
+                               </StackLayout>
+                            </GridLayout>                  
+                        </StackLayout>                  
+            </StackLayout>
+</ScrollView>
+
