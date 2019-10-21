@@ -5,9 +5,13 @@
     margin: 15;
 }
 
-.description-label{
-    /* margin-bottom: 15; */
+.background-color-padrao {
+    color: #FFF;
 }
+/* 
+.description-label{
+    margin-bottom: 15;
+} */
 
 .btn-primary {
     margin: 30 5 15 5;
@@ -19,6 +23,7 @@
     margin-left: 10px; 
     margin-right: 10px; 
     background-color: #f6f8fa; 
+    padding: 10px;
 }
 
 .grid-perguntas {

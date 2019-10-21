@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { DiarioSaude } from './diario.model';
+import { Saude } from '../diario-saude/saude.model';
+import { Tipo } from './tipo.model';
+import { SqliteService } from '../services/sqlite.service';
 
 @Component({
   selector: 'ns-diario-saude-perguntas',
@@ -8,75 +13,76 @@ import { RouterExtensions } from 'nativescript-angular';
 })
 export class DiarioSaudePerguntasComponent implements OnInit {
 
-  public perguntas: Array<any> = [];
-
+  public perguntas: Array<DiarioSaude> = [];
   public clickedArray: Array<any> = [];
-
+  form: FormGroup;
   @ViewChild('CB1', {static: false}) FirstCheckBox: ElementRef;
 
-  constructor(private routerExtenstions: RouterExtensions) {
+  constructor(private routerExtenstions: RouterExtensions,
+              private fb: FormBuilder,
+              private db: SqliteService) {
     this.perguntas = [
       {
           categoria: 'Geral e Inespecifico',
           tipos:
               [
-                { name: 'Alergia / Reação Alérgica'}, 
-                { name: 'Arrepios / Calafrios'},
-                { name: 'Conjutivite'},
-                { name: 'Desmaio'},
-                { name: 'Dor de cabeça'},
-                { name: 'Dor de ouvido/ Zumbido'},
-                { name: 'Dor generalizada / Múltipla'},
-                { name: 'Dores no peito / Tórax'},
-                { name: 'Febre'},
-                { name: 'Inchaço'},
-                { name: 'Paralisia / Fraqueza'},
-                { name: 'Pressão alta'},
-                { name: 'Sangramento / Hemorragia'},
-                { name: 'Tontura'},
+                {status: false, name: 'Alergia / Reação Alérgica'}, 
+                {status: false, name: 'Arrepios / Calafrios'},
+                {status: false, name: 'Conjutivite'},
+                {status: false, name: 'Desmaio'},
+                {status: false, name: 'Dor de cabeça'},
+                {status: false, name: 'Dor de ouvido/ Zumbido'},
+                {status: false, name: 'Dor generalizada / Múltipla'},
+                {status: false, name: 'Dores no peito / Tórax'},
+                {status: false, name: 'Febre'},
+                {status: false, name: 'Inchaço'},
+                {status: false, name: 'Paralisia / Fraqueza'},
+                {status: false, name: 'Pressão alta'},
+                {status: false, name: 'Sangramento / Hemorragia'},
+                {status: false, name: 'Tontura'},
               ]
       },
       {
         categoria: 'Digestivo',
         tipos:
               [
-                { name: 'Diarreia / Prisão de ventre' }, 
-                { name: 'Dor abdominal / Cólicas' },
-                { name: 'Dor anal / Retal' },
-                { name: 'Náuseas ou vômitos' },
-                { name: 'Sangue nas fezes' },
-                { name: 'Vómito com sangue' },
+                {status: false, name: 'Diarreia / Prisão de ventre' }, 
+                {status: false, name: 'Dor abdominal / Cólicas' },
+                {status: false, name: 'Dor anal / Retal' },
+                {status: false, name: 'Náuseas ou vômitos' },
+                {status: false, name: 'Sangue nas fezes' },
+                {status: false, name: 'Vómito com sangue' },
               ]
       },
       {
         categoria: 'Psicológico',
         tipos:  
               [
-                { name: 'Abuso de cigarros' }, 
-                { name: 'Abuso de medicamentos' },
-                { name: 'Abuso de álcool' },
-                { name: 'Ansiedade / Nervosismo / Tensão' },
-                { name: 'Estresse agudo' },
-                { name: 'Irritação / Zandago (a)' },
-                { name: 'Perturbação do sono' },
-                { name: 'Tristeza / Sensação de depressão' },                
+                {status: false, name: 'Abuso de cigarros' }, 
+                {status: false, name: 'Abuso de medicamentos' },
+                {status: false, name: 'Abuso de álcool' },
+                {status: false, name: 'Ansiedade / Nervosismo / Tensão' },
+                {status: false, name: 'Estresse agudo' },
+                {status: false, name: 'Irritação / Zandago (a)' },
+                {status: false, name: 'Perturbação do sono' },
+                {status: false, name: 'Tristeza / Sensação de depressão' },                
               ]
       },
       {
         categoria: 'Problemas respiratórios',
         tipos:  
               [
-                { name: 'Asma' }, 
-                { name: 'Bronquite' },
-                { name: 'Dificuldade de respirar / Falta de ar' },
-                { name: 'Sangramento nasal' },
-                { name: 'Tosse persistente' },               
+                {status: false, name: 'Asma' }, 
+                {status: false, name: 'Bronquite' },
+                {status: false, name: 'Dificuldade de respirar / Falta de ar' },
+                {status: false, name: 'Sangramento nasal' },
+                {status: false, name: 'Tosse persistente' },               
               ]
       }
   ]
    }
 
-  ngOnInit() {
+  ngOnInit() {  
   }
 
   clicked(tipo) {
@@ -100,7 +106,23 @@ public getCheckProp() {
 
 confirmarQuestionario() {
   // Imcompleto
-  this.routerExtenstions.navigate(['/home']);
+  // this.routerExtenstions.navigate(['/home']);
+
+  let tipos: Tipo[] = [];
+  this.perguntas.forEach((value, index) => {
+    value.tipos.forEach((value, index) => {
+      if (value.status) {
+        tipos.push(value);
+      }
+    })
+  })
+
+  let saude: Saude = {
+    name: 'Mal',
+    date: new Date,
+    tipos: tipos
+  }
+  this.db.insertSaudeDiaria(saude).then(res => this.routerExtenstions.navigate(['/home']));
 }
 
 }

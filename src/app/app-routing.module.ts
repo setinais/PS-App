@@ -16,12 +16,11 @@ import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-s
 import {VisualizacoesDetailComponent} from "~/app/visualizacoes-detail/visualizacoes-detail.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/localrisco", pathMatch: "full"},
+    { path: "", redirectTo: "/home", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },
     { path: "home", component: HomeComponent, canActivate: [AppAuthGuard]},
-    // { path: "home", component: HomeComponent},
     { path: "putuser", component: PutuserComponent},
     { path: "visualizacao", component: VisualizacoesComponent},
     { path: "visualizacao-detail", component: VisualizacoesDetailComponent},

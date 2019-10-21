@@ -1,18 +1,79 @@
 /* Add mobile styles for the component here.  */
 .page {
-    background-color: #f6f8fa;    
+    background-color: #f6f8fa;  
+    padding: 15px;  
+}
+.background-color-padrao {
+    color: #FFF;
 }
 
 .card-status {
-    margin: 10px;
     background-color: white;
-    height: 200px;
+    margin: 10px 0 5px 0;
+    padding: 10px;
 }
 
 .card-calendario {
-    height: 60%;
-    widows: 80%;
-    margin: 10px;
+    height: 650px;
     background-color: white;
-    padding: 10px;
+}
+
+/* .card-status .content-status {
+
+} */
+
+.card-status .content-status .text{
+    padding: 5px;
+    margin-left: 10;
+}
+
+.card-status .label-status {  
+   vertical-align: middle;
+   margin-left: 10;
+}
+
+.card-status .label-status .text {
+    background-color: #28a745;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.card-status .progress-status {
+    vertical-align: center;
+}
+
+.card-status .bom{
+    vertical-align: center;
+    margin-right: 10;
+}
+
+.card-status .ruim{
+    vertical-align: center;
+    margin-right: 10;
+}
+
+.bom {
+    text-align: center;
+}
+
+.bom .ico {
+    color: rgb(240, 240, 0);
+}
+
+.ico {
+    font-size: 40;
+}
+
+.ruim {
+    text-align: center;
+}
+
+.ruim .ico {
+    color: #e61919;
+}
+
+.check {
+    color: #28a745;
+    font-size: 30;
 }

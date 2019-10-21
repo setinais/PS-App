@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular';
+import { Saude } from './saude.model';
+import { SqliteService } from '../services/sqlite.service';
 
 @Component({
   selector: 'ns-diario-saude',
@@ -9,7 +11,8 @@ import { RouterExtensions } from 'nativescript-angular';
 export class DiarioSaudeComponent implements OnInit {
    
 
-    constructor(private routerExtensions: RouterExtensions) {
+    constructor(private routerExtensions: RouterExtensions,
+                private db: SqliteService) {
       
     }
 
@@ -17,15 +20,23 @@ export class DiarioSaudeComponent implements OnInit {
     }
 
     redirectHome() {
-        this.routerExtensions.navigate(['home'], {
-            clearHistory: true,
-            animated: true,
-            transition: {
-                name: 'slideTop',
-                duration: 500,
-                curve: 'ease'
-            }
-        })
+        let saude: Saude = {
+            name: 'Bem',
+            date: new Date(),
+            tipos: []
+        }
+        this.db.insertSaudeDiaria(saude).then(res => {
+            this.routerExtensions.navigate(['home'], {
+                clearHistory: true,
+                animated: true,
+                transition: {
+                    name: 'slideTop',
+                    duration: 500,
+                    curve: 'ease'
+                }
+            })
+        });
+        
     }
 
     redirectPerguntas() {
