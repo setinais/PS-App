@@ -8,8 +8,6 @@ import {PageChangeEventData} from "nativescript-image-swipe";
 import {Accuracy} from "tns-core-modules/ui/enums";
 import any = Accuracy.any;
 
-declare var android: any;
-
 @Component({
   selector: 'ns-home',
   templateUrl: './home.component.html',
@@ -32,7 +30,6 @@ export class HomeComponent implements OnInit {
         this.screenWidth = screen.mainScreen.widthDIPs;
 
     }
-
     ngOnInit() {
         this.bannerInit();
         this.page.cssClasses.add("welcome-page-background");
@@ -43,6 +40,7 @@ export class HomeComponent implements OnInit {
             this.bannerService.show().subscribe(response =>{
                 this.imagens = []
                 for (let i=0;i<response['data'].length;i++) this.imagens.push(response['data'][i])
+                console.log(this.imagens)
                 console.log(this.imagens);
                 this.slideCount = response['data'].length;
                 this.autoSlider()

@@ -75,6 +75,9 @@
 }
 .go-back{
     color: white;
+    border-color: white;
+    border-width: 0;
+    opacity: 1;
 }
 
 

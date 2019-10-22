@@ -28,32 +28,30 @@
     <StackLayout row="2" style="margin-bottom: 3.5%;">
         <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
             <GridLayout columns="*, *, *, *, *, *, *" class="bottom-navigation">
-
                 <GridLayout [nsRouterLink]="['/diario-saude-detalhes']" pageTransition="slideLeft"  col="0" rows="auto, *, auto, auto" class="bottom-navigation-item" >
                     <Label row="0" text="calendar" class="icon icon-design"></Label>
                     <Label row="2" text="Minha" class="label"></Label>
                     <Label row="3" text="Saúde" class="label"></Label>
                 </GridLayout>
                 <GridLayout [nsRouterLink]="['/localrisco']" pageTransition="slideLeft" col="1" rows="auto, *, auto, auto" class="bottom-navigation-item">
-                    <Label row="0" text="&#xf48e;" class="fas icon-design"></Label>
+                    <Label row="0" text="&#xf7b9;" class="fas icon-design"></Label>
                     <Label row="2" text="Locais" class="label "></Label>
                     <Label row="3" text="de Risco" class="label font-label"></Label>
-                </GridLayout>
-                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'H', title: 'Hospitais'}" col="2" rows="auto, *, auto" class="bottom-navigation-item">
-                    <Label row="0" text="&#xf0f8;" class="fas icon-design"></Label>
-                    <Label row="2
-" text="Hospitais" class="label"></Label>
                 </GridLayout>
                 <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'U',title: 'Unidades Básicas de Saúde - UBS '}" col="3" rows="auto,*, auto, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xf469;" class="fas icon-design"></Label>
                     <Label row="2" text="Unidades" class="label"></Label>
                     <Label row="3" text="de Saúde" class="label"></Label>
                 </GridLayout>
+                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'H', title: 'Hospitais'}" col="2" rows="auto, *, auto" class="bottom-navigation-item">
+                    <Label row="0" text="&#xf0f8;" class="fas icon-design"></Label>
+                    <Label row="2
+" text="Hospitais" class="label"></Label>
+                </GridLayout>
                 <GridLayout col="4" rows="auto, *, auto" class="bottom-navigation-item" [nsRouterLink]="['/putuser']" pageTransitionDuration="600" pageTransition="slideLeft">
-                    <Label row="0" text="&#xf2bd;" class="fas icon-design"></Label>
+                    <Label row="0" text="&#xf2bb;" class="fas icon-design"></Label>
                     <Label row="2" text="Perfil" class="label"></Label>
                 </GridLayout>
-
             </GridLayout>
         </ScrollView>
     </StackLayout>
