@@ -40,8 +40,6 @@ export class HomeComponent implements OnInit {
             this.bannerService.show().subscribe(response =>{
                 this.imagens = []
                 for (let i=0;i<response['data'].length;i++) this.imagens.push(response['data'][i])
-                console.log(this.imagens)
-                console.log(this.imagens);
                 this.slideCount = response['data'].length;
                 this.autoSlider()
                 this.fail_load = true;
@@ -67,7 +65,7 @@ export class HomeComponent implements OnInit {
             }else{
                 this.slideNumber++;
             }
-        }, 5000);
+        }, 8000);
     }
     finishAutoSlider(){
         clearInterval(this.id);

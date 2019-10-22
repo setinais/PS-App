@@ -4,11 +4,12 @@
 }
 .owe-list-item {
     background-color: white;
-    border-radius: 8;
+    border-radius: 15;
+    margin: 15;
 }
 
 .owe-list {
-    margin: 15 15 15 15;
+    /*margin: 15 15 15 15;*/
 }
 
 .owe-main-info {
@@ -37,7 +38,9 @@
 }
 .lender-bairro {
     font-size: 12em;
-    margin-top: 20%;
+    margin-top: 10%;
+    font-weight: 500;
+
 }
 
 .owe-ammount {
@@ -52,7 +55,6 @@
     padding: 10 10 10 13;
     border-top-width: 1;
     border-color: #e8e7e7;
-    border-radius: 8;
 
 }
 
@@ -60,22 +62,44 @@
     height: 15;
     padding: 0;
     margin: 0;
-    background-color: #e8e7e7;
+    background-color: #f8f9fa;
 }
 
-.location {
-    font-size: 13em;
-    background-color: white;
-    border-color: white;
-    padding: 0 10 0 10;
-    margin: 0;
-    color: darkred;
+.btn-color-location{
+    background-color: #f8f9fa;
+    color: #e64a45;
+}
+.btn-color-add{
+    background-color: #e64a45;
+    color: #FFFFFF;
+}
+
+.btn-design{
+
+    font-size: 20em;
+    width: 50;
+    height: 50;
+    padding: 0 0 0;
+    border-radius: 50%;
 }
 .action-bar-per{
     color: white;
 }
 .go-back{
     color: white;
+}
+.add-btn {
+    font-size: 13em;
+    background-color: white;
+    border-color: white;
+    padding: 0 10 0 10;
+    margin: 0;
+    /*color: darkred;*/
+    color: #b72806;
+}
+.btn-location{
+    margin-top: 75%;
+    margin-left: 83%;
 }
 
 @keyframes show {

@@ -1,5 +1,5 @@
 <ActionBar [title]="title" class="action-bar-per background-color-padrao">
-    <Label text="&#xf053;" horizontalAlignment="left" class="fas go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></Label>
+    <NavigationButton text="Voltar" icon="res://ic_arrow_back_black_24dp" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
 <ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false">
 
@@ -15,7 +15,7 @@
                        class="owe-category-icon"></Image>
                 <StackLayout row="0" col="1" orientation="vertical"
                              class="owe-info-container">
-                    <Label class="owe-title" [text]="dado.nome"></Label>
+                    <Label class="owe-title" [text]="dado.descricao"></Label>
                     <GridLayout columns="auto,auto,"
                                 rows="auto,auto" width="100%">
                         <Label [text]="dado.endereco" class="lender-bairro" row="0" col="0"></Label>

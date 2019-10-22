@@ -29,7 +29,8 @@
     width: 100%;
 }
 .bottom-navigation-item{
-    background: linear-gradient(180deg, #f35a5d, #d12c38);
+    background-color: #e64a45;
+    /*background: linear-gradient(180deg, #f35a5d, #d12c38);*/
     width: 100;
     height: 100;
     margin-left: 16px;

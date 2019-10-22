@@ -24,6 +24,7 @@ import { DiarioSaudeRespostasComponent } from "./diario-saude-respostas/diario-s
 import { VisualizacoesDetailComponent } from './visualizacoes-detail/visualizacoes-detail.component';
 import {ModalComponent} from "~/app/modal/modal.component";
 import { LocalRiscoAddComponent } from './local-risco-add/local-risco-add.component';
+import {NgShadowModule} from "nativescript-ng-shadow";
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { LocalRiscoAddComponent } from './local-risco-add/local-risco-add.compon
         InputMaskModule,
         NativeScriptUICalendarModule,
         NativeScriptUIListViewModule,
-        TNSCheckBoxModule
+        TNSCheckBoxModule,
+        NgShadowModule
     ],
     declarations: [
         AppComponent,

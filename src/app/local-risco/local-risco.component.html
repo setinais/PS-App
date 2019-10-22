@@ -1,13 +1,12 @@
 <ActionBar title="Locais de Risco" class="action-bar-per background-color-padrao">
-    <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
+    <NavigationButton text="Voltar" icon="res://ic_arrow_back_black_24dp" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
-<ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false" style="background-image: url(); background-repeat: no-repeat">
-    <FlexboxLayout flexDirection="column" class="owe-list body-uni"
-                   backgroundColor="#e8e7e7">
+<ScrollView backgroundColor="#f8f9fa" scrollBarIndicatorVisible="false">
+    <FlexboxLayout flexDirection="column" class="owe-list body-uni" backgroundColor="#f8f9fa">
         <Label *ngIf="dados.length == 0" text="Não foi possivel encontrar nada!"></Label>
-        <StackLayout *ngFor="let dado of dados" id="item1" orientation="vertical" class="owe-list-item"
-                     width="100%" >
-            <GridLayout columns="auto, *, auto" rows="auto"
+        <StackLayout shadow elevation="3" *ngFor="let dado of dados" orientation="vertical" class="owe-list-item"
+                     width="90%">
+            <GridLayout  columns="auto, *, auto" rows="auto"
                         width="100%" height="auto" class="owe-main-info"
                         verticalAlignment="top" >
                 <Image row="0" col="0" [src]="dado.imagens[0]"
@@ -23,12 +22,18 @@
                     </GridLayout>
                 </StackLayout>
             </GridLayout>
-            <GridLayout columns="auto,auto, *, auto" rows="auto"
+            <GridLayout  columns="auto,auto, *, auto" rows="auto,auto"
                         width="100%" height="auto" class="owe-secondary-info">
-                <Button text="&#xf3c5;  Localização" row="0" col="0" class="btn fas location" (tap)="onNavigate(dado.localizacao)" ></Button>
-                <Label row="0" col="3" [text]="dado.created_at | date:'dd/MM/yyyy H:m'" class="lender-bairro"></Label>
+                <Button text="&#xf3c5;" rowSpan="2" col="3" class="btn fas location color-padrao btn-design btn-color-location" (tap)="onNavigate(dado.localizacao)" ></Button>
+                <Label row="0" col="0" [text]="dado.created_at | date:'dd MMMM yyyy'" class="lender-bairro"></Label>
+                <Label row="1" col="0" [text]="dado.created_at | date:'H:m a'" class="lender-bairro"></Label>
             </GridLayout>
-            <Label class="divider" text=""></Label>
         </StackLayout>
+        <Label class="divider" text=""></Label>
     </FlexboxLayout>
 </ScrollView>
+<AbsoluteLayout width="100%" height="100%">
+    <StackLayout class="btn-location">
+        <Button text="+" style="font-size: 35em;" class="btn-design btn-color-add" [nsRouterLink]="['/local-risco-add']" clearHistory="true" pageTransition="slideLeft"></Button>
+    </StackLayout>
+</AbsoluteLayout>

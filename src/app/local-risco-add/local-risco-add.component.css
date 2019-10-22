@@ -1,1 +1,15 @@
 /* Add mobile styles for the component here.  */
+.action-bar-per{
+    color: #FFFFFF;
+}
+
+.btn-color-add{
+    background-color: #e64a45;
+    color: #FFFFFF;
+}
+
+.btn-design{
+    font-size: 20em;
+    padding: 0 0 0;
+    border-radius: 50%;
+}

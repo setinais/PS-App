@@ -14,9 +14,10 @@ import {LocalRiscoComponent} from "~/app/local-risco/local-risco.component";
 import { DiarioSaudeDetalhesComponent } from "./diario-saude-detalhes/diario-saude-detalhes.component";
 import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-saude-perguntas.component";
 import {VisualizacoesDetailComponent} from "~/app/visualizacoes-detail/visualizacoes-detail.component";
+import {LocalRiscoAddComponent} from "~/app/local-risco-add/local-risco-add.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/home", pathMatch: "full"},
+    { path: "", redirectTo: "/local-risco-add", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
     { path: "diario-saude-detalhes", component: DiarioSaudeDetalhesComponent},
     { path: "diario-saude-perguntas", component: DiarioSaudePerguntasComponent},
     { path: "localrisco", component: LocalRiscoComponent },
+    { path: "local-risco-add", component: LocalRiscoAddComponent },
 ];
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],

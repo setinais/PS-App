@@ -29,8 +29,7 @@ refer to http://docs.nativescript.org/ui/theme.
 .color-padrao{
     color: #b72806;
 }
-
 .background-color-padrao{
-    /*background-color: #b72806;*/
+    /*background-color: #e64a45;*/
     background: linear-gradient(100deg, #d12c38, #f35a5d);
 }

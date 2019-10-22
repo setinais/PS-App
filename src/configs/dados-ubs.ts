@@ -44,6 +44,7 @@ export const hospital: Array<VisualizacaoModel> = [
         created_at: 'string'
     },
 
+
 ]
 export const ubs: Array<VisualizacaoModel> = [
     {

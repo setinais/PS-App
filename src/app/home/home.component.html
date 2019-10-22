@@ -1,3 +1,6 @@
+<ActionBar title="Locais de Risco" class="action-bar-per background-color-padrao">
+    <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
+</ActionBar>
 <GridLayout rows="auto, *, auto" class="home-page">
     <!--    <FlexboxLayout class="home-page-content" verticalAlignment="top">-->
     <GridLayout rows="auto, auto" row="0" style="margin-top: 6%;">
@@ -27,28 +30,38 @@
     <!--    </FlexboxLayout>-->
     <StackLayout row="2" style="margin-bottom: 3.5%;">
         <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
-            <GridLayout columns="*, *, *, *, *, *, *" class="bottom-navigation">
+            <GridLayout columns="*, *, *, *, *, *, *, *, *" class="bottom-navigation">
                 <GridLayout [nsRouterLink]="['/diario-saude-detalhes']" pageTransition="slideLeft"  col="0" rows="auto, *, auto, auto" class="bottom-navigation-item" >
                     <Label row="0" text="calendar" class="icon icon-design"></Label>
                     <Label row="2" text="Minha" class="label"></Label>
                     <Label row="3" text="Saúde" class="label"></Label>
                 </GridLayout>
-                <GridLayout [nsRouterLink]="['/localrisco']" pageTransition="slideLeft" col="1" rows="auto, *, auto, auto" class="bottom-navigation-item">
+                <GridLayout [nsRouterLink]="['/agua']" pageTransition="slideLeft" col="1" rows="auto, *, auto, auto" class="bottom-navigation-item">
+                    <Label row="0" text="&#xf7a0;" class="fas icon-design"></Label>
+                    <Label row="2" text="Beba Água" class="label "></Label>
+<!--                    <Label row="3" text="Água" class="label font-label"></Label>-->
+                </GridLayout>
+                <GridLayout [nsRouterLink]="['/localrisco']" pageTransition="slideLeft" col="2" rows="auto, *, auto, auto" class="bottom-navigation-item">
+                    <Label row="0" text="&#xf496;" class="fas icon-design"></Label>
+                    <Label row="2" text="Peso Ideal" class="label "></Label>
+<!--                    <Label row="3" text="de Risco" class="label font-label"></Label>-->
+                </GridLayout>
+                <GridLayout [nsRouterLink]="['/localrisco']" pageTransition="slideLeft" col="3" rows="auto, *, auto, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xf7b9;" class="fas icon-design"></Label>
                     <Label row="2" text="Locais" class="label "></Label>
                     <Label row="3" text="de Risco" class="label font-label"></Label>
                 </GridLayout>
-                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'U',title: 'Unidades Básicas de Saúde - UBS '}" col="3" rows="auto,*, auto, auto" class="bottom-navigation-item">
+                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'U',title: 'Unidades Básicas de Saúde - UBS '}" col="4" rows="auto,*, auto, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xf469;" class="fas icon-design"></Label>
                     <Label row="2" text="Unidades" class="label"></Label>
                     <Label row="3" text="de Saúde" class="label"></Label>
                 </GridLayout>
-                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'H', title: 'Hospitais'}" col="2" rows="auto, *, auto" class="bottom-navigation-item">
+                <GridLayout [nsRouterLink]="['/visualizacao']" pageTransition="slideLeft" [queryParams]="{type: 'H', title: 'Hospitais'}" col="5" rows="auto, *, auto" class="bottom-navigation-item">
                     <Label row="0" text="&#xf0f8;" class="fas icon-design"></Label>
                     <Label row="2
 " text="Hospitais" class="label"></Label>
                 </GridLayout>
-                <GridLayout col="4" rows="auto, *, auto" class="bottom-navigation-item" [nsRouterLink]="['/putuser']" pageTransitionDuration="600" pageTransition="slideLeft">
+                <GridLayout col="6" rows="auto, *, auto" class="bottom-navigation-item" [nsRouterLink]="['/putuser']" pageTransitionDuration="600" pageTransition="slideLeft">
                     <Label row="0" text="&#xf2bb;" class="fas icon-design"></Label>
                     <Label row="2" text="Perfil" class="label"></Label>
                 </GridLayout>

@@ -1,1 +1,51 @@
-<Button text="local-risco-add works!" class="btn btn-primary"></Button>
+<ActionBar title="Locais de Risco" class="action-bar-per background-color-padrao">
+    <NavigationButton text="Voltar" icon="res://ic_arrow_back_black_24dp" [nsRouterLink]="['/localrisco']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
+</ActionBar>
+<FlexboxLayout class="page">
+    <StackLayout class="form">
+        <PreviousNextView>
+            <ScrollView scrollBarIndicatorVisible="false" height="100%" class="form scrolview m-t-30" orientation="vertical">
+                <GridLayout rows="auto">
+                    <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
+
+                        <Label elevation="4" text="Cadastre um possivel local!" style="font-size: 20em; text-align: center" class="m-t-16" row="0"></Label>
+
+
+                        <StackLayout row="1" class="input-field m-t-30">
+                            <Label text="&#xf0e0; Descrição breve" class="fas label-text"></Label>
+                            <TextField #descricao class="input" hint="Foco de Dengue" [(ngModel)]="lr.descricao"
+                                        [isEnabled]="!processing"
+                            ></TextField>
+                        </StackLayout>
+
+                        <StackLayout row="2" class="input-field">
+                            <Label class="fas label-text" text="&#xf084; Av ou Rua" textWrap="true"></Label>
+                            <TextField #endereco class="input" hint="Rua Ceara" [isEnabled]="!processing" [(ngModel)]="lr.endereco"></TextField>
+                        </StackLayout>
+
+                        <StackLayout row="3" class="input-field">
+                            <Label text="&#xf5b7; Bairro" class="fas label-text"></Label>
+                            <TextField #bairro class="input" hint="Centro" [isEnabled]="!processing" [(ngModel)]="lr.bairro"
+                                       returnKeyType="done"></TextField>
+                        </StackLayout>
+
+                        <StackLayout row="4" class="input-field">
+                            <Label text="&#xf47f; Localização" class="fas label-text"></Label>
+                            <Label [text]="lr.localizacao"></Label>
+                        </StackLayout>
+
+                        <StackLayout row="5" class="input-field">
+                            <Label text="&#xf47f; Foto" class="fas label-text"></Label>
+                            <Button class="btn-design btn-color-add" text="Camera" (tap)="capturePhoto()"></Button>
+                        </StackLayout>
+                        <StackLayout row="6" horizontalAlignment="center">
+                            <Image [src]="photoPath" width="250" height="300"></Image>
+                        </StackLayout>
+
+                        <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
+                    </GridLayout>
+                </GridLayout>
+            </ScrollView>
+        </PreviousNextView>
+    </StackLayout>
+</FlexboxLayout>

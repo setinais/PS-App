@@ -2,10 +2,10 @@ import {LocalizacaoModel} from "~/models/visualizacao.model";
 
 export class LocalRiscoModel {
     id: number
-    nome: string
+    descricao: string
     endereco: string
     bairro: string
     localizacao: LocalizacaoModel
-    imagens: Array<string>
+    imagens: string
     created_at: string
 }
