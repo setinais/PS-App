@@ -23,7 +23,7 @@ export class DiarioSaudePerguntasComponent implements OnInit {
               private db: SqliteService) {
     this.perguntas = [
       {
-          categoria: 'Geral e Inespecifico',
+          category: 'Geral e Inespecifico',
           tipos:
               [
                 {status: false, name: 'Alergia / Reação Alérgica'}, 
@@ -43,7 +43,7 @@ export class DiarioSaudePerguntasComponent implements OnInit {
               ]
       },
       {
-        categoria: 'Digestivo',
+        category: 'Digestivo',
         tipos:
               [
                 {status: false, name: 'Diarreia / Prisão de ventre' }, 
@@ -55,7 +55,7 @@ export class DiarioSaudePerguntasComponent implements OnInit {
               ]
       },
       {
-        categoria: 'Psicológico',
+        category: 'Psicológico',
         tipos:  
               [
                 {status: false, name: 'Abuso de cigarros' }, 
@@ -69,7 +69,7 @@ export class DiarioSaudePerguntasComponent implements OnInit {
               ]
       },
       {
-        categoria: 'Problemas respiratórios',
+        category: 'Problemas respiratórios',
         tipos:  
               [
                 {status: false, name: 'Asma' }, 
@@ -109,17 +109,23 @@ confirmarQuestionario() {
   // this.routerExtenstions.navigate(['/home']);
 
   let tipos: Tipo[] = [];
-  this.perguntas.forEach((value, index) => {
-    value.tipos.forEach((value, index) => {
+  this.perguntas.forEach((pergunta, index) => {
+    pergunta.tipos.forEach((value, index) => {
+      value.category = pergunta.category;
       if (value.status) {
         tipos.push(value);
       }
     })
   })
-
+  let date: Date = new Date();
   let saude: Saude = {
+    id: null,
     name: 'Mal',
-    date: new Date,
+    day: date.getDate().toString(),
+    month: date.getMonth().toString(),
+    year: date.getFullYear().toString(),
+    hours: date.getHours().toString(),
+    minutes: date.getMinutes().toString(),
     tipos: tipos
   }
   this.db.insertSaudeDiaria(saude).then(res => this.routerExtenstions.navigate(['/home']));

@@ -1,6 +1,6 @@
 import { Tipo } from "./tipo.model";
 
 export interface DiarioSaude{
-    categoria: string
+    category: string
     tipos: Tipo[]
 }

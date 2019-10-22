@@ -1,0 +1,22 @@
+<ActionBar title="Minha Saúde" class="action-bar-per background-color-padrao">
+    <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/diario-saude-detalhes']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
+</ActionBar>
+<ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false" style="background-image: url(); background-repeat: no-repeat">
+        <StackLayout class="page">       
+               
+                <StackLayout *ngFor="let tipo of saude?.tipos" class="card-status">
+                    <GridLayout rows="auto" columns="auto, *, auto" (tap)="listTipos(saude)">           
+                       <StackLayout row="0" col="0" [class]="saude?.name == 'Bem' ? 'bom' : 'ruim'">
+                            <Label [text]="saude?.name == 'Bem' ? '&#xf118;' : '&#xf119;'" class="fas ico"></Label>
+                       </StackLayout>
+                       <StackLayout row="0" col="1" class="m-l-10" verticalAlignment="center">
+                           <Label [text]="tipo?.name" textWrap="true"></Label>
+                           <!-- <Label [text]="'Dia ' + saude?.day +' as ' + saude?.hours + ':' + saude?.minutes" textWrap="true"></Label> -->
+                       </StackLayout>
+                       <StackLayout row="0" col="2" verticalAlignment="center">
+                            <Label text="&#xf00c;" class="fas ico check"></Label>
+                       </StackLayout>
+                    </GridLayout>                  
+                </StackLayout>                                
+        </StackLayout>
+</ScrollView>

@@ -7,6 +7,8 @@ import {BannerService} from "~/services/banner.service";
 import {PageChangeEventData} from "nativescript-image-swipe";
 import {Accuracy} from "tns-core-modules/ui/enums";
 import any = Accuracy.any;
+import { SqliteService } from '../services/sqlite.service';
+import { DiarioSaudeService } from '../diario-saude/diario-saude.service';
 
 @Component({
   selector: 'ns-home',
@@ -25,12 +27,14 @@ export class HomeComponent implements OnInit {
     private imagens: any[] = []
     constructor(private page: Page,
                 private nav: RouterExtensions,
-                private bannerService: BannerService) {
+                private bannerService: BannerService,
+                private diarioService: DiarioSaudeService) {
         this.page.actionBarHidden = !this.page.actionBarHidden
         this.screenWidth = screen.mainScreen.widthDIPs;
 
     }
     ngOnInit() {
+        this.diarioService.diarioQuestion();
         this.bannerInit();
         this.page.cssClasses.add("welcome-page-background");
         this.page.backgroundSpanUnderStatusBar = true;
