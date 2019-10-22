@@ -6,6 +6,8 @@ export class UserModel{
     data_nascimento: string
     sexo: string
     cpf: string
+    avatar: string
+    role_id: number
     cartao_sus: string
     created_at: string
 }

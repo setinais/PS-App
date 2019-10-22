@@ -17,7 +17,7 @@ import {VisualizacoesDetailComponent} from "~/app/visualizacoes-detail/visualiza
 import {LocalRiscoAddComponent} from "~/app/local-risco-add/local-risco-add.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/local-risco-add", pathMatch: "full"},
+    { path: "", redirectTo: "/putuser", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },

@@ -5,6 +5,7 @@ import {fromAsset} from "tns-core-modules/image-source";
 import {isAndroid} from "tns-core-modules/platform";
 import {getCurrentLocation, enableLocationRequest, isEnabled} from "nativescript-geolocation";
 import { Accuracy } from "tns-core-modules/ui/enums";
+import {Page} from "tns-core-modules/ui/page";
 @Component({
     selector: 'ns-local-risco-add',
     templateUrl: './local-risco-add.component.html',
@@ -16,9 +17,9 @@ export class LocalRiscoAddComponent implements OnInit {
     private lr: LocalRiscoModel
     private form
     private photoPath: string = ""
-    constructor() {
+    constructor(private page: Page) {
         this.lr = new LocalRiscoModel()
-
+        this.page.actionBarHidden = !this.page.actionBarHidden
     }
 
     ngOnInit() {

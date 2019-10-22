@@ -53,14 +53,15 @@ export class PutuserComponent implements OnInit {
         })
     }
     edit() {
-        this.alterStatus = !this.alterStatus
+        this.alterStatus = true
     }
 
     cancelEdit(){
-        this.alterStatus = !this.alterStatus
+        this.alterStatus = false
     }
 
     checkAlter() {
+        this.alterStatus = false
         if (this.user.email == this.userOld['email'])
             this.user.email = undefined
         if (this.dataextraido == this.userOld['data_nascimento']) {
@@ -81,33 +82,44 @@ export class PutuserComponent implements OnInit {
     }
 
     submit() {
+        console.log("Envio dos dados", this.user)
         this.userService.put(this.user, this.userOld['id']).subscribe(response => {
+            console.log(response)
             this.Editar = "Editar"
             this.userOld = response['data']
             this.prepareForm(response['data'])
-            this.processing = !this.processing
+            this.processing = false
             this.formUserValidator = undefined
         }, error => {
             if (error.status == 422) {
                 this.formUserValidator = error.error['errors']
-                console.log(error.error)
             } else {
                 alert(error.error['message'])
             }
             this.prepareForm(this.userOld)
-            this.processing = !this.processing
-            this.alterStatus = !this.alterStatus
+            this.processing = false
+            this.alterStatus = true
         })
     }
 
     prepareForm(response) {
-        let ano = response['data_nascimento'].split("-")[0]
-        let mes = response['data_nascimento'].split("-")[1]
-        let dia = response['data_nascimento'].split("-")[2]
-        if (response['sexo'] == 'Masculino') {
+        let ano = '0000'
+        let mes = '00'
+        let dia = '00'
+        if(response['data_nascimento'] != null){
+            ano = response['data_nascimento'].split("-")[0]
+            mes = response['data_nascimento'].split("-")[1]
+            dia = response['data_nascimento'].split("-")[2]
+        }
+        if(response['sexo'] == null){
+            response['sexo'] ='Selecione'
             this.checkedSwitch = false
-        } else {
-            this.checkedSwitch = true
+        }else{
+            if (response['sexo'] == 'Masculino') {
+                this.checkedSwitch = false
+            } else {
+                this.checkedSwitch = true
+            }
         }
         this.user.email = response['email']
         this.user.name = response['name']
