@@ -50,3 +50,21 @@
     font-size: 12pt;
     opacity: 0.7;
 }
+.baixo-peso{
+    color:  #01ADE3;
+}
+.descricao-title{
+    margin: 15;
+}
+.topico{
+    margin: 15;
+    font-weight: 900;
+    font-size: 18pt;
+
+}
+
+.topico-desc{
+    margin: 15;
+    font-weight: 400;
+    font-size: 14pt;
+}

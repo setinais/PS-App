@@ -44,3 +44,10 @@
     font-weight: 500;
 
 }
+.legenda{
+    margin-left: 20;
+    margin-top: 5;
+    font-weight: 300;
+    font-size: 12pt;
+    opacity: 0.7;
+}
