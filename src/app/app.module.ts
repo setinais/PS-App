@@ -26,6 +26,10 @@ import {ModalComponent} from "~/app/modal/modal.component";
 import { LocalRiscoAddComponent } from './local-risco-add/local-risco-add.component';
 import {NgShadowModule} from "nativescript-ng-shadow";
 import { DiarioSaudeTipoListComponent } from './diario-saude-tipo-list/diario-saude-tipo-list.component';
+import { AguaComponent } from './agua/agua.component';
+import {FloatLabel} from "~/styles/float-label";
+import {FloatLabelAgua} from "~/styles/float-label-agua";
+import { PesoComponent } from './peso/peso.component';
 
 
 @NgModule({
@@ -43,7 +47,8 @@ import { DiarioSaudeTipoListComponent } from './diario-saude-tipo-list/diario-sa
         NativeScriptUICalendarModule,
         NativeScriptUIListViewModule,
         TNSCheckBoxModule,
-        NgShadowModule
+        NgShadowModule,
+
     ],
     declarations: [
         AppComponent,
@@ -61,7 +66,9 @@ import { DiarioSaudeTipoListComponent } from './diario-saude-tipo-list/diario-sa
         VisualizacoesDetailComponent,
         LocalRiscoAddComponent,
         DiarioSaudeTipoListComponent,
-
+        AguaComponent,
+        FloatLabelAgua,
+        PesoComponent,
     ],
     providers: [
         {

@@ -1,0 +1,24 @@
+<ActionBar title="O que sabe sobre Água?" class="action-bar-per background-color-padrao-personalizado">
+    <NavigationButton text="Voltar" icon="res://ic_arrow_back_black_24dp" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
+</ActionBar>
+<ScrollView orientation="vertical">
+    <FlexboxLayout flexDirection="column" >
+        <Image src="~/imagens/agua-por-dia.png"></Image>
+        <StackLayout class="page">
+            <Label text="Faça o teste" class="title"></Label>
+            <FlexboxLayout horizontalAlignment="center">
+                <FloatLabelAgua #peso placeholder="&#xf5cd; Kg" borderBottomColor="#c0c0c0"></FloatLabelAgua>
+                <StackLayout orientation="horizontal" class="info-peso">
+                    <Label class="info-peso-calculao" [text]="peso.value == 0.0 ? 'Digite o peso' : peso.value * 0.035 | number: '1.1-2'"></Label>
+                    <Label class="info-peso-calculao" [text]="peso.value == 0.0 ? '' : '   Litros por dia.'"></Label>
+                </StackLayout>
+            </FlexboxLayout>
+        </StackLayout>
+        <Label text="Você Sabia?" class="title"></Label>
+        <Label class="vc-sabia" textWrap="true" text="Apenas 3% da água do mundo é doce. Deste total, 70% está na forma de gelo ou no solo."></Label>
+        <Label class="vc-sabia" textWrap="true" text="12% da água doce do mundo está no Brasil. O país é privilegiado por seus aquíferos, que armazenam a água no solo."></Label>
+        <Label class="vc-sabia" textWrap="true" text="Uma torneira que goteja a cada segundo pode vazar três mil litros em um ano."></Label>
+        <Label class="vc-sabia" textWrap="true" text="Para produzir um quilo de manteiga são necessários 18 mil litros de água e para um quilo de carne gasta-se 15.400 litros."></Label>
+        <Button class="btn-curiosidade" text="Mais curiosidades?" (tap)="urlCuriosidade()"></Button>
+    </FlexboxLayout>
+</ScrollView>

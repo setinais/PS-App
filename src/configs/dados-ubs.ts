@@ -18,7 +18,7 @@ export const hospital: Array<VisualizacaoModel> = [
     {
         id: 2,
         nome: 'Hospital Modelo',
-        localizacao: {latitude: -10.1753214, longitude: -48.8849307},
+        localizacao: {latitude: -10.1752863, longitude: -48.8831248},
         endereco: 'Rua Tapajós, Quadra 24, Lote1, 260 ',
         bairro: 'Centro',
         telefone: '(63) 3602-1188',

@@ -16,9 +16,11 @@ import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-s
 import {VisualizacoesDetailComponent} from "~/app/visualizacoes-detail/visualizacoes-detail.component";
 import {LocalRiscoAddComponent} from "~/app/local-risco-add/local-risco-add.component";
 import { DiarioSaudeTipoListComponent } from "./diario-saude-tipo-list/diario-saude-tipo-list.component";
+import {AguaComponent} from "~/app/agua/agua.component";
+import {PesoComponent} from "~/app/peso/peso.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/putuser", pathMatch: "full"},
+    { path: "", redirectTo: "/peso", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },
@@ -33,6 +35,9 @@ const routes: Routes = [
     { path: "diario-saude-tipo-list/:id", component: DiarioSaudeTipoListComponent, canActivate: [AppAuthGuard]},
     { path: "localrisco", component: LocalRiscoComponent },
     { path: "local-risco-add", component: LocalRiscoAddComponent },
+    { path: "agua", component: AguaComponent },
+    { path: "peso", component: PesoComponent },
+
 ];
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],

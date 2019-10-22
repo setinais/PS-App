@@ -1,0 +1,41 @@
+<ActionBar title="O que sabe sobre Água?" class="action-bar-per background-color-padrao-personalizado">
+    <NavigationButton text="Voltar" icon="res://ic_arrow_back_black_24dp" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
+</ActionBar>
+<ScrollView orientation="vertical">
+    <FlexboxLayout flexDirection="column" >
+        <Label text="Peso Correto ?" class="title"></Label>
+        <Label textWrap="true" text="O IMC é a abreviação para Índice de Massa Corporal e é uma conta simples utilizada para saber se você está dentro do peso recomendado ou não." class=""></Label>
+        <Image src="~/imagens/peso-qual-ele.png"></Image>
+        <StackLayout class="page">
+            <Label text="Faça o teste" class="title"></Label>
+            <Label text="&#xf5cd; Kg - Seu peso em kilogramas - Ex: 68 kg" class="fas legenda"></Label>
+            <Label text="&#xf338; Cm - Sua Altura em centimetros - Ex: 168 cm" class="fas legenda"></Label>
+            <FlexboxLayout horizontalAlignment="center">
+                <FloatLabelAgua #peso placeholder="&#xf5cd; Kg" borderBottomColor="#c0c0c0"></FloatLabelAgua>
+                <Label style="margin-top: 50%; font-size: 20em; font-weight: 500;" text="    /    "> </Label>
+                <FloatLabelAgua #altura placeholder="&#xf338; Cm" borderBottomColor="#c0c0c0"></FloatLabelAgua>
+                <Label style="margin-top: 50%;  font-size: 20em; font-weight: 500;" text="    =    "> </Label>
+                <StackLayout orientation="horizontal" class="info-peso">
+                    <Label class="info-peso-calculao" [text]="peso.value / ((altura.value / 100) * (altura.value / 100))   | number: '1.1-2'"></Label>
+                    <Label class="info-peso-calculao" text="  IMC"></Label>
+                </StackLayout>
+                <Label class="" [text]="valpeso"></Label>
+            </FlexboxLayout>
+        </StackLayout>
+
+        <Label text="O que é massa?"></Label>
+        <Label textWrap="true" text="Podemos entender que massa é a quantidade de matéria que um corpo possui em qualquer lugar da terra ou fora dela. Exemplo: a massa do corpo humano é a mesma na Terra e a mesma na Lua."></Label>
+
+        <Label text="O que é peso?"></Label>
+        <Label textWrap="true" text="O peso é a força com que esse corpo é atraído para o centro da terra de acordo com a força a gravitacional. Exemplo: o peso do corpo humano na Terra é seis vezes maior que na Lua, isso devido a força gravitacional."></Label>
+
+
+        <Label text="Você Sabia?" class="title"></Label>
+        <Label class="vc-sabia" textWrap="true" text="A falta de sono pode provocar o ganho de quase 1 quilo em menos de 1 semana;"></Label>
+        <Label class="vc-sabia" textWrap="true" text="Para queimar todas as calorias presentes em um combo composto por um Big Mac acompanhado de fritas e Coca-Cola grandes, seria necessário caminhar durante 7 horas seguidas;"></Label>
+        <Label class="vc-sabia" textWrap="true" text="Quando uma pessoa emagrece, a maior parte da gordura é eliminada por meio da respiração na forma de dióxido de carbono — e o restante na forma de água;"></Label>
+        <Label class="vc-sabia" textWrap="true" text="O colesterol “bom” — ou HDL — pode se transformar em colesterol ruim (LDL), se solidificar e obstruir veias e artérias;"></Label>
+        <Label class="vc-sabia" textWrap="true" text="Os frangos de hoje em dia contêm 266% mais gordura do que há 40 anos."></Label>
+        <Button class="btn-curiosidade" text="Mais curiosidades?" (tap)="urlCuriosidade()"></Button>
+    </FlexboxLayout>
+</ScrollView>

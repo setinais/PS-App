@@ -34,6 +34,7 @@ export class VisualizacoesComponent implements OnInit {
                 this.dados = hospital
                 break;
             default:
+                this.title = 'Unidades Básicas de Saúde - UBS'
                 this.dados = ubs
         }
 
