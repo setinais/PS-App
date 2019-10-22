@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular';
 import { Saude } from './saude.model';
 import { SqliteService } from '../services/sqlite.service';
+import { DiarioSaudeService } from './diario-saude.service';
 
 @Component({
   selector: 'ns-diario-saude',
@@ -12,7 +13,8 @@ export class DiarioSaudeComponent implements OnInit {
    
 
     constructor(private routerExtensions: RouterExtensions,
-                private db: SqliteService) {
+                private db: SqliteService,
+                private diarioService: DiarioSaudeService) {
       
     }
 
@@ -20,11 +22,18 @@ export class DiarioSaudeComponent implements OnInit {
     }
 
     redirectHome() {
+        let date: Date = new Date()
         let saude: Saude = {
+            id: null,
             name: 'Bem',
-            date: new Date(),
+            day: date.getDate().toString(),
+            month: date.getMonth().toString(),
+            year: date.getFullYear().toString(),
+            hours: date.getHours().toString(),
+            minutes: date.getMinutes().toString(),
             tipos: []
         }
+  
         this.db.insertSaudeDiaria(saude).then(res => {
             this.routerExtensions.navigate(['home'], {
                 clearHistory: true,
@@ -48,6 +57,10 @@ export class DiarioSaudeComponent implements OnInit {
                 curve: 'ease'
             }
         })
+    }
+
+    goBack() {
+        this.diarioService.diarioQuestion()
     }
 
 }

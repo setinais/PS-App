@@ -15,6 +15,7 @@ import { DiarioSaudeDetalhesComponent } from "./diario-saude-detalhes/diario-sau
 import { DiarioSaudePerguntasComponent } from "./diario-saude-perguntas/diario-saude-perguntas.component";
 import {VisualizacoesDetailComponent} from "~/app/visualizacoes-detail/visualizacoes-detail.component";
 import {LocalRiscoAddComponent} from "~/app/local-risco-add/local-risco-add.component";
+import { DiarioSaudeTipoListComponent } from "./diario-saude-tipo-list/diario-saude-tipo-list.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/putuser", pathMatch: "full"},
@@ -26,9 +27,10 @@ const routes: Routes = [
     { path: "visualizacao", component: VisualizacoesComponent},
     { path: "visualizacao-detail", component: VisualizacoesDetailComponent},
     { path: "redefinirSenha", component: RedefinirSenhaComponent },
-    { path: "diario-saude", component: DiarioSaudeComponent },
-    { path: "diario-saude-detalhes", component: DiarioSaudeDetalhesComponent},
-    { path: "diario-saude-perguntas", component: DiarioSaudePerguntasComponent},
+    { path: "diario-saude", component: DiarioSaudeComponent, canActivate: [AppAuthGuard]},
+    { path: "diario-saude-detalhes", component: DiarioSaudeDetalhesComponent, canActivate: [AppAuthGuard]},
+    { path: "diario-saude-perguntas", component: DiarioSaudePerguntasComponent, canActivate: [AppAuthGuard]},
+    { path: "diario-saude-tipo-list/:id", component: DiarioSaudeTipoListComponent, canActivate: [AppAuthGuard]},
     { path: "localrisco", component: LocalRiscoComponent },
     { path: "local-risco-add", component: LocalRiscoAddComponent },
 ];

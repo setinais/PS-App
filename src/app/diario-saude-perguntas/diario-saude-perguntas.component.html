@@ -9,7 +9,7 @@
 						<ng-template tkListItemTemplate let-pergunta="item">
 							<StackLayout class="perguntas-content" (tap)="clicked(pergunta)">
 								<GridLayout rows="auto" columns="*, auto">
-										<Label row="0" col="0" horizontalAlignment="center" [text]="pergunta.categoria" 
+										<Label row="0" col="0" horizontalAlignment="center" [text]="pergunta.category" 
 										class="categoria-perguntas"></Label>
 										<Label row="0" col="1" text="&#xf107;" class="fas ico" verticalAlignment="center"></Label>
 								</GridLayout>

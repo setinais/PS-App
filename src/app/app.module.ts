@@ -25,6 +25,7 @@ import { VisualizacoesDetailComponent } from './visualizacoes-detail/visualizaco
 import {ModalComponent} from "~/app/modal/modal.component";
 import { LocalRiscoAddComponent } from './local-risco-add/local-risco-add.component';
 import {NgShadowModule} from "nativescript-ng-shadow";
+import { DiarioSaudeTipoListComponent } from './diario-saude-tipo-list/diario-saude-tipo-list.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import {NgShadowModule} from "nativescript-ng-shadow";
         LocalRiscoComponent,
         VisualizacoesDetailComponent,
         LocalRiscoAddComponent,
+        DiarioSaudeTipoListComponent,
 
     ],
     providers: [
