@@ -4,7 +4,7 @@
 <ScrollView orientation="vertical">
     <StackLayout>
         <GridLayout rows="auto,auto,auto,auto, auto, auto, auto" columns="auto, auto">
-            <Image class="image-detail" row="0" colSpan="2" [src]="dados.imagem"></Image>
+            <ImageSwipe class="image-detail" [pageNumber]="slideNumber" (pageChanged)="pageChanged($event)" [items]="imagens" imageUrlProperty="imageUrl" row="0" colSpan="2" ></ImageSwipe>
             <Label col="0" row="1" class="m-t-8 m-l-8 label-name" [text]="dados.nome"></Label>
             <Label col="1" row="2" class="m-t-8 m-l-8 label-descricao" text="Endereço:"></Label>
             <Label col="1" row="3" class="m-t-8 m-l-8 label-info" [text]="dados.endereco"></Label>
