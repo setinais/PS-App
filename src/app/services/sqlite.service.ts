@@ -40,11 +40,16 @@ export class SqliteService {
 
     }
 
-    public fetchSaudeDiaria(day = null, month = null, year = null, id = null, user_id = null): Promise<any> {
+    public fetchSaudeDiaria(day = null, month = null, year = null, id = null, user_id = null, sqll = null): Promise<any> {
         return new Promise((resolve, reject) => {
             let sql: string;
-            if (day != null || month != null || year != null || id != null) {
-                sql = `SELECT * FROM saude WHERE ${day == null ? '' : 'day='+day + ' and '}${month == null ? '' : 'month='+(parseInt(month) + 1)}${year == null ? '': ' and year='+year}${id == null ? '': ' and id='+id}${user_id == null ? '': ' and user_id='+user_id}`;
+            if (day != null || month != null || year != null || id != null) {        
+                if(sqll == null) {
+                    sql = `SELECT * FROM saude WHERE ${day == null ? '' : 'day='+day + ' and '}${month == null ? '' : 'month='+(parseInt(month) + 1)}${year == null ? '': ' and year='+year}${id == null ? '': ' and id='+id}${user_id == null ? '': ' and user_id='+user_id}`;
+                }  else {
+                    sql = `SELECT * FROM saude WHERE ${id == null ? '': 'id='+id}${user_id == null ? '': ' and user_id='+user_id}`;
+                }      
+                
             } else {
                 sql = "SELECT * FROM saude";
             }       
