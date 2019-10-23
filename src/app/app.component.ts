@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import {getString} from "tns-core-modules/application-settings";
+import {RouterExtensions} from "nativescript-angular";
 var Sqlite = require("nativescript-sqlite");
 
 @Component({
@@ -7,7 +9,7 @@ var Sqlite = require("nativescript-sqlite");
 })
 export class AppComponent {
 
-    constructor(){
+    constructor(private route: RouterExtensions){
         (new Sqlite("ps.db")).then( db => {
             db.execSQL("CREATE TABLE IF NOT EXISTS saude (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, user_id TEXT, day TEXT, month TEXT, year TEXT, hours TEXT, minutes TEXT)").then( id => {
                 console.log("Table saude criada")
@@ -22,5 +24,8 @@ export class AppComponent {
         }, error => {
             console.log("OPEN DB ERROR", error);
         });
+        if(getString("token"))
+            this.route.navigate(['/home'], {clearHistory: true})
     }
+
 }

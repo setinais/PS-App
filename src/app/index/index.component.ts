@@ -12,8 +12,6 @@ export class IndexComponent implements OnInit {
 
   constructor(private page: Page, private routeExtension: RouterExtensions) {
       this.page.actionBarHidden = !this.page.actionBarHidden
-      if(getString("token"))
-          this.routeExtension.navigate(['/home'])
   }
 
   ngOnInit() {

@@ -34,8 +34,6 @@ export class LoginComponent {
         this.credentials.client_secret = client_secret
         this.credentials.grant_type = "password"
         this.url_equeci_senha = url_api+'password/reset'
-        if(getString("token"))
-            this.routeExtension.navigate(['/home'])
     }
 
     submit() {
