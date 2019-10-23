@@ -21,7 +21,7 @@ import {PesoComponent} from "~/app/peso/peso.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/index", pathMatch: "full"},
-    { path: "index", component: IndexComponent},
+    { path: "index", component: IndexComponent },
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },
     { path: "home", component: HomeComponent, canActivate: [AppAuthGuard]},

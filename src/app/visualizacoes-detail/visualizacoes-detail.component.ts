@@ -25,6 +25,7 @@ export class VisualizacoesDetailComponent implements OnInit {
       this.visu.getUbsHid(this.route.queryParams['_value'].id).subscribe(response => {
           this.dados = response['data']
           this.imagens.push(response['data']['imagem'][0])
+          console.log(this.imagens)
           this.lenghtDados()
       }, error => {alert('Servidor fora do ar!')})
 
