@@ -5,6 +5,7 @@ import { DiarioSaude } from './diario.model';
 import { Saude } from '../diario-saude/saude.model';
 import { Tipo } from './tipo.model';
 import { SqliteService } from '../services/sqlite.service';
+import { getString } from 'tns-core-modules/application-settings/application-settings';
 
 @Component({
   selector: 'ns-diario-saude-perguntas',
@@ -121,6 +122,7 @@ confirmarQuestionario() {
   let saude: Saude = {
     id: null,
     name: 'Mal',
+    user_id: getString("user_id"),
     day: date.getDate().toString(),
     month: date.getMonth().toString(),
     year: date.getFullYear().toString(),

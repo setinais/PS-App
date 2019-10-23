@@ -3,6 +3,7 @@ import { RouterExtensions } from 'nativescript-angular';
 import { Saude } from './saude.model';
 import { SqliteService } from '../services/sqlite.service';
 import { DiarioSaudeService } from './diario-saude.service';
+import { getString } from 'tns-core-modules/application-settings/application-settings';
 
 @Component({
   selector: 'ns-diario-saude',
@@ -26,6 +27,7 @@ export class DiarioSaudeComponent implements OnInit {
         let saude: Saude = {
             id: null,
             name: 'Bem',
+            user_id: getString("user_id"),
             day: date.getDate().toString(),
             month: date.getMonth().toString(),
             year: date.getFullYear().toString(),
