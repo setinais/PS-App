@@ -7,6 +7,7 @@ import {ActivatedRoute} from "@angular/router";
 import * as utils from "tns-core-modules/utils/utils";
 import * as TNSPhone from "nativescript-phone";
 import {hospital, ubs} from "~/configs/dados-ubs";
+import {BannerService} from "~/services/banner.service";
 @Component({
     selector: 'ns-visualizacoes',
     templateUrl: './visualizacoes.component.html',
@@ -20,6 +21,7 @@ export class VisualizacoesComponent implements OnInit {
     constructor(private page: Page,
                 private _router: RouterExtensions,
                 private route: ActivatedRoute,
+                private visu: BannerService
     ) {
     }
 
@@ -28,10 +30,10 @@ export class VisualizacoesComponent implements OnInit {
         this.title = this.route.snapshot.queryParams['title']
         switch (type) {
             case 'U':
-                this.dados = ubs
+                this.visu.getUbs().subscribe(response => {this.dados = response['data']}, error => {alert('Servidor fora do ar!')})
                 break;
             case 'H':
-                this.dados = hospital
+                this.visu.getHospitais().subscribe(response => {this.dados = response['data']}, error => {alert('Servidor fora do ar!')})
                 break;
             default:
                 this.title = 'Unidades Básicas de Saúde - UBS'

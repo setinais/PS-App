@@ -19,7 +19,6 @@ export class LocalRiscoAddComponent implements OnInit {
     private photoPath: string = ""
     constructor(private page: Page) {
         this.lr = new LocalRiscoModel()
-        this.page.actionBarHidden = !this.page.actionBarHidden
     }
 
     ngOnInit() {

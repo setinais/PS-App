@@ -4,6 +4,7 @@ import {LocalizacaoModel, VisualizacaoModel} from "~/models/visualizacao.model";
 import * as utils from "tns-core-modules/utils/utils";
 import * as TNSPhone from "nativescript-phone";
 import {hospital, ubs} from "~/configs/dados-ubs";
+import {BannerService} from "~/services/banner.service";
 
 @Component({
   selector: 'ns-visualizacoes-detail',
@@ -16,11 +17,15 @@ export class VisualizacoesDetailComponent implements OnInit {
 
     private length_dados: string
 
-  constructor(private route: ActivatedRoute) {
-      this.selectDetail(this.route.queryParams['_value'].id)
-  }
+  constructor(private route: ActivatedRoute, private visu: BannerService) {}
+
 
   ngOnInit() {
+      this.visu.getUbsHid(this.route.queryParams['_value'].id).subscribe(response => {
+          this.dados = response['data']
+          this.lenghtDados()
+      }, error => {alert('Servidor fora do ar!')})
+
   }
 
   selectDetail(id: number){
@@ -36,7 +41,7 @@ export class VisualizacoesDetailComponent implements OnInit {
                 }
             }
         }
-        this.lenghtDados()
+
   }
   lenghtDados(){
         this.length_dados = "";

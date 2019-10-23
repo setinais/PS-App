@@ -16,4 +16,14 @@ export class BannerService {
     checkUpdates(){
         return this.http.get(`${url_api}api/check`)
     }
+
+    getHospitais(){
+        return this.http.get(`${url_api}api/hospitais`)
+    }
+    getUbs(){
+        return this.http.get(`${url_api}api/ubs`)
+    }
+    getUbsHid(id: number){
+        return this.http.get(`${url_api}api/ubsh/${id}`)
+    }
 }

@@ -2,7 +2,7 @@
 fweguiewgarlga
 <FlexboxLayout class="page">
     <StackLayout orientation="horizontal" class="form">
-        <Button text="&#xf055;  Cadastre-se" class="fas btn-color-add btn-design"></Button>
-        <Button text="&#xf502;  Login" class="fas btn-color-add btn-design"></Button>
+        <Button text="&#xf055;  Cadastre-se" class="fas btn-color-add btn-design" [nsRouterLink]="['/adduser']" pageTransition="slideLeft"></Button>
+        <Button text="&#xf502;  Login" class="fas btn-color-add btn-design" [nsRouterLink]="['/login']" pageTransition="slideLeft"></Button>
     </StackLayout>
 </FlexboxLayout>
