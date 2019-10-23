@@ -20,7 +20,7 @@ export class SqliteService {
     insertSaudeDiaria(saude: Saude): Promise<any> {
         return new Promise((resolve, reject) => {
             console.log(saude.month +1)
-            this.database.execSQL("INSERT INTO saude (name, day, month, year, hours, minutes) VALUES (?, ?, ?, ?, ?, ?)", [saude.name, saude.day, (parseInt(saude.month) + 1), saude.year, saude.hours, saude.minutes]).then(id => {
+            this.database.execSQL("INSERT INTO saude (name, user_id, day, month, year, hours, minutes) VALUES (?, ?, ?, ?, ?, ?, ?)", [saude.name, saude.user_id, saude.day, (parseInt(saude.month) + 1), saude.year, saude.hours, saude.minutes]).then(id => {
                 console.log("INSERT RESULT SAUDE", id);
                 if (saude.tipos.length > 0) {
                     saude.tipos.forEach((value, index) => {
@@ -40,15 +40,20 @@ export class SqliteService {
 
     }
 
-    public fetchSaudeDiaria(day = null, month = null, year = null, id = null): Promise<any> {
+    public fetchSaudeDiaria(day = null, month = null, year = null, id = null, user_id = null, sqll = null): Promise<any> {
         return new Promise((resolve, reject) => {
             let sql: string;
-            if (day != null || month != null || year != null || id != null) {
-                sql = `SELECT * FROM saude WHERE ${day == null ? '' : 'day='+day+' and '}${month == null ? '' : 'month='+(parseInt(month) + 1)+' and '}${year == null ? '': 'year='+year}${id == null ? '': 'id='+id}`;
+            if (day != null || month != null || year != null || id != null) {        
+                if(sqll == null) {
+                    sql = `SELECT * FROM saude WHERE ${day == null ? '' : 'day='+day + ' and '}${month == null ? '' : 'month='+(parseInt(month) + 1)}${year == null ? '': ' and year='+year}${id == null ? '': ' and id='+id}${user_id == null ? '': ' and user_id='+user_id}`;
+                }  else {
+                    sql = `SELECT * FROM saude WHERE ${id == null ? '': 'id='+id}${user_id == null ? '': ' and user_id='+user_id}`;
+                }      
+                
             } else {
                 sql = "SELECT * FROM saude";
             }       
-            // console.log(sql)
+            //  console.log(sql)
             this.database.all(sql).then(rows => {
                 console.log("SELECT EXECULTADO")
                 let saude = [];            
@@ -57,6 +62,7 @@ export class SqliteService {
                     this.database.all("SELECT * FROM tipos WHERE saude_id = " + rows[row][0]).then(rowss => {
                         let tipos = [];
                         for(var i in rowss) {
+                            
                             tipos.push({
                                 "saude_id": rowss[i][1],
                                 "category": rowss[i][2],
@@ -66,11 +72,12 @@ export class SqliteService {
                         saude.push({
                             "id": rows[row][0],
                             "name": rows[row][1],
-                            "day": rows[row][2],
-                            "month": (parseInt(rows[row][3]) - 1),
-                            "year": rows[row][4],
-                            "hours": rows[row][5],
-                            "minutes": rows[row][6],
+                            "user_id": rows[row][2],
+                            "day": rows[row][3],
+                            "month": (parseInt(rows[row][4]) - 1),
+                            "year": rows[row][5],
+                            "hours": rows[row][6],
+                            "minutes": rows[row][7],
                             "tipos": tipos
                         });
                     })                

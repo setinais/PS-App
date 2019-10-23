@@ -41,6 +41,7 @@ export class AuthService {
         setString("token","")
         setString("expires_in", "")
         setString("refresh_token", "")
+        setString("user_id", "")
         setBoolean("status_auth", false)
     }
 }

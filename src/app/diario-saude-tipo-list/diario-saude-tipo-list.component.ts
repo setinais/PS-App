@@ -18,7 +18,7 @@ export class DiarioSaudeTipoListComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.saude_id = parseInt(params.get('id'));
-      this.db.fetchSaudeDiaria(null, null, null, this.saude_id).then(res => this.saude = res[0])      
+      this.db.fetchSaudeDiaria(null, null, null, this.saude_id, null, 1).then(res => this.saude = res[0])      
     })
   }
 

@@ -5,8 +5,10 @@ import {RouterExtensions} from "nativescript-angular/router";
 import {AuthService} from "~/services/auth.service";
 import {CredentialsModel} from "~/models/credentials.model";
 import {client_id, client_secret, url_api} from "~/configs/url-default";
-import {getString} from "tns-core-modules/application-settings";
+import {getString, setString} from "tns-core-modules/application-settings";
 import * as utils from "tns-core-modules/utils/utils";
+import { UserService } from "~/services/user.service";
+import { isNull } from "@angular/compiler/src/output/output_ast";
 
 @Component({
     selector: "app-login",
@@ -25,7 +27,7 @@ export class LoginComponent {
 
     url_equeci_senha: string
 
-    constructor(private authService: AuthService, private page: Page, private routeExtension: RouterExtensions){
+    constructor(private authService: AuthService, private page: Page, private routeExtension: RouterExtensions, private userService: UserService){
         this.page.actionBarHidden = true
         this.credentials = new CredentialsModel()
         this.credentials.client_id = client_id
@@ -49,8 +51,14 @@ export class LoginComponent {
         this.authService.getToken(this.credentials)
             .subscribe(response => {
                 this.processing = false
-                this.go()
-
+                this.userService.show(0).subscribe( res => {
+                    if(res['data'].id === undefined) {
+                        this.alert('Não foi possível obter suas informações, tente novamente!')
+                    } else {
+                        setString("user_id", (res['data'].id).toString())
+                        this.go()
+                    }
+                })
             }, error => {
                 if(error.status == 422){
                     this.alert(error.error['message'])
