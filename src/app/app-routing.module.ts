@@ -20,7 +20,7 @@ import {AguaComponent} from "~/app/agua/agua.component";
 import {PesoComponent} from "~/app/peso/peso.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/index", pathMatch: "full"},
+    { path: "", redirectTo: "/home", pathMatch: "full"},
     { path: "index", component: IndexComponent},
     { path: "login", component: LoginComponent },
     { path: "adduser", component: AdduserComponent },
