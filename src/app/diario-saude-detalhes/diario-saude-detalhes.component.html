@@ -1,22 +1,22 @@
 <ActionBar title="Minha Saúde" class="action-bar-per background-color-padrao">
-    <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
+    <NavigationButton text="Voltar" icon="res://ic_arrow_back_black_24dp" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
 <ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false" style="background-image: url(); background-repeat: no-repeat">
         <StackLayout class="page">
                 <StackLayout class="card-status">
-                    <Label text="&#xf073;" fontSize="60" class="fas ico m-b-5 m-t-10" horizontalAlignment="center"></Label>                   
-                    <Label text="Calendário" fontSize="20" horizontalAlignment="center" textWrap="true"></Label>                    
+                    <Label text="&#xf073;" fontSize="60" class="fas ico m-b-5 m-t-10" horizontalAlignment="center"></Label>
+                    <Label text="Calendário" fontSize="20" horizontalAlignment="center" textWrap="true"></Label>
                 </StackLayout>
                 <StackLayout class="card-calendario">
-                    
+
                         <RadCalendar
                         [eventSource]="calendarEvents"
-            
+
                         selectionMode="Single"
                         viewMode="Month"
                         transitionMode="Stack"
                         locale="pt-BR"
-            
+
                         (dateSelected)="onDateSelected($event)"
                         (dateDeselected)="onDateDeselected($event)"
                         (navigatedToDate)="onNavigatedToDate($event)"
@@ -29,7 +29,7 @@
                 <ListView [items]="historySaude" class="list-group">
                     <ng-template let-item="item" let-odd="odd" let-even="even">
                        <StackLayout class="card-status">
-                        <GridLayout rows="auto" columns="auto, *, auto" (tap)="listTipos(item)">           
+                        <GridLayout rows="auto" columns="auto, *, auto" (tap)="listTipos(item)">
                            <StackLayout row="0" col="0" [class]="item?.name == 'Bem' ? 'bom' : 'ruim'">
                                 <Label [text]="item?.name == 'Bem' ? '&#xf118;' : '&#xf119;'" class="fas ico"></Label>
                            </StackLayout>
@@ -40,8 +40,8 @@
                            <StackLayout row="0" col="2" verticalAlignment="center">
                                 <Label text="&#xf00c;" class="fas ico check"></Label>
                            </StackLayout>
-                        </GridLayout>                  
-                    </StackLayout>   
+                        </GridLayout>
+                    </StackLayout>
 
                     </ng-template>
                 </ListView>

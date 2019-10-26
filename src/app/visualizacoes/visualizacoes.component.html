@@ -1,7 +1,7 @@
 <ActionBar [title]="title" class="action-bar-per background-color-padrao">
     <NavigationButton text="Voltar" icon="res://ic_arrow_back_black_24dp" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
-<ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false">
+<ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false" >
 
     <FlexboxLayout flexDirection="column" class="owe-list body-uni"
                    backgroundColor="#e8e7e7">
@@ -28,7 +28,7 @@
             <GridLayout columns="auto,*, auto, auto" rows="auto"
                         width="100%" height="auto" class="owe-secondary-info">
                 <Button text="&#xf3c5;" row="0" col="2" class="btn fas location color-padrao btn-design btn-color-location" (tap)="onNavigate(dado.localizacao)" ></Button>
-
+                <Button text="&#xf005;" class="btn fas location color-padrao btn-design btn-color-location" row="0" col="1" (tap)="showAvalicao(dado.id, dado.nome)"></Button>
 <!--                    <Label row="0" c
 ol="2" text="&#xf095;"-->
 <!--                           class="lender-name fas"></Label>-->
@@ -38,3 +38,5 @@ ol="2" text="&#xf095;"-->
         </StackLayout>
     </FlexboxLayout>
 </ScrollView>
+
+

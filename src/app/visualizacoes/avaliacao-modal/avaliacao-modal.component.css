@@ -1,0 +1,34 @@
+/* Add mobile styles for the component here.  */
+.estrela{
+    color: #c0c0c0;
+    font-size: 26em;
+}
+.selectEstrela{
+    color: #FC0;
+}
+.container-estrela{
+    padding: 4;
+}
+.title-ava{
+    background-color: #FFFFFF;
+    border-width: 1;
+    border-color: #d12c38;
+    border-radius: 30;
+    padding: 10;
+    margin: 7;
+    color: #b72806;
+    font-weight: 900;
+    font-size: 16em;
+    text-align: center;
+}
+.page{
+    padding: 10;
+    /*opacity: 0.8;*/
+}
+.btn-cancel{
+    color: #fff;
+}
+.btn-enviar{
+    background: linear-gradient(100deg, #0081BE, #01ADE3);
+    color: #FFFFFF;
+}

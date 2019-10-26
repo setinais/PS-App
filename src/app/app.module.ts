@@ -8,7 +8,7 @@ import { AppComponent } from "./app.component";
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
-import { NativeScriptFormsModule } from "nativescript-angular";
+import {ModalDialogService, NativeScriptFormsModule} from "nativescript-angular";
 import { PerfilModule } from "~/app/perfil/perfil.module";
 import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
@@ -30,6 +30,7 @@ import { AguaComponent } from './agua/agua.component';
 import {FloatLabel} from "~/styles/float-label";
 import {FloatLabelAgua} from "~/styles/float-label-agua";
 import { PesoComponent } from './peso/peso.component';
+import { AvaliacaoModalComponent } from './visualizacoes/avaliacao-modal/avaliacao-modal.component';
 
 
 @NgModule({
@@ -69,18 +70,20 @@ import { PesoComponent } from './peso/peso.component';
         AguaComponent,
         FloatLabelAgua,
         PesoComponent,
+        AvaliacaoModalComponent,
     ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptor,
-            multi: true
-        }
+            multi: true,
+        },
+        ModalDialogService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ],
-    entryComponents: [ModalComponent],
+    entryComponents: [ModalComponent, AvaliacaoModalComponent],
 })
 /*
 Pass your application module to the bootstrapModule function located in main.ts to start your app

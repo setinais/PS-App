@@ -1,0 +1,39 @@
+<ScrollView>
+    <StackLayout >
+        <Label [text]="'&#xf5c0;   Avaliar '+ nome" class="fas m-15 h2 page" textWrap="true"></Label>
+        <StackLayout orientation="vertical" class="container-estrela page" horizontalAlignment="center">
+            <Label textWrap="true" text="Tempo para Atendimento" class="title-ava"></Label>
+            <StackLayout orientation="horizontal" horizontalAlignment="center">
+                <Label [ngClass]="a1[0] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaA(4,1)" class="fas estrela"></Label>
+                <Label [ngClass]="a1[1] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaA(3,2)" class="fas estrela"></Label>
+                <Label [ngClass]="a1[2] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaA(2,3)" class="fas estrela"></Label>
+                <Label [ngClass]="a1[3] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaA(1,4)" class="fas estrela"></Label>
+                <Label [ngClass]="a1[4] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaA(0,5)" class="fas estrela"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout orientation="vertical" class="container-estrela page" horizontalAlignment="center">
+            <Label textWrap="true" text="Serviço Prestado" class="title-ava"></Label>
+            <StackLayout orientation="horizontal" horizontalAlignment="center">
+                <Label [ngClass]="s1[0] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaS(4,1)" class="fas estrela"></Label>
+                <Label [ngClass]="s1[1] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaS(3,2)" class="fas estrela"></Label>
+                <Label [ngClass]="s1[2] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaS(2,3)" class="fas estrela"></Label>
+                <Label [ngClass]="s1[3] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaS(1,4)" class="fas estrela"></Label>
+                <Label [ngClass]="s1[4] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaS(0,5)" class="fas estrela"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout orientation="vertical" class="container-estrela page" horizontalAlignment="center">
+            <Label textWrap="true" text="Estrutura do Local" class="title-ava"></Label>
+            <StackLayout orientation="horizontal" horizontalAlignment="center">
+                <Label [ngClass]="e1[0] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaE(4,1)" class="fas estrela"></Label>
+                <Label [ngClass]="e1[1] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaE(3,2)" class="fas estrela"></Label>
+                <Label [ngClass]="e1[2] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaE(2,3)" class="fas estrela"></Label>
+                <Label [ngClass]="e1[3] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaE(1,4)" class="fas estrela"></Label>
+                <Label [ngClass]="e1[4] ? 'selectEstrela' : ''" text="&#xf005;" (tap)="valorEstrelaE(0,5)" class="fas estrela"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout orientation="horizontal" class="m-t-20">
+            <Button width="50%" row="0" col="0" class="btn-cancel background-color-padrao" (tap)="close()" text="Cancelar"></Button>
+            <Button width="50%" row="0" col="1" class="btn-enviar" (tap)="store()" text="Enviar"></Button>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>

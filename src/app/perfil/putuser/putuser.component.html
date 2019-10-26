@@ -71,24 +71,28 @@
                         <Button *ngIf="alterStatus" row="8" text="Confirmar Alterações" class="btn btn-edit-user" (tap)="checkAlter()"></Button>
                     </GridLayout>
                     <Label *ngIf="!alterStatus" row="2" class="divider"></Label>
-                    <StackLayout *ngIf="reload" row="3" class="input-field btn-sair">
-                        <GridLayout *ngIf="!alterStatus" rows="auto" (tap)="edit()" columns="*" style="margin-right: 5%; margin-left: 5%;">
+                    <StackLayout  row="3" class="input-field btn-sair">
+                        <GridLayout  *ngIf="!alterStatus && reload" rows="auto" (tap)="edit()" columns="*" style="margin-right: 5%; margin-left: 5%;">
                             <Label row="0" class="text-btn-def text-btn-border fas" [text]="'&#xf044; '+Editar"></Label>
                             <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
-                        <GridLayout *ngIf="alterStatus" rows="auto" class="color-padrao" (tap)="cancelEdit()" columns="*" style="margin-right: 5%; margin-left: 5%;">
+                        <GridLayout *ngIf="alterStatus && reload" rows="auto" class="color-padrao" (tap)="cancelEdit()" columns="*" style="margin-right: 5%; margin-left: 5%;">
                             <Label row="0" class="text-btn-def text-btn-border fas" text="&#xf00d;  Cancelar Alterações"></Label>
                             <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
-                        <GridLayout style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" [nsRouterLink]="['/redefinirSenha']" pageTransition="slideLeft" pageTransitionDuration="800">
+                        <GridLayout *ngIf="reload" style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" [nsRouterLink]="['/redefinirSenha']" pageTransition="slideLeft" pageTransitionDuration="800">
                             <Label row="0"  class="text-btn-def text-btn-border fas " text="&#xf023; Redefinir Senha"></Label>
                             <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
-                        <GridLayout style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" class="color-padrao" (tap)="delete()">
+                        <GridLayout *ngIf="reload" style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" class="color-padrao" (tap)="delete()">
                             <Label class="text-btn-def text-btn-border fas" text="&#xf506; Desativar Conta"  ></Label>
                             <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
-                        <GridLayout style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" class="color-padrao" (tap)="logout()">
+                        <GridLayout *ngIf="reload" style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" class="color-padrao" (tap)="logout()">
+                            <Label class="text-btn-def fas" text="&#xf2f5; Sair"  ></Label>
+                            <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
+                        </GridLayout>
+                        <GridLayout *ngIf="!reload" style="margin-right: 5%; margin-left: 5%;" rows="auto" columns="*" class="color-padrao" (tap)="logout()">
                             <Label class="text-btn-def fas" text="&#xf2f5; Sair"  ></Label>
                             <Label row="0" horizontalAlignment="right" class="text-btn-def fas" style=" width: 10%" text="&#xf105;"></Label>
                         </GridLayout>
