@@ -7,14 +7,14 @@ import {AvaliacaoService} from "~/services/avaliacao.service";
 import {AvaliacaoModel} from "~/models/avaliacao.model";
 
 @Component({
-  selector: 'ns-avaliacao-modal',
-  templateUrl: './avaliacao-modal.component.html',
-  styleUrls: ['./avaliacao-modal.component.css'],
+    selector: 'ns-avaliacao-modal',
+    templateUrl: './avaliacao-modal.component.html',
+    styleUrls: ['./avaliacao-modal.component.css'],
     providers: [ModalDialogService]
 })
-export class AvaliacaoModalComponent implements OnInit{
+export class AvaliacaoModalComponent implements OnInit {
 
-    status: boolean
+    status: boolean = false
     private id: number
     private nome: string
 
@@ -31,24 +31,31 @@ export class AvaliacaoModalComponent implements OnInit{
         this.id = this.params.context.id;
         this.avaliacao = new AvaliacaoModel;
         this.avaliacao.informacoe_id = this.id;
+        this.avaliacao.estrutura = 0
+        this.avaliacao.tempo_de_espera = 0
+        this.avaliacao.servidor_publico = 0
         this.nome = this.params.context.nome;
     }
-    ngOnInit(){
+
+    ngOnInit() {
     }
-    valorEstrelaA(val: number, nota: number){
+
+    valorEstrelaA(val: number, nota: number) {
         this.a1 = this.switchAvaliacao(this.a1, val)
         this.avaliacao.tempo_de_espera = nota
     }
-    valorEstrelaS(val: number, nota: number){
+
+    valorEstrelaS(val: number, nota: number) {
         this.s1 = this.switchAvaliacao(this.s1, val)
         this.avaliacao.servidor_publico = nota
     }
-    valorEstrelaE(val: number, nota: number){
+
+    valorEstrelaE(val: number, nota: number) {
         this.e1 = this.switchAvaliacao(this.e1, val)
         this.avaliacao.estrutura = nota
     }
 
-    switchAvaliacao(campo: Array<boolean>, val: number){
+    switchAvaliacao(campo: Array<boolean>, val: number) {
         switch (val) {
             case 0:
                 campo[4] = true
@@ -61,7 +68,7 @@ export class AvaliacaoModalComponent implements OnInit{
             case 4:
                 campo[0] = true
         }
-        switch (val-1) {
+        switch (val - 1) {
             case 4:
                 campo[0] = false
             case 3:
@@ -76,12 +83,18 @@ export class AvaliacaoModalComponent implements OnInit{
         return campo;
     }
 
-    store(){
+    store() {
+        this.status = true
         this.avaliacaoService.store(this.avaliacao).subscribe(response => {
-
-        }, error => {});
+            this.status = false
+            this.close(true, 'Registrado com sucesso!');
+        }, error => {
+            this.close(false, 'Falha de conexão com servidor!');
+            this.status = false
+        });
     }
-    close(){
-        this.params.closeCallback();
+
+    close(callback: boolean, message: string) {
+        this.params.closeCallback({status: callback, message: message});
     }
 }

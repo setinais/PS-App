@@ -4,7 +4,7 @@
             <ScrollView scrollBarIndicatorVisible="false" class="form scrolview" orientation="vertical">
                 <GridLayout rows="auto, auto, auto, auto, *">
                     <Label text="&#xf104;" style="font-size: 25em;" class="fas m-t-16 m-l-20" row="0" clearHistory="true" [nsRouterLink]="['/home']" pageTransition="slideRight"></Label>
-                    <Image width="150" class="logo" row="0"  src="~/imagens/logo.png"></Image>
+                    <Image width="150" class="logo" row="0"  src="~/imagens/logo-login.png"></Image>
                     <Label rowSpan="2"  *ngIf="!reload" (tap)="start()" text="&#xf021;" class="fas reload"></Label>
                     <Label *ngIf="!reload" verticalAlignment="center" horizontalAlignment="center" class="reload-text" text="Não foi possivel buscar os dados! Tente Novamente." rowSpan="2" ></Label>
                     <GridLayout class="form" row="1" *ngIf="reload" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto">

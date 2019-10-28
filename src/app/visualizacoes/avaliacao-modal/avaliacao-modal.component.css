@@ -32,3 +32,11 @@
     background: linear-gradient(100deg, #0081BE, #01ADE3);
     color: #FFFFFF;
 }
+.disabled{
+    color: #c0c0c0;
+    opacity: 0.8;
+}
+.content{
+    border-width: 1;
+    border-color: #b72806;
+}

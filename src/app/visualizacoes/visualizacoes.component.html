@@ -38,5 +38,8 @@ ol="2" text="&#xf095;"-->
         </StackLayout>
     </FlexboxLayout>
 </ScrollView>
+<AbsoluteLayout *ngIf="showMessage" width="70%" height="30" class="message" [ngStyle]="{'background-color': background}">
 
+    <Label horizontalAlignment="center" verticalAlignment="center" [text]="message" class="text-message" textWrap="true"></Label>
 
+</AbsoluteLayout>
