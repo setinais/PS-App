@@ -12,6 +12,7 @@ import { getString } from 'tns-core-modules/application-settings/application-set
 })
 export class DiarioSaudeComponent implements OnInit {
    
+    insert: boolean = false;
 
     constructor(private routerExtensions: RouterExtensions,
                 private db: SqliteService,
@@ -25,7 +26,6 @@ export class DiarioSaudeComponent implements OnInit {
     redirectHome() {
         let date: Date = new Date()
         let saude: Saude = {
-            id: null,
             name: 'Bem',
             user_id: getString("user_id"),
             day: date.getDate().toString(),
@@ -35,14 +35,14 @@ export class DiarioSaudeComponent implements OnInit {
             minutes: date.getMinutes().toString(),
             tipos: []
         }
-  
+        this.insert=true;
         this.db.insertSaudeDiaria(saude).then(res => {
+            this.insert=false;
             this.routerExtensions.navigate(['home'], {
                 clearHistory: true,
                 animated: true,
                 transition: {
                     name: 'slideTop',
-                    duration: 500,
                     curve: 'ease'
                 }
             })
@@ -55,7 +55,6 @@ export class DiarioSaudeComponent implements OnInit {
             animated: true,
             transition: {
                 name: 'slideTop',
-                duration: 500,
                 curve: 'ease'
             }
         })

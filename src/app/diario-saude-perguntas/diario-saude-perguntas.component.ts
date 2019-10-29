@@ -120,7 +120,6 @@ confirmarQuestionario() {
   })
   let date: Date = new Date();
   let saude: Saude = {
-    id: null,
     name: 'Mal',
     user_id: getString("user_id"),
     day: date.getDate().toString(),

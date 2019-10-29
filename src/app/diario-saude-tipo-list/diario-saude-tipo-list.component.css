@@ -17,12 +17,14 @@
     margin: 10px 0 5px 0;
     padding: 10 20 10 20;
     border-radius: 20;
+    border-color: #e61919;
+    border-width: 1;
 }
 
 .card-calendario {
     height: 650px;
     background-color: white;
-    border-width: 3;
+    border-width: 1;
     border-color: black;
     border-radius: 20;
     margin-top: 15;
