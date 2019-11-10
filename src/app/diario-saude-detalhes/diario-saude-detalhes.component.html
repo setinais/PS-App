@@ -1,10 +1,10 @@
 <ActionBar title="Minha Saúde" class="action-bar-per background-color-padrao">
     <NavigationButton text="Voltar" icon="res://ic_arrow_back_black_24dp" class="go-back" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
-<ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false" style="background-image: url(); background-repeat: no-repeat">
+<ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false">
         <StackLayout class="page">
                 <StackLayout class="card-status">
-                    <Label text="&#xf073;" fontSize="60" class="fas ico m-b-5 m-t-10" horizontalAlignment="center"></Label>
+                    <Label text="&#xf073;" fontSize="40" class="fas ico m-b-5 m-t-10" horizontalAlignment="center"></Label>
                     <Label text="Calendário" fontSize="20" horizontalAlignment="center" textWrap="true"></Label>
                 </StackLayout>
                 <StackLayout class="card-calendario">
@@ -34,7 +34,7 @@
                                 <Label [text]="item?.name == 'Bem' ? '&#xf118;' : '&#xf119;'" class="fas ico"></Label>
                            </StackLayout>
                            <StackLayout row="0" col="1" class="m-l-10">
-                               <Label [text]="item?.name" textWrap="true"></Label>
+                               <Label [text]="item?.name" textWrap="true" class="text-bold"></Label>
                                <Label [text]="'Dia ' + item?.day +' as ' + item?.hours + ':' + item?.minutes" textWrap="true"></Label>
                            </StackLayout>
                            <StackLayout row="0" col="2" verticalAlignment="center">

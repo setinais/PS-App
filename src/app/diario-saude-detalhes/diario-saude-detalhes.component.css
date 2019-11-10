@@ -2,6 +2,7 @@
 .page {
     background-color: #f2f4f7;  
     padding: 15px;  
+    height: 100%;
 }
 .background-color-padrao {
     color: #FFF;
@@ -17,21 +18,20 @@
     margin: 10px 0 5px 0;
     padding: 10 20 10 20;
     border-radius: 20;
+    border-color: #e61919;
+    border-width: 1;
 }
 
 .card-calendario {
-    height: 650px;
+    height: 40%;
     background-color: white;
     border-width: 3;
-    border-color: black;
+    border-color: #e61919;
     border-radius: 20;
     margin-top: 15;
     margin-bottom: 15;
 }
 
-/* .card-status .content-status {
-
-} */
 
 .card-status .content-status .text{
     padding: 5px;
@@ -87,4 +87,8 @@
 .check {
     color: #28a745;
     font-size: 30;
+}
+
+.text-bold {
+    font-weight: bold;
 }

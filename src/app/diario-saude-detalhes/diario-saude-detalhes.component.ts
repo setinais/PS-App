@@ -4,6 +4,7 @@ import {Color} from "tns-core-modules/color";
 import { SqliteService } from '../services/sqlite.service';
 import { Saude } from '../diario-saude/saude.model';
 import { RouterExtensions } from 'nativescript-angular';
+import { getString } from 'tns-core-modules/application-settings/application-settings';
 
 @Component({
   selector: 'ns-diario-saude-detalhes',
@@ -17,24 +18,11 @@ export class DiarioSaudeDetalhesComponent implements OnInit {
 
   constructor(private db: SqliteService,
               private routeExtensions: RouterExtensions) { 
-    
-
-    // for (let i = 1; i < 10; i++) {
-    //     startDate = new Date(now.getFullYear(), now.getMonth(), i * 2, 1);
-    //     endDate = new Date(now.getFullYear(), now.getMonth(), (i * 2), 3);
-    //     let event = new calendarModule.CalendarEvent("event " + i,
-    //         startDate,
-    //         endDate,
-    //         false,
-    //         (colors[i * 10 % (colors.length - 1)]));
-    //     events.push(event);
-    // }
-    //this.calendarEvents = events;
   }
 
   ngOnInit() {
-      this.date = new Date();
-   this.db.fetchSaudeDiaria(null, this.date.getMonth(), this.date.getFullYear()).then(res => {
+    this.date = new Date();
+    this.db.fetchSaudeDiaria( " month = " + (this.date.getMonth() + 1)+ " and year = " + this.date.getFullYear() + " and user_id = " + getString("user_id")).then(res => {
        this.historySaude = res;
        this.setCalendarEvent(this.historySaude)
    })   
@@ -67,12 +55,11 @@ export class DiarioSaudeDetalhesComponent implements OnInit {
   }
 
   listTipos(saude: Saude) {
-      if(saude.tipos.length > 0) {
+      if(saude.name == "Mal") {
           this.routeExtensions.navigate(['/diario-saude-tipo-list', saude.id], {
             animated: true,
             transition: {
                 name: 'slideLeft',
-                duration: 500,
                 curve: 'ease'
             }
           })
@@ -89,8 +76,9 @@ onDateDeselected(args) {
 
 onNavigatedToDate(args) {
     console.log("onNavigatedToDate: " + args.date);
-    // this.historySaude.splice(0,this.historySaude.length)    
-    this.db.fetchSaudeDiaria(null, args.date.getMonth(), args.date.getFullYear()).then(res => {
+    // this.historySaude.splice(0,this.historySaude.length)   
+    this.historySaude = []; 
+    this.db.fetchSaudeDiaria(" month = " + (args.date.getMonth() + 1) + " and year = " + args.date.getFullYear() + " and user_id = " + getString("user_id")).then(res => {
         this.historySaude=res;
         this.setCalendarEvent(this.historySaude)  
     });

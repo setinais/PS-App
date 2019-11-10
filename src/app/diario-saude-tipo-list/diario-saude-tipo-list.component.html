@@ -1,10 +1,10 @@
 <ActionBar title="Minha Saúde" class="action-bar-per background-color-padrao">
-    <NavigationButton text="Voltar" android.systemIcon="ic_menu_back" class="go-back" [nsRouterLink]="['/diario-saude-detalhes']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
+    <NavigationButton text="Voltar" icon="res://ic_arrow_back_black_24dp" class="go-back" [nsRouterLink]="['/diario-saude-detalhes']" clearHistory="true" pageTransition="slideRight" ></NavigationButton>
 </ActionBar>
 <ScrollView backgroundColor="#e8e7e7" scrollBarIndicatorVisible="false" style="background-image: url(); background-repeat: no-repeat">
         <StackLayout class="page">       
                
-                <StackLayout *ngFor="let tipo of saude?.tipos" class="card-status">
+                <StackLayout *ngFor="let tipo of tipos" class="card-status">
                     <GridLayout rows="auto" columns="auto, *, auto" (tap)="listTipos(saude)">           
                        <StackLayout row="0" col="0" [class]="saude?.name == 'Bem' ? 'bom' : 'ruim'">
                             <Label [text]="saude?.name == 'Bem' ? '&#xf118;' : '&#xf119;'" class="fas ico"></Label>
