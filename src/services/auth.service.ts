@@ -34,6 +34,10 @@ export class AuthService {
     }
 
     isLoggedIn(){
+        let date = new Date(getString("expires_in"))
+        let date_atual = new Date()
+        if(date.getTime() <= date_atual.getTime())
+            setString("token", "");
         return !!getString("token")
     }
 
