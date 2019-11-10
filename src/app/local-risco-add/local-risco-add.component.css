@@ -13,3 +13,13 @@
     padding: 0 0 0;
     border-radius: 50%;
 }
+.message{
+    border-radius: 10;
+    margin-top: 70%;
+}
+.text-message{
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 13pt;
+    margin: 5;
+}

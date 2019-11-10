@@ -9,11 +9,11 @@
             <GridLayout  columns="auto, *, auto" rows="auto"
                         width="100%" height="auto" class="owe-main-info"
                         verticalAlignment="top" >
-                <Image row="0" col="0" [src]="dado.imagens[0]"
+                <Image row="0" col="0" [src]="dado.imagem"
                        class="owe-category-icon" (tap)="showImage(dado)"></Image>
                 <StackLayout row="0" col="1" orientation="vertical"
                              class="owe-info-container">
-                    <Label class="owe-title" [text]="dado.descricao"></Label>
+                    <Label class="owe-title" [text]="dado.descricao ? dado.descricao : '-'"></Label>
                     <GridLayout columns="auto,auto"
                                 rows="auto, auto" width="100%">
                         <Label [text]="dado.endereco" class="lender-bairro" row="0" col="0"></Label>
@@ -24,7 +24,7 @@
             </GridLayout>
             <GridLayout  columns="auto,auto, *, auto" rows="auto,auto"
                         width="100%" height="auto" class="owe-secondary-info">
-                <Button text="&#xf3c5;" rowSpan="2" col="3" class="btn fas location color-padrao btn-design btn-color-location" (tap)="onNavigate(dado.localizacao)" ></Button>
+                <Button text="&#xf3c5;" rowSpan="2" col="3" class="btn fas location color-padrao btn-design btn-color-location" (tap)="onNavigate(dado.location)" ></Button>
                 <Label row="0" col="0" [text]="dado.created_at | date:'dd MMMM yyyy'" class="lender-bairro"></Label>
                 <Label row="1" col="0" [text]="dado.created_at | date:'H:m a'" class="lender-bairro"></Label>
             </GridLayout>

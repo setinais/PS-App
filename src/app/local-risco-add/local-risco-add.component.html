@@ -6,10 +6,9 @@
         <PreviousNextView>
             <ScrollView scrollBarIndicatorVisible="false" height="100%" class="form scrolview m-t-30" orientation="vertical">
                 <GridLayout rows="auto">
-                    <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
+                    <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto">
 
                         <Label elevation="4" text="Cadastre um possivel local!" style="font-size: 20em; text-align: center" class="m-t-16" row="0"></Label>
-
 
                         <StackLayout row="1" class="input-field m-t-30">
                             <Label text="&#xf0e0; Descrição breve" class="fas label-text"></Label>
@@ -31,21 +30,43 @@
 
                         <StackLayout row="4" class="input-field">
                             <Label text="&#xf47f; Localização" class="fas label-text"></Label>
-                            <Label [text]="lr.localizacao"></Label>
+                            <Button text="Get Current Location" col="1" textWrap="true" [isEnabled]="!processing" (tap)="getLocation()"></Button>
+                            <Label [text]="locations.latitude"></Label>
+                            <Label [text]="locations.longitude"></Label>
                         </StackLayout>
 
                         <StackLayout row="5" class="input-field">
                             <Label text="&#xf47f; Foto" class="fas label-text"></Label>
-                            <Button class="btn-design btn-color-add" text="Camera" (tap)="capturePhoto()"></Button>
+                            <Button class="btn-design btn-color-add" text="Camera" [isEnabled]="!processing" (tap)="capturePhoto()"></Button>
                         </StackLayout>
-                        <StackLayout row="6" horizontalAlignment="center">
+                        <StackLayout *ngIf="photoPath" row="6" horizontalAlignment="center">
                             <Image [src]="photoPath" width="250" height="300"></Image>
                         </StackLayout>
 
-                        <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
+                        <ActivityIndicator class="activity-indicator" rowSpan="7" [busy]="processing"></ActivityIndicator>
+
+                        <StackLayout row="7" class="input-field">
+                            <Button class="btn-design btn-color-add" text="Enviar" [isEnabled]="!processing" (tap)="store()"></Button>
+                        </StackLayout>
+
+                        <ListView row="8" [items]="tasks" class="m-b-30">
+                            <ng-template let-item="item">
+                                <StackLayout>
+                                    <Label [text]="'Enviando imagem: '+item.description"></Label>
+                                    <Progress [value]="item.upload" [maxValue]="item.totalUpload"></Progress>
+                                    <Label [text]="'Uploading: ' + item.upload + ' / ' + item.totalUpload"></Label>
+                                    <Label [text]="'Status: ' + item.status"></Label>
+                                </StackLayout>
+                            </ng-template>
+                        </ListView>
                     </GridLayout>
                 </GridLayout>
             </ScrollView>
         </PreviousNextView>
     </StackLayout>
 </FlexboxLayout>
+<AbsoluteLayout *ngIf="showMessage" width="70%" height="30" class="message" [ngStyle]="{'background-color': background}">
+
+    <Label horizontalAlignment="center" verticalAlignment="center" [text]="message" class="text-message" textWrap="true"></Label>
+
+</AbsoluteLayout>

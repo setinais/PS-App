@@ -5,7 +5,7 @@ export class LocalRiscoModel {
     descricao: string
     endereco: string
     bairro: string
-    localizacao: LocalizacaoModel
-    imagens: string
+    imagem: any
+    location: LocalizacaoModel
     created_at: string
 }

@@ -28,6 +28,7 @@
     "@nstudio/nativescript-checkbox": "^1.0.0",
     "angular2-text-mask": "^9.0.0",
     "nativescript-angular": "~8.2.0",
+    "nativescript-background-http": "^4.2.1",
     "nativescript-camera": "^4.5.0",
     "nativescript-geolocation": "^5.1.0",
     "nativescript-image-swipe": "^5.0.1",

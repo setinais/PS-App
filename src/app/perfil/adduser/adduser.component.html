@@ -7,7 +7,7 @@
                     <GridLayout row="0" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto">
 
                         <Label text="&#xf060;" style="font-size: 25em" class="fas m-t-16" row="0" clearHistory="true" [nsRouterLink]="['/login']" pageTransition="slideRight"></Label>
-                        <Image width="150" class="logo m-b-30" row="0"  src="~/imagens/logo-login.png"></Image>
+                        <Image width="60%" class="logo m-b-30" row="0"  src="~/imagens/logo-login.png"></Image>
 
                         <StackLayout row="1" class="input-field m-t-30">
                             <Label text="&#xf0e0; E-mail" class="fas label-text"></Label>
@@ -41,7 +41,6 @@
                                        [isEnabled]="!processing"
                                        [(ngModel)]="user.cpf"
                                        (extractedValueChange)=onExtracaoValorAlterado($event)
-                                       (returnPress)="focusDataNascimento()"
                                        mask="[000].[000].[000]-[00]"
                                        keyboardType="phone"
                                        returnKeyType="next"></InputMask>
@@ -50,28 +49,6 @@
                             <StackLayout [class]="formUserValidator !== undefined && formUserValidator.cpf !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>
                             <Label *ngIf="formUserValidator !== undefined && formUserValidator.cpf !== undefined" [text]="formUserValidator.cpf[0]" class="label-error"></Label>
                         </StackLayout>
-
-<!--                        <StackLayout row="5" class="input-field">-->
-<!--                            <Label text="&#xf133; Data de Nascimento" class="fas label-text"></Label>-->
-<!--                            <InputMask #data_nascimento mask="[00]{/}[00]{/}[0000]"-->
-<!--                                       hint="00/00/0000"-->
-<!--                                       keyboardType="datetime"-->
-<!--                                       [(ngModel)]="user.data_nascimento"-->
-<!--                                       (extractedValueChange)=onExtracaoValorDN($event)-->
-<!--                                       class="input" [isEnabled]="!processing"></InputMask>-->
-<!--                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>-->
-<!--                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.data_nascimento !== undefined" [text]="formUserValidator.data_nascimento[0]" class="label-error"></Label>-->
-<!--                        </StackLayout>-->
-
-<!--                        <StackLayout row="6" class="input-field">-->
-<!--                            <Label text="&#xf228; Sexo" class="fas label-text"></Label>-->
-<!--                            <GridLayout rows="auto" columns="auto,auto">-->
-<!--                                <Label class="label-sexo" row="0" col="0" [text]="user.sexo"></Label>-->
-<!--                                <Switch class="m-l-28" row="0" col="1" checked="false" (checkedChange)="onChangeSexo($event)"></Switch>-->
-<!--                            </GridLayout>-->
-<!--                            <StackLayout [class]="formUserValidator !== undefined && formUserValidator.sexo !== undefined ? 'hr-light linha-error' : 'hr-light'"></StackLayout>-->
-<!--                            <Label *ngIf="formUserValidator !== undefined && formUserValidator.sexo !== undefined" [text]="formUserValidator.sexo[0]" class="label-error"></Label>-->
-<!--                        </StackLayout>-->
                         <ActivityIndicator class="activity-indicator" rowSpan="8" [busy]="processing"></ActivityIndicator>
                         <StackLayout row="7" class="input-field">
                             <Label text="&#xf2c2; Cartão SUS" class="fas label-text"></Label>
@@ -85,14 +62,6 @@
                         <Button row="8" text="Cadastrar-se" [isEnabled]="!processing"
                                 (tap)="submit()" class="btn-cad m-t-20"></Button>
                     </GridLayout>
-
-                    <!--                <GridLayout row="0" col="0" rowSpan="3" opacity="0" class="overlay" id="overGrid"></GridLayout>-->
-                    <!--                <GridLayout row="0" col="0" rowSpan="3" rows="auto, auto, auto" colums="*,*" verticalAlignment="center" opacity="0" class="select-date" id="selectDate">-->
-                    <!--                    <Label row="0" col="0" colSpan="2" text="Data de Nascimento?" class="title-select-date"></Label>-->
-                    <!--                    <DatePicker row="1" col="0" colSpan="2" [(ngModel)]="date" (dateChange)="onDateChanged($event)" year="1990" month="1" day="1" [minDate]="minDate" [maxDate]="maxDate"></DatePicker>-->
-                    <!--                    <Label #btn row="2" col="0" class="btn-second btn-cancel" text="Fechar" (tap)="onCloseSelectDate(true)"></Label>-->
-                    <!--                    <Label #btn row="2" col="1" class="btn-second" text="Ok" (tap)="onCloseSelectDate(false)"></Label>-->
-                    <!--                </GridLayout>-->
                 </GridLayout>
             </ScrollView>
         </PreviousNextView>

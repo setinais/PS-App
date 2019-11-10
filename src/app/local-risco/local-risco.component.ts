@@ -4,6 +4,7 @@ import {LocalizacaoModel} from "~/models/visualizacao.model";
 import * as utils from "tns-core-modules/utils/utils";
 import {ModalDialogOptions, ModalDialogService, RouterExtensions} from "nativescript-angular";
 import {ModalComponent} from "~/app/modal/modal.component";
+import {LocalRiscoService} from "~/services/local-risco.service";
 
 @Component({
     selector: 'ns-local-risco',
@@ -13,60 +14,19 @@ import {ModalComponent} from "~/app/modal/modal.component";
 })
 export class LocalRiscoComponent implements OnInit {
 
-    private dados: Array<LocalRiscoModel> = [
-        {
-            id: 1,
-            descricao: 'Hospital Regional de Paraíso ',
-            localizacao: {latitude: -10.1808948, longitude: -48.9131606},
-            endereco: 'RUA 03 QD 02 LT 01 A 19 ',
-            bairro: 'Setor Aeroporto',
-            imagens: '~/imagens/logo.png',
-            created_at: '1998-04-02 22:20'
-        },
-        {
-            id: 1,
-            descricao: 'Hospital Regional de Paraíso ',
-            localizacao: {latitude: -10.1808948, longitude: -48.9131606},
-            endereco: 'RUA 03 QD 02 LT 01 A 19 ',
-            bairro: 'Setor Aeroporto',
-            imagens: '~/imagens/logo.png',
-            created_at: '1998-04-02 22:20'
-        },
-        {
-            id: 1,
-            descricao: 'Hospital Regional de Paraíso ',
-            localizacao: {latitude: -10.1808948, longitude: -48.9131606},
-            endereco: 'RUA 03 QD 02 LT 01 A 19 ',
-            bairro: 'Setor Aeroporto',
-            imagens: '~/imagens/logo.png',
-            created_at: '1998-04-02 22:20'
-        },
-        {
-            id: 1,
-            descricao: 'Hospital Regional de Paraíso ',
-            localizacao: {latitude: -10.1808948, longitude: -48.9131606},
-            endereco: 'RUA 03 QD 02 LT 01 A 19 ',
-            bairro: 'Setor Aeroporto',
-            imagens: '~/imagens/logo.png',
-            created_at: '1998-04-02 22:20'
-        },
-        {
-            id: 1,
-            descricao: 'Hospital Regional de Paraíso ',
-            localizacao: {latitude: -10.1808948, longitude: -48.9131606},
-            endereco: 'RUA 03 QD 02 LT 01 A 19 ',
-            bairro: 'Setor Aeroporto',
-            imagens: '~/imagens/logo.png',
-            created_at: '1998-04-02 22:20'
-        },
-
-
-    ]
+    private dados: Array<LocalRiscoModel> = []
   constructor(private router: RouterExtensions,
               private modalService: ModalDialogService,
-              private viewContainerRef: ViewContainerRef) { }
+              private viewContainerRef: ViewContainerRef,
+              private lrService: LocalRiscoService) { }
 
   ngOnInit() {
+        this.lrService.index().subscribe(response => {
+            this.dados = response['data'];
+            console.log(response)
+        }, error => {
+            console.log(error)
+        })
   }
     onNavigate(localizacao: LocalizacaoModel){
         utils.openUrl(`http://maps.google.com/maps?q=${localizacao.latitude},${localizacao.longitude}`)
@@ -81,7 +41,7 @@ export class LocalRiscoComponent implements OnInit {
             context: {
                 text: dado.descricao,
                 endereco: dado.endereco,
-                image: dado.imagens[0],
+                image: dado.imagem,
                 bairro: dado.bairro
             }
         };

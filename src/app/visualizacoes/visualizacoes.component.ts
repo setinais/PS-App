@@ -50,7 +50,7 @@ export class VisualizacoesComponent implements OnInit {
                 break;
             default:
                 this.title = 'Unidades Básicas de Saúde - UBS'
-                this.dados = ubs
+                this.visu.getUbs().subscribe(response => {this.dados = response['data']}, error => {alert('Servidor fora do ar!')})
         }
 
     }
@@ -59,10 +59,6 @@ export class VisualizacoesComponent implements OnInit {
         utils.openUrl(`http://maps.google.com/maps?q=${localizacao.latitude},${localizacao.longitude}`)
     }
 
-    onItemTap(args: ItemEventData): void {
-        console.log('Item with index: ' + args.index + ' tapped');
-    }
-    onDetail(id: number){}
     phone(telefone){
         TNSPhone.requestCallPermission('Você deve aceitar a permissão para fazer chamada!.')
             .then(() => TNSPhone.dial(telefone, false))
