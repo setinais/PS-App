@@ -32,12 +32,12 @@ export class LocalRiscoAddComponent implements OnInit {
     private photoPath: string = ""
 
     public locations: LocalizacaoModel;
-    watchIds = [];
 
     constructor(private page: Page, private lrs: LocalRiscoService, private rt: RouterExtensions) {
         this.lr = new LocalRiscoModel();
         this.lr.location = new LocalizacaoModel()
         this.locations = new LocalizacaoModel()
+        this.lr.descricao = ""
         this.session = bgHttp.session("image-upload");
     }
 
@@ -70,16 +70,30 @@ export class LocalRiscoAddComponent implements OnInit {
 
     }
 
+    checkCa(){
+        let cont = true
+        if(this.lr.descricao)
+            cont = false
+        if(this.lr.location.longitude == undefined)
+            cont = false
+        if(this.lr.location.latitude == undefined)
+            cont = false
+        if(this.photoPath == "")
+            cont = false
+
+        if(cont)
+            this.store()
+
+    }
+
     store(){
-        console.log(this.lr)
+
         this.lr.location = this.locations
         this.processing = true
         this.lrs.store(this.lr).subscribe(response => {
             this.upload(response['data']['id']);
-            console.log(response)
         }, error => {
             this.processing = false
-            console.log(error)
         })
     }
 
@@ -169,7 +183,7 @@ export class LocalRiscoAddComponent implements OnInit {
             });
         }
         function progressHandler(e) {
-            console.log("Progress " + e.currentBytes + " / " + e.totalBytes);
+            // console.log("Progress " + e.currentBytes + " / " + e.totalBytes);
         }
 
 // event arguments:
@@ -179,7 +193,7 @@ export class LocalRiscoAddComponent implements OnInit {
 // response: net.gotev.uploadservice.ServerResponse (Android) / NSHTTPURLResponse (iOS)
         let that = this;
         function errorHandler(e) {
-            console.log("error " + e.responseCode + " code." + e.toString());
+            // console.log("error " + e.responseCode + " code." + e.toString());
             var serverResponse = e.response;
         }
 
@@ -189,7 +203,7 @@ export class LocalRiscoAddComponent implements OnInit {
 // responseCode: number
 // data: string
         function respondedHandler(e) {
-            console.log("response " + e.responseCode + " code. Server sent: " + e.data);
+            // console.log("response " + e.responseCode + " code. Server sent: " + e.data);
             that.successImage(e.data);
         }
 
@@ -198,7 +212,7 @@ export class LocalRiscoAddComponent implements OnInit {
 // responseCode: number
 // response: net.gotev.uploadservice.ServerResponse (Android) / NSHTTPURLResponse (iOS)
         function completeHandler(e) {
-            console.log("complete " + e.responseCode + " code");
+            // console.log("complete " + e.responseCode + " code");
             var serverResponse = e.response;
         }
 

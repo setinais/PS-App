@@ -10,46 +10,64 @@
 
                         <Label elevation="4" text="Cadastre um possivel local!" style="font-size: 20em; text-align: center" class="m-t-16" row="0"></Label>
 
-                        <StackLayout row="1" class="input-field m-t-30">
-                            <Label text="&#xf0e0; Descrição breve" class="fas label-text"></Label>
+                        <StackLayout row="1" class="input-field m-t-30 espacamento-label-text">
+                            <Label text="&#xf5b7; Descrição breve" class="fas label-text"></Label>
                             <TextField #descricao class="input" hint="Foco de Dengue" [(ngModel)]="lr.descricao"
                                         [isEnabled]="!processing"
                             ></TextField>
+                            <StackLayout *ngIf="lr.descricao == undefined || lr.descricao == ''" class="hr-light linha-error"></StackLayout>
+                            <Label *ngIf="lr.descricao == undefined || lr.descricao == ''" text="Campo obrigatório!" class="label-error"></Label>
+
                         </StackLayout>
 
-                        <StackLayout row="2" class="input-field">
-                            <Label class="fas label-text" text="&#xf084; Av ou Rua" textWrap="true"></Label>
+                        <StackLayout row="2" class="input-field espacamento-label-text">
+                            <StackLayout orientation="horizontal">
+                                <Label class="fas label-text" text="&#xf2bb; Av ou Rua" textWrap="true"></Label>
+                                <Label class="fas label-text" text="(Opcional)" textWrap="true" style="font-size: 10pt;"></Label>
+                            </StackLayout>
                             <TextField #endereco class="input" hint="Rua Ceara" [isEnabled]="!processing" [(ngModel)]="lr.endereco"></TextField>
                         </StackLayout>
 
-                        <StackLayout row="3" class="input-field">
-                            <Label text="&#xf5b7; Bairro" class="fas label-text"></Label>
+                        <StackLayout row="3" class="input-field espacamento-label-text">
+                            <StackLayout orientation="horizontal">
+                                <Label text="&#xf2bb; Bairro" class="fas label-text"></Label>
+                                <Label class="fas label-text" text="(Opcional)" textWrap="true" style="font-size: 10pt;"></Label>
+                            </StackLayout>
                             <TextField #bairro class="input" hint="Centro" [isEnabled]="!processing" [(ngModel)]="lr.bairro"
                                        returnKeyType="done"></TextField>
                         </StackLayout>
 
-                        <StackLayout row="4" class="input-field">
+                        <StackLayout row="4" class="input-field espacamento-label-text">
                             <Label text="&#xf47f; Localização" class="fas label-text"></Label>
-                            <Button text="Get Current Location" col="1" textWrap="true" [isEnabled]="!processing" (tap)="getLocation()"></Button>
-                            <Label [text]="locations.latitude"></Label>
-                            <Label [text]="locations.longitude"></Label>
+                            <StackLayout orientation="horizontal">
+                                <Button text="&#xf689;" class="fas btn-design btn" textWrap="true" [isEnabled]="!processing" (tap)="getLocation()"></Button>
+                                <StackLayout orientation="vertical">
+                                    <Label [text]="'Latitude:  '+locations.latitude"></Label>
+                                    <Label [text]="'Longitude:  '+locations.longitude"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout *ngIf="locations.latitude == undefined" class="hr-light linha-error"></StackLayout>
+                            <Label *ngIf="locations.latitude == undefined" text="Campo obrigatório!" class="label-error"></Label>
                         </StackLayout>
 
-                        <StackLayout row="5" class="input-field">
-                            <Label text="&#xf47f; Foto" class="fas label-text"></Label>
-                            <Button class="btn-design btn-color-add" text="Camera" [isEnabled]="!processing" (tap)="capturePhoto()"></Button>
+                        <StackLayout row="5" class="input-field espacamento-label-text">
+                            <StackLayout orientation="horizontal">
+                                <Label text="&#xf030; Foto  " class="fas label-text"></Label>
+<!--                                <Label *ngIf="photoPath == ''" text="    Foto obrigatória!" class="label-error"></Label>-->
+                            </StackLayout>
+                            <Button class="btn-design btn-color-add fas" text="&#xf030;" [isEnabled]="!processing" (tap)="capturePhoto()"></Button>
                         </StackLayout>
-                        <StackLayout *ngIf="photoPath" row="6" horizontalAlignment="center">
-                            <Image [src]="photoPath" width="250" height="300"></Image>
+                        <StackLayout *ngIf="photoPath" row="7" class="m-b-30" horizontalAlignment="center">
+                            <Image [src]="photoPath" width="100%" height="300"></Image>
                         </StackLayout>
 
                         <ActivityIndicator class="activity-indicator" rowSpan="7" [busy]="processing"></ActivityIndicator>
 
-                        <StackLayout row="7" class="input-field">
-                            <Button class="btn-design btn-color-add" text="Enviar" [isEnabled]="!processing" (tap)="store()"></Button>
+                        <StackLayout row="6" class="input-field espacamento-label-text ">
+                            <Button *ngIf="locations.latitude != undefined && lr.descricao != ''" class="btn-design btn-color-add" text="Enviar" [isEnabled]="!processing" (tap)="checkCa()"></Button>
                         </StackLayout>
 
-                        <ListView row="8" [items]="tasks" class="m-b-30">
+                        <ListView row="8" [items]="tasks" class="m-b-30 espacamento-label-text">
                             <ng-template let-item="item">
                                 <StackLayout>
                                     <Label [text]="'Enviando imagem: '+item.description"></Label>

@@ -82,9 +82,7 @@ export class PutuserComponent implements OnInit {
     }
 
     submit() {
-        console.log("Envio dos dados", this.user)
         this.userService.put(this.user, this.userOld['id']).subscribe(response => {
-            console.log(response)
             this.Editar = "Editar"
             this.userOld = response['data']
             this.prepareForm(response['data'])

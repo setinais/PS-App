@@ -10,10 +10,8 @@ export class AuthDb {
             db.execSQL("CREATE TABLE IF NOT EXISTS people (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT)").then(id => {
                 this.database = db;
             }, error => {
-                console.log("CREATE TABLE ERROR", error);
             });
         }, error => {
-            console.log("OPEN DB ERROR", error);
         });
     }
 
@@ -27,7 +25,6 @@ export class AuthDb {
                 });
             }
         }, error => {
-            console.log("SELECT ERROR", error);
         });
     }
 }

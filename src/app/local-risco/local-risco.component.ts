@@ -23,9 +23,7 @@ export class LocalRiscoComponent implements OnInit {
   ngOnInit() {
         this.lrService.index().subscribe(response => {
             this.dados = response['data'];
-            console.log(response)
         }, error => {
-            console.log(error)
         })
   }
     onNavigate(localizacao: LocalizacaoModel){

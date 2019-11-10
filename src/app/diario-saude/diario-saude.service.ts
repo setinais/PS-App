@@ -16,7 +16,6 @@ export class DiarioSaudeService {
     diarioQuestion() {
         let now = new Date();
         this.db.fetchSaudeDiaria("day = " + now.getDate() + " and month = " +( now.getMonth() + 1) +  " and year = " + now.getFullYear() + " and user_id = " + getString("user_id")).then(res => {
-            console.log(res)
             if (res.length == 0) {
                 this.routerExtentions.navigate(['/diario-saude'])
             } else {

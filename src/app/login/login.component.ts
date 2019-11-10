@@ -66,7 +66,6 @@ export class LoginComponent {
                     this.alert("Falha de conexão, tente novamente!")
                 }
                 this.processing = false
-                console.log(error)
             })
     }
 

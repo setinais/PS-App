@@ -17,7 +17,7 @@ export class DiarioSaudeDetalhesComponent implements OnInit {
     date: Date;
 
   constructor(private db: SqliteService,
-              private routeExtensions: RouterExtensions) { 
+              private routeExtensions: RouterExtensions) {
   }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class DiarioSaudeDetalhesComponent implements OnInit {
     this.db.fetchSaudeDiaria( " month = " + (this.date.getMonth() + 1)+ " and year = " + this.date.getFullYear() + " and user_id = " + getString("user_id")).then(res => {
        this.historySaude = res;
        this.setCalendarEvent(this.historySaude)
-   })   
+   })
   }
 
   setCalendarEvent(saude: Saude[] = []) {
@@ -40,8 +40,7 @@ export class DiarioSaudeDetalhesComponent implements OnInit {
     saude.forEach((value, index) => {
         startDate   =  new Date(parseInt(value.year), parseInt(value.month), parseInt(value.day), parseInt(value.hours), parseInt(value.minutes));
         endDate     = new Date(parseInt(value.year), parseInt(value.month), parseInt(value.day), parseInt(value.hours), parseInt(value.minutes));
-        
-        console.log(startDate)
+
 
         let event = new calendarModule.CalendarEvent(value.name,
         startDate,
@@ -51,7 +50,7 @@ export class DiarioSaudeDetalhesComponent implements OnInit {
         events.push(event)
     })
     this.calendarEvents=events;
-    
+
   }
 
   listTipos(saude: Saude) {
@@ -67,26 +66,26 @@ export class DiarioSaudeDetalhesComponent implements OnInit {
   }
 
   onDateSelected(args) {
-    console.log("onDateSelected: " + args.date);
+    // console.log("onDateSelected: " + args.date);
 }
 
 onDateDeselected(args) {
-    console.log("onDateDeselected: " + args.date);
+    // console.log("onDateDeselected: " + args.date);
 }
 
 onNavigatedToDate(args) {
-    console.log("onNavigatedToDate: " + args.date);
-    // this.historySaude.splice(0,this.historySaude.length)   
-    this.historySaude = []; 
+    // console.log("onNavigatedToDate: " + args.date);
+    // this.historySaude.splice(0,this.historySaude.length)
+    this.historySaude = [];
     this.db.fetchSaudeDiaria(" month = " + (args.date.getMonth() + 1) + " and year = " + args.date.getFullYear() + " and user_id = " + getString("user_id")).then(res => {
         this.historySaude=res;
-        this.setCalendarEvent(this.historySaude)  
+        this.setCalendarEvent(this.historySaude)
     });
 }
 
 onNavigatingToDateStarted(args) {
-    console.log("onNavigatingToDateStarted: " + args.date);
-    
+    // console.log("onNavigatingToDateStarted: " + args.date);
+
 }
 
 

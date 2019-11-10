@@ -13,26 +13,23 @@ export class SqliteService {
         (new Sqlite("ps.db")).then(db => {
             this.database = db;
         }, error => {
-            console.log("OPEN DB ERROR", error);
         });
     }
 
     insertSaudeDiaria(saude: Saude): Promise<any> {
         return new Promise((resolve, reject) => {
             this.database.execSQL("INSERT INTO saude (name, user_id, day, month, year, hours, minutes) VALUES (?, ?, ?, ?, ?, ?, ?)", [saude.name, saude.user_id, saude.day, (parseInt(saude.month) + 1), saude.year, saude.hours, saude.minutes]).then(id => {
-                console.log("INSERT RESULT SAUDE", id);
+
                 if (saude.tipos.length > 0) {
                     saude.tipos.forEach((value, index) => {
                         this.database.execSQL("INSERT INTO tipos (saude_id, category, name) VALUES (?, ?, ?)", [id, value.category, value.name]).then(id => {
-                            console.log("INSERT RESULT TIPOS", id);
+
                         }, error => {
-                            console.log("INSERT ERROR", error);
                         })
                     })
                 }
                 resolve();
             }, error => {
-                console.log("INSERT ERROR", error);
                 reject();
             });
         })
@@ -40,13 +37,11 @@ export class SqliteService {
     }
 
     public fetchSaudeDiaria(sql?: string): Promise<any> {
-        return new Promise((resolve, reject) => {   
+        return new Promise((resolve, reject) => {
 
             let sql_1 = "SELECT * FROM saude WHERE " + sql;
 
-            console.log(sql_1)
             this.database.all(sql_1).then(rows => {
-                console.log("SELECT EXECULTADO")
                 let saude = [];
 
                 for (var row in rows) {
@@ -64,7 +59,6 @@ export class SqliteService {
                 }
                 return resolve(saude);
             }, error => {
-                console.log("SELECT ERROR", error);
                 return reject();
             });
         });
@@ -75,7 +69,6 @@ export class SqliteService {
             let sql_1 = "SELECT * FROM tipos WHERE saude_id = " + saude_id;
 
             this.database.all(sql_1).then(rowss => {
-                console.log("SELECT EXECULTADO")
                 let tipos = [];
 
                 for (var i in rowss) {
@@ -87,7 +80,6 @@ export class SqliteService {
                 }
                 return resolve(tipos);
             }, error => {
-                console.log("SELECT ERROR", error);
                 return reject();
             });
         });

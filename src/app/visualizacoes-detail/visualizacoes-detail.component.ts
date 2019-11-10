@@ -34,7 +34,7 @@ export class VisualizacoesDetailComponent implements OnInit {
           this.dados = response['data']
           this.imagens.push(response['data']['imagem'][0])
           this.lenghtDados()
-      }, error => {alert('Servidor fora do ar!'); console.log(error)})
+      }, error => {alert('Servidor fora do ar!'); })
 
   }
 

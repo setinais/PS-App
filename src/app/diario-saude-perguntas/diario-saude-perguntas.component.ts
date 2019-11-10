@@ -27,7 +27,7 @@ export class DiarioSaudePerguntasComponent implements OnInit {
           category: 'Geral e Inespecifico',
           tipos:
               [
-                {status: false, name: 'Alergia / Reação Alérgica'}, 
+                {status: false, name: 'Alergia / Reação Alérgica'},
                 {status: false, name: 'Arrepios / Calafrios'},
                 {status: false, name: 'Conjutivite'},
                 {status: false, name: 'Desmaio'},
@@ -47,7 +47,7 @@ export class DiarioSaudePerguntasComponent implements OnInit {
         category: 'Digestivo',
         tipos:
               [
-                {status: false, name: 'Diarreia / Prisão de ventre' }, 
+                {status: false, name: 'Diarreia / Prisão de ventre' },
                 {status: false, name: 'Dor abdominal / Cólicas' },
                 {status: false, name: 'Dor anal / Retal' },
                 {status: false, name: 'Náuseas ou vômitos' },
@@ -57,33 +57,33 @@ export class DiarioSaudePerguntasComponent implements OnInit {
       },
       {
         category: 'Psicológico',
-        tipos:  
+        tipos:
               [
-                {status: false, name: 'Abuso de cigarros' }, 
+                {status: false, name: 'Abuso de cigarros' },
                 {status: false, name: 'Abuso de medicamentos' },
                 {status: false, name: 'Abuso de álcool' },
                 {status: false, name: 'Ansiedade / Nervosismo / Tensão' },
                 {status: false, name: 'Estresse agudo' },
                 {status: false, name: 'Irritação / Zandago (a)' },
                 {status: false, name: 'Perturbação do sono' },
-                {status: false, name: 'Tristeza / Sensação de depressão' },                
+                {status: false, name: 'Tristeza / Sensação de depressão' },
               ]
       },
       {
         category: 'Problemas respiratórios',
-        tipos:  
+        tipos:
               [
-                {status: false, name: 'Asma' }, 
+                {status: false, name: 'Asma' },
                 {status: false, name: 'Bronquite' },
                 {status: false, name: 'Dificuldade de respirar / Falta de ar' },
                 {status: false, name: 'Sangramento nasal' },
-                {status: false, name: 'Tosse persistente' },               
+                {status: false, name: 'Tosse persistente' },
               ]
       }
   ]
    }
 
-  ngOnInit() {  
+  ngOnInit() {
   }
 
   clicked(tipo) {
@@ -100,9 +100,9 @@ public toggleCheck() {
 }
 
 public getCheckProp() {
-  console.log(
-    'checked prop value = ' + this.FirstCheckBox.nativeElement.checked
-  );
+  // console.log(
+  //   'checked prop value = ' + this.FirstCheckBox.nativeElement.checked
+  // );
 }
 
 confirmarQuestionario() {

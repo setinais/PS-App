@@ -4,7 +4,7 @@
 }
 
 .btn-color-add{
-    background-color: #e64a45;
+    background-color: #5cb85c;
     color: #FFFFFF;
 }
 
@@ -22,4 +22,16 @@
     font-weight: 700;
     font-size: 13pt;
     margin: 5;
+}
+
+.espacamento-label-text{
+    margin-left: 15;
+    margin-right: 15;
+}
+.label-error{
+    color: #D51A1A;
+    font-weight: 600;
+}
+.linha-error{
+    background-color: #D51A1A;
 }

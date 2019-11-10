@@ -52,7 +52,6 @@ export class RedefinirSenhaComponent implements OnInit {
                 this.confirm.onDisabled()
                 this.router.back()
             }, error => {
-                console.log(error.error)
                 alert("Falha de conexão")
                 this.processing = false
                 this.password.onDisabled()
